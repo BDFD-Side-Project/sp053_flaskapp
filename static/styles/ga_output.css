@@ -1,0 +1,23 @@
+
+h3 {
+padding: 0px;
+margin: 0px;
+}
+
+.thebody {
+padding: 10px;
+margin: 10px;
+}
+
+.data-rainfall-process {
+text-indent: 3%;
+}
+
+.long-text {
+width: 350px;
+}
+
+.result {
+font-family: 'Times New Roman', 楷体;
+font-size: 14px
+}

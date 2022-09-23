@@ -1,0 +1,99 @@
+<!--
+ * @Author: BDFD
+ * @Date: 2022-01-24 19:44:00
+ * @LastEditTime: 2022-01-29 20:49:39
+ * @LastEditors: BDFD
+ * @Description: 
+ * @FilePath: \flaskapp\templates\base.html
+-->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Welcome to waterfrontes!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/waterfrontes.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style2.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-latest.min.js"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="topbanner">
+        <ul class="topmenu">
+          <li class="current-li"><a href="/">首页</a></li>
+          <li id="computation">
+            <a href="#">计算模块</a>
+            <ul id="submenu" class="submenu">
+              <li><a href="Gumbel.html">统计模块</a></li>
+              <li id="waterpower">
+                <a href="#">水力模块</a>
+                <ul class="submenu subsubmenu" id="greenwaves">
+                  <li><a href="greenampt.html">Green-Ampt下渗模型</a></li>
+                  <li><a href="waves.html">波浪谱</a></li>
+                </ul>
+              </li>
+              <li><a href="#">结构模块</a></li>
+            </ul>
+          </li>
+          <li><a href="use.html">使用说明</a></li>
+          <li><a href="dis.html">免责声明</a></li>
+        </ul>
+        <ul class="studio-name">
+          <li>滨水工程分析工作室</li>
+          <li>Waterfront Engineering Analysis Studio</li>
+        </ul>
+      </div>
+      <script>
+      // sizing of home page images
+      let hm = () => {
+        $(".imgs img").css("width", $(window).width() / 4 - 50);
+      };
+      hm();
+      $(window).resize(function () {
+        if ($(window).width() > 1024) hm();
+      });
+      $("#computation").hover(
+        function () {
+          $("#submenu").css("display", "inline");
+          $("#submenu").css("left", $("#computation").position().left - 1);
+          $("#submenu").css("top", $("#computation").position().top + 28);
+        },
+        function () {
+          $("#submenu").css("display", "none");
+        }
+      );
+      $("#waterpower").hover(
+        function () {
+          $("#greenwaves").css("display", "inline");
+          $("#greenwaves").css("top", $("#waterpower").position().top);
+          $("#greenwaves").css("left", $("#waterpower").position().left + 80);
+        },
+        function () {
+          $("#greenwaves").css("display", "none");
+        }
+      );
+    </script>
+     <!-- //////////////////// footer ///////////////////////// -->
+      <div class="footer">
+        Waterfront Engineering Analysis Studio &reg; 2021, All rights resreved
+      </div>
+      {% block content %}
+      {% endblock  %}
+      </body>
+</html>

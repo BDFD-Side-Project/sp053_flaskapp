@@ -1,0 +1,392 @@
+<!--This is the count model page of waterfrontes.com Created on :
+Oct 09, 2021 Author : April Zhou -->
+<!-- ////////////// end of top banner //////////////// -->
+{% extends "./layout/calculation_base.html" %} {% block content %}
+
+<link rel="stylesheet" href="../static/styles/output.css">
+<link rel="stylesheet" href="../static/styles/gu_output.css">
+<link href="{{ url_for('static',filename='styles/button.css') }}"
+    rel="stylesheet" type="text/css" />
+<div class="thebody" id="div1">
+    <div class="row ">
+        <div class="col-md-6 m-auto">
+            <div class="row">
+                <div class="col">
+                    <h4
+                        style="font-family: 楷体;margin-bottom: 0px;margin-top: 0px;color:blue;line-height:1.45;">
+                        <strong><span
+                                style="font-family: Times New Roman;">Green-Ampt</span>下渗模型</strong>
+                    </h4>
+                </div>
+                <div class="col" align="right">
+                    <a href="#" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(233, 236, 239);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>计算页面</strong></a>
+                    <a href="/greenampthelp.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>技术指南</strong></a>
+                    <a href="/greenamptupdate.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>更新记录</strong></a>
+                </div>
+            </div>
+            <div class="card-header" align="right"
+                style="height:24px;padding: 0rem;background-color:rgb(233, 236, 239) ;">
+                <span
+                    style="font-size:12px;font-family:'Times New Roman',楷体;margin-top:0px;margin-bottom:0px;">
+                    当前计算程序版本：202201，最后更新于2022.08
+                </span>
+            </div>
+            <p style="margin-top:15px"></p>
+            <div class="card-header"
+                style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+                <h5 style="font-family: 楷体; margin-bottom: 0px" align="left">
+                    <strong>参数输入</strong>
+                </h5>
+            </div>
+            <form action="#" method="POST" id="myForm"
+                style="margin-top:0px;font-family:'Times New Roman',楷体;"
+                onsubmit=" return validateForm()" name="myForm">
+                <div class="input-group">
+                    <span
+                        style="font-family:楷体;font-size:14px;margin-left:6px">项目描述（选填）&nbsp&nbsp</span>
+                    <div>
+                        <input type=" text" class="form-control" name="mingzi"
+                            value="{{mingzi}}"
+                            style="height:25px;width:475px;font-size:14px;margin-left:10px;border-radius:5px">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span
+                        style="font-family:楷体;font-size:14px;margin-left:6px">土体初始体积含水率&nbsp</span>
+                    <div>
+                        <input type=" text" class="form-control" name="thetai"
+                            value="{{test2}}"
+                            style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                    </div>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <span
+                        style="font-family:楷体;font-size:14px;margin-left:10px">土体孔隙率&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <div><input type=" text" class="form-control" name="thetas"
+                            value="{{test3}}"
+                            style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span
+                        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">土体吸力水头&nbsp(m)
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <div><input type=" text" class="form-control" name="psi"
+                            value="{{test4}}"
+                            style="height:25px;width:115px;font-size:14px;;border-radius:5px">
+                    </div>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <span
+                        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">土体渗透系数&nbsp(cm/h)&nbsp&nbsp&nbsp</span>
+                    <div>
+                        <input type=" text" class="form-control" name="k"
+                            value="{{test5}}"
+                            style="height:25px;width:115px;font-size:14px;;border-radius:5px">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span
+                        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">时间步长&nbsp(min)
+                        <sup>1</sup>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&#8197</span>
+                    <div><input type=" text" class="form-control" name="dti"
+                            value="{{test7}}"
+                            style="height:25px;width:115px;font-size:14px;margin-left:5px;border-radius:5px">
+                    </div>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <span
+                        style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">总时间步长数
+                        <sup>2</sup>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <div style="margin-left:10px">
+                        <input type=" text" class="form-control" name="nin"
+                            value="{{test8}}"
+                            style="height:25px;width:115px;font-size:14px;border-radius:5px">
+                    </div>
+                </div>
+                <div>
+                    {% if yesono == '1' %}
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:楷体;font-size:14px;margin-left:6px">是否需要生成净雨过程?</label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="iyesno" value="1" checked>
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:楷体;font-size:14px;">是</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio2" name="iyesno" value="0">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family:楷体;font-size:14px;">否</label>
+                    </div>
+                    <div class="input-group">
+                        <span
+                            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">&nbsp&nbsp&nbsp&nbsp如果是，输入地表初期填洼量&nbsp(mm)
+                            <sup>3</sup>&nbsp</span>
+                        <div style="width:75px;margin-left:20px">
+                            <input type=" text" class="form-control" name="dd"
+                                value="{{test9}}"
+                                style="height:25px;font-size:14px;">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span
+                            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">&nbsp&nbsp&nbsp&nbsp如果是，输入降雨强度过程
+                            (mm/h)
+                            <sup>4</sup>&nbsp&nbsp<br />
+                            <!-- &nbsp&nbsp(示例:10,20,25,15,10,20,5,15) -->
+                        </span>
+                        <div style="width:250px;margin-left:20px">
+                            <textarea class="form-control" id="myTextArea"
+                                name="i" rows="3"
+                                style="min-width: 115%;font-size:14px;resize:none;width:347px">{{test10}}</textarea>
+                        </div>
+                    </div>
+                    {% elif yesono == '0' %}
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:楷体;font-size:14px;margin-left:6px">是否需要生成净雨过程?</label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="iyesno" value="1">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:楷体;font-size:14px;">是</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio2" name="iyesno" value="0" checked>
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family:楷体;font-size:14px;">否</label>
+                    </div>
+                    <div class="input-group">
+                        <span
+                            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">&nbsp&nbsp&nbsp&nbsp如果是，输入地表初期填洼量&nbsp(mm)
+                            <sup>3</sup>&nbsp</span>
+                        <div style="width:75px;margin-left:20px">
+                            <input type=" text" class="form-control" name="dd"
+                                disabled="disabled"
+                                style="height:25px;font-size:14px;">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span
+                            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">&nbsp&nbsp&nbsp&nbsp如果是，输入降雨强度过程
+                            (mm/h)
+                            <sup>4</sup>&nbsp&nbsp<br />
+                            <!-- &nbsp&nbsp(示例:10,20,25,15,10,20,5,15) -->
+                        </span>
+                        <div style="width:250px;margin-left:20px">
+                            <textarea class="form-control" id="myTextArea"
+                                name="i" value="{{test10}}" rows="3"
+                                disabled="disabled"
+                                style="min-width: 115%;font-size:14px;resize:none;width:347px"></textarea>
+                        </div>
+                    </div>
+                    {% else %}
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:楷体;font-size:14px;margin-left:6px">是否需要生成净雨过程?</label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="iyesno" value="1">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:楷体;font-size:14px;">是</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio2" name="iyesno" value="0">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family:楷体;font-size:14px;">否</label>
+                    </div>
+                    <div class="input-group">
+                        <span
+                            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">&nbsp&nbsp&nbsp&nbsp如果是，输入地表初期填洼量&nbsp(mm)
+                            <sup>3</sup>&nbsp</span>
+                        <div style="width:75px;margin-left:20px">
+                            <input type=" text" class="form-control" name="dd"
+                                disabled="disabled" value="{{test9}}"
+                                style="height:25px;font-size:14px;">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span
+                            style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">&nbsp&nbsp&nbsp&nbsp如果是，输入降雨强度过程
+                            (mm/h)
+                            <sup>4</sup>&nbsp&nbsp<br />
+                            <!-- &nbsp&nbsp(示例:10,20,25,15,10,20,5,15) -->
+                        </span>
+                        <div style="width:250px;margin-left:20px">
+                            <textarea class="form-control" id="myTextArea"
+                                name="i" disabled="disabled" value="{{test10}}"
+                                rows="3"
+                                style="min-width: 115%;font-size:14px;resize:none;width:347px"></textarea>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div style="border: 0.5px solid #CCC;margin-top:5px;">
+                </div>
+                <div class="tips" style="margin-top:10px;font-size:12px">
+                    <p
+                        style="margin-left:10px;font-family: 'Times New Roman',楷体;margin-bottom: 0px;">
+                        注：
+                    </p>
+
+                    <ol class="list-group list-group-numbered"
+                        style="font-family: 'Times New Roman',楷体;">
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                即计算所采用的时间步长。在需要生成净雨过程时，此为降雨强度过程的时间步长。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                由时间步长和总时间步长数，可得到一个名义计算总历时。当不用生成净雨过程时，这个名义计算总历时即为实际计算总历时。当需要生成净雨过程时，如名义计算总历时短于或等于降雨强度过程，实际计算总历时等于降雨强度过程的历时；否则，实际计算总历时等于名义计算总历时，但假定降雨结束之后的降雨强度均为零。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                如不用考虑这一项，请输入0。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                数据格式为间隔的数值和逗号，由数值起始，并以数值结束。必须输入半角的逗号，不能用全角的逗号。降雨强度不能为负值。示例：10.,
+                                12.0, 9.5, ..., 14, 20
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <h5 style="margin-bottom:15px;margin-top:15px;" align="right">
+                    <button type=" submit" name="calculate" value="计 算"
+                        class="btn btn-secondary"
+                        style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:170px;height:28px;padding-top:0px;"><strong>计&nbsp算
+                            (结果见下!)</strong></button>
+                    <a href="/greenampt.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp零</strong></a>
+                    <button type="button"
+                        class="btn btn-secondary button-print-or-save-document"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
+                </h5>
+            </form>
+            <!-- <div class="card" id="p3"> -->
+            <div class="card-header pagebreak"
+                style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+                <h5 style="font-family: 楷体; margin-bottom: 0px;" align="left">
+                    <strong>计算结果</strong>
+                </h5>
+            </div>
+            <style>
+                table,
+                td,
+                th {
+                    border: 1px solid black;
+                }
+
+                table {
+                    border-collapse: collapse;
+                    width: 50%;
+                }
+            </style>
+            <div class="result">
+                <img onerror='this.style.display = "none"'
+                    src="data:image/png;base64, {{ plot_url }}" />
+                <br />
+                {% if yesono=='1' %}
+                <p>{{eff}}</p>
+                <table class="style1">
+                    <tr>
+                        {% for header in headings %}
+                        <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for row in data %}
+                    <tr>
+                        {% for cell in row %}
+                        <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <br /> {% for no in note %}
+                <p style="margin-bottom:0px">{{no}}</p>
+                {% endfor %} {% else %} {% for n in note2 %}
+                <p>{{n}}</p>
+                {% endfor %} {% endif %} {% if yesono=='0' %}
+                <!-- <p>{{eff}}1</p> -->
+                <!-- <p>hello world</p> -->
+                <table class="style1">
+                    <tr>
+                        {% for header in headings %}
+                        <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for row in data %}
+                    <tr style="height: 70px;">
+                        {% for cell in row %}
+                        <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% for no in note %}
+                <p>{{no}}</p>
+                {% endfor %} {% else %} {% for n in note2 %}
+                <p>{{n}}</p>
+                {% endfor %} {% endif %}
+                <br />
+                <p>{{ending}}</p>
+            </div>
+            <!-- <ol class="list-group list-group-numbered"
+                style="font-family: 'Times New Roman',楷体;visibility:hidden;">
+                <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+                    <div style="margin-left:10px">
+                        1
+                    </div>
+                </li>
+                <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+                    <div style="margin-left:10px">
+                        2
+                    </div>
+                </li>
+                <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+                    <div style="margin-left:10px">
+                        3
+                    </div>
+                </li>
+                <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+                    <div style="margin-left:10px">
+                        4
+                    </div>
+                </li>
+                <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+                    <div style="margin-left:10px">
+                        5
+                    </div>
+                </li>
+            </ol> -->
+        </div>
+    </div>
+</div>
+<p style="margin-top:15px"></p>
+<br />
+<br />
+<br />
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/greenampt/form_validation.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/print.js') }}"></script>
+<script>
+    eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(36) }; if ('0'.replace(0, e) == 0) { while (c--) r[e(c)] = k[c]; k = [function (e) { return r[e] || e }]; e = function () { return '[hjl-n]' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('eval(h(p,a,c,k,e,r){e=h(c){j c.toString(36)};l(\'0\'.m(0,e)==0){n(c--)r[e(c)]=k[c];k=[h(e){j r[e]||e}];e=h(){j\'[2-9a-g]\'};c=1};n(c--)l(k[c])p=p.m(new RegExp(\'\\\\b\'+e(c)+\'\\\\b\',\'g\'),k[c]);j p}(\'5.6("GreenAmpt Form Check Function Page Test Msg");var 2=document.getElementById("myForm");5.6(2);2.7[0].8("9",a(){b(c.d){2.i.3=e;2.4.3=e}});2.7[1].8("9",a(){b(c.d){2.i.f="";2.i.3=g;2.4.f="";2.4.3=g}});\',[],17,\'||theform|disabled|dd|console|log|iyesno|addEventListener|click|h|l|this|checked|false|value|true\'.split(\'|\'),0,{}))', [], 24, '|||||||||||||||||function||return||if|replace|while'.split('|'), 0, {}))
+</script>
+{% endblock %}

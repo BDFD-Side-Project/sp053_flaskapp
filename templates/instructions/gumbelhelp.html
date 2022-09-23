@@ -1,0 +1,3050 @@
+<!--
+ * @Author: BDFD
+ * @Date: 2022-01-29 16:07:15
+ * @LastEditTime: 2022-07-07 13:09:18
+ * @LastEditors: BDFD
+ * @Description: 
+ * @FilePath: \SideProject053_LakeBlue\templates\instructions\gumbelhelp.html
+-->
+{% extends "layout/user_guide_base2.html" %} {% block content %}
+
+<head>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script> -->
+    <style>
+        html {
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0
+        }
+
+        main {
+            display: block
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: .67em 0
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0;
+            overflow: visible
+        }
+
+        pre {
+            font-family: monospace, monospace;
+            font-size: 1em
+        }
+
+        a {
+            background-color: transparent
+        }
+
+        abbr[title] {
+            border-bottom: none;
+            text-decoration: underline;
+            text-decoration: underline dotted
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        /* img {
+    border-style: none
+} */
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0
+        }
+
+        button,
+        input {
+            overflow: visible
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        [type=button],
+        [type=reset],
+        [type=submit],
+        button {
+            -webkit-appearance: button
+        }
+
+        [type=button]::-moz-focus-inner,
+        [type=reset]::-moz-focus-inner,
+        [type=submit]::-moz-focus-inner,
+        button::-moz-focus-inner {
+            border-style: none;
+            padding: 0
+        }
+
+        [type=button]:-moz-focusring,
+        [type=reset]:-moz-focusring,
+        [type=submit]:-moz-focusring,
+        button:-moz-focusring {
+            outline: 1px dotted ButtonText
+        }
+
+        fieldset {
+            padding: .35em .75em .625em
+        }
+
+        legend {
+            box-sizing: border-box;
+            color: inherit;
+            display: table;
+            max-width: 100%;
+            padding: 0;
+            white-space: normal
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        textarea {
+            overflow: auto
+        }
+
+        [type=checkbox],
+        [type=radio] {
+            box-sizing: border-box;
+            padding: 0
+        }
+
+        [type=number]::-webkit-inner-spin-button,
+        [type=number]::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        [type=search]::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        details {
+            display: block
+        }
+
+        summary {
+            display: list-item
+        }
+
+        template {
+            display: none
+        }
+
+        [hidden] {
+            display: none
+        }
+    </style>
+</head>
+<div class="thebody" id="div1">
+    <div class="row ">
+        <div class="col-md-6 m-auto">
+            <div class="row">
+                <div class="col">
+                    <h4
+                        style="font-family: 楷体;margin-bottom: 0px;margin-top: 0px;color:blue;line-height:1.45;">
+                        <strong><span
+                                style="font-family: Times New Roman;">Gumbel</span>分布</strong>
+                    </h4>
+                </div>
+                <div class="col" align="right">
+                    <a href="/gumbel.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>计算页面</strong></a>
+                    <a href="#" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(233, 236, 239);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>技术指南</strong></a>
+                    <a href="/gumbelupdate.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>更新记录</strong></a>
+                </div>
+            </div>
+            <div class="card-header" align="right"
+                style="height:24px;padding: 0rem;background-color:rgb(233, 236, 239) ;">
+                <span
+                    style="font-size:12px;font-family:'Times New Roman',楷体;margin-top:0px;margin-bottom: 0px;">
+                    当前“技术指南”版本：202201，最后更新于2022.08
+                </span>
+            </div>
+            <p
+                style="margin-top: 0px;margin-bottom: 0px;font-family:'Times New Roman',楷体;"><br />
+                &#12288&#12288<span
+                    style="font-family: Times New Roman">Gumbel</span>
+                分布是广义极值概率分布（或称<span
+                    style="font-family: Times New Roman">Fisher-Tippett</span>概率分布）的一种，即其中的极值
+                <span style="font-family: Times New Roman">I</span> 型分布，亦称对数
+                <span style="font-family: Times New Roman">Weibull</span>
+                分布。本计算程序的开发主要基于
+                <span class="type1">Gumbel</span> 分布在水文频率分析中的应用。
+                本计算程序也可以用于其它领域，但用户需要注意各领域在术语和习惯表达上的区别，正确解读、应用本计算程序的计算结果。
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: 'Times New Roman',楷体">1.</span>
+                &#8194理论基础
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px;">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman">Gumbel</span>
+                分布的基本原理可参阅相关文献，如
+                <span class="type1">Gumbel</span> (<span
+                    style="font-family: Times New Roman">1958</span>) 和
+                <span style="font-family: Times New Roman">Ochi</span> (<span
+                    class="type1">1990</span>) 等。<span
+                    style="font-family: Times New Roman">Gumbel</span>分布在水文频率分析中的基本应用方法可参考
+                <span class="type1">Ponce</span> (<span
+                    style="font-family: Times New Roman">1989</span>) 和
+                <span class="type1">Subramanya</span> (<span
+                    style="font-family: Times New Roman">2008</span>)。在此仅列出其核心公式。
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">1.1</span> &#8194基本定义
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px;">
+                &#12288&#12288一个连续随机变量 <span
+                    style="font-family: Times New Roman"><i>X</i></span> 的累积分布函数
+                <span
+                    style="font-family: Times New Roman"><i>F</i></span>、概率密度函数
+                <span style="font-family: Times New Roman"><i>f</i></span>
+                和超越概率函数 <span class="type1"><i>G</i></span> 可写为：
+            </p><span style="font-family: Times New Roman">
+                <div style="margin-top: 5px; margin-bottom: 5px; margin-left:19% ; margin-right:19%;"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman">(1)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <mi> F </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mi> P </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> X </mi>
+                            <mo> &#x2264;
+                                <!-- less-than or equal to -->
+                            </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                    </math>
+                    <br>
+                    <span
+                        style="float:right; font-family: Times New Roman">(2)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <mi> f </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mi> F </mi>
+                        <mo> ' </mo>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                    </math> <br>
+                    <span
+                        style="float:right; font-family: Times New Roman">(3)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <mi> G </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mi> P </mi>
+                        <mo> ( </mo>
+                        <mi> X </mi>
+                        <mo> &gt; </mo>
+                        <mi> x </mi>
+                        <mo> ) </mo>
+                        <mo> = </mo>
+                        <mn> 1 </mn>
+                        <mo> - </mo>
+                        <mi> F </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                    </math>
+
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中, <span
+                    style="font-family: Times New Roman"><i>x</i></span> 为
+                <span class="type1"><i>X</i></span> 的取值，<span
+                    style="font-family: Times New Roman"><i>P</i></span>
+                为概率值。注意：某些文献将
+                <span class="type1"><i>G</i></span>(<span
+                    style="font-family: Times New Roman"><i>x</i></span>)视为累积分布函数，用户需注意区分。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288频率分析中的回归期（或称重现期）<span
+                    style="font-family: Times New Roman"><i>T</i></span>
+                实为一个平稳随机过程中某个状态的平均持续时间。假设 <span
+                    style="font-family: Times New Roman"><i>X</i></span>
+                的连续取值过程为一个平稳的 <span
+                    style="font-family: Times New Roman">Bernoulli</span>
+                过程。如有临界值
+                <span
+                    style="font-family: Times New Roman"><i>x</i></span><sub><span
+                        style="font-family: Times New Roman">0</span></sub>，则可用两个状态来刻画这一过程：<span
+                    class="type1">1</span>) <span
+                    style="font-family: Times New Roman"><i>X</i></span> 的取值不高于
+                <span class="type1"><i>x</i></span><sub><span
+                        style="font-family: Times New Roman">0</span></sub>，
+                <span style="font-family: Times New Roman">2</span>) <span
+                    class="type1"><i> X</i></span> 的取值高于 <span
+                    style="font-family: Times New Roman"><i>x</i><sub>0</sub></span>。在这个无自相关的两状态随机序列中，这两个状态的持续时间均服从几何分布，其期望值<span
+                    class="type1"><i>μ<sub>L</sub></i></span> 分别为：
+            </p>
+            <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                align="left">
+                <span
+                    style="float:right; font-family: Times New Roman">(4a)</span>
+                <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                    <msub>
+                        <mrow>
+                            <mi> &#x00B5;
+                                <!-- micro sign -->
+                            </mi>
+                        </mrow>
+                        <mrow>
+                            <mi> L </mi>
+                        </mrow>
+                    </msub>
+                    <mo> = </mo>
+                    <mfrac>
+                        <mrow>
+                            <mn> 1 </mn>
+                        </mrow>
+                        <mrow>
+                            <mi> G </mi>
+                            <mrow>
+                                <mo> ( </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> x </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn> 0 </mn>
+                                    </mrow>
+                                </msub>
+                                <mo> ) </mo>
+                            </mrow>
+                        </mrow>
+                    </mfrac>
+                </math>
+                (<span style="font-family: 楷体; font-size:14px;">状态</span><span
+                    style="font-family: Times New Roman">1</span>：<span
+                    style="font-family: Times New Roman; font-style:italic">X</span><span
+                    style="font-family: 楷体; font-size:14px;">的取值不高于</span><span
+                    style="font-family: Times New Roman"><i>x</i></span><sub><span
+                        class="type1">0</span></sub>)<br>
+                <span
+                    style="float:right; font-family: Times New Roman">(4b)</span>
+                <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                    <msub>
+                        <mrow>
+                            <mi> &#x00B5;
+                                <!-- micro sign -->
+                            </mi>
+                        </mrow>
+                        <mrow>
+                            <mi> L </mi>
+                        </mrow>
+                    </msub>
+                    <mo> = </mo>
+                    <mfrac>
+                        <mrow>
+                            <mn> 1 </mn>
+                        </mrow>
+                        <mrow>
+                            <mi> F </mi>
+                            <mrow>
+                                <mo> ( </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> x </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn> 0 </mn>
+                                    </mrow>
+                                </msub>
+                                <mo> ) </mo>
+                            </mrow>
+                        </mrow>
+                    </mfrac>
+                </math> &nbsp;(<span
+                    style="font-family: 楷体; font-size:14px;">状态</span><span
+                    style="font-family: Times New Roman">2</span>：<span
+                    style="font-family: Times New Roman; font-style:italic">X</span><span
+                    style="font-family: 楷体; font-size:14px;">的取值高于</span><span
+                    style="font-family: Times New Roman"><i>x</i></span><sub><span
+                        class="type1">0</span></sub>)
+
+                <!-- <img src="../static/imgs/guuse/formula4-b.png" alt="Gumbel Formula 4-b"><br /> -->
+            </div>
+            <p style="margin-top: 0px;margin-bottom: 0px">关于公式(<span
+                    style="font-family: Times New Roman">4a</span>)和(<span
+                    class="type1">4b</span>)的更多信息，可参阅 <span
+                    style="font-family: Times New Roman">Stedinger</span> 等
+                <span class="type1">(1993)</span>。<span
+                    style="font-family: Times New Roman"><i>μ<sub>L</sub></i></span>
+                的倒数可理解为一种频率。公式(
+                <span class="type1">4a</span>)适用于状态 <span
+                    style="font-family: Times New Roman">1</span>，<span
+                    class="type1"><i>μ<sub>L</sub></i></span> 表征相邻两次高于 <span
+                    style="font-family: Times New Roman"><i>x</i><sub>0</sub></span>
+                事件的平均净距，被视为高于
+                <span
+                    style="font-family: Times New Roman"><i>x</i></span><sub><span
+                        style="font-family: Times New Roman">0</span></sub>
+                事件的回归期；
+                <span class="type1"><i>μ<sub>L</sub></i></span> 的倒数被视为高于 <span
+                    style="font-family: Times New Roman"><i>x</i><sub>0</sub></span>
+                事件出现的频率，等于概率值
+                <span class="type1"><i>G</i></span>(<span
+                    style="font-family: Times New Roman"><i>x</i><sub>0</sub></span>)。公式(<span
+                    style="font-family: Times New Roman">4b</span>)适用于状态
+                <span class="type1">2</span>，<span
+                    style="font-family: Times New Roman"><i>μ<sub>L</sub></i></span>
+                表征相邻两次不高于
+                <span class="type1"><i>x</i><sub>0</sub></span> 事件的平均净距，被视为不高于
+                <span
+                    style="font-family: Times New Roman"><i>x</i></span><sub><span
+                        style="font-family: Times New Roman">0</span></sub>
+                事件的回归期；
+                <span
+                    style="font-family: Times New Roman"><i>μ<sub>L</sub></i></span>
+                的倒数被视为不高于 <span
+                    style="font-family: Times New Roman"><i>x</i><sub>0</sub></span>
+                事件出现的频率，等于概率值 <span
+                    style="font-family: Times New Roman"><i>F</i></span>(<span
+                    style="font-family: Times New Roman"><i>x</i><sub>0</sub></span>)。无论是高于还是不高于
+                <span
+                    style="font-family: Times New Roman"><i>x</i><sub>0</sub></span>
+                的事件，均有若干，故这里所说的频率也常被称为“累积频率”，类似累积分布函数。“回归期”和“频率”这两个术语具有时间意义，较适合时间序列样本所代表的随机变量，如工程水文中常见的月最大波高、年最高潮位、年最大小时降雨量、年最大流量等。对于非时间序列样本，用户需明确“回归期”和“频率”的实际物理意义。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman">Gumbel</span>
+                分布有最大值和最小值两种模式；在原则上，前者用于一组同分布随机变量的最大值，而后者用于一组同分布随机变量的最小值。在此仅以一个近似应用来简单说明。假设半日潮环境中的某验潮站具有
+                <span style="font-family: Times New Roman">25</span>
+                年来逐日高、低潮位的实测数据，每年的高潮和低潮各有
+                <span style="font-family: Times New Roman">700</span>
+                多个。在这些数据中，每年的最高潮位提供了一个最大值的样本，而每年的最低潮位提供了一个最小值的样本，这两个样本各有
+                <span style="font-family: Times New Roman">25</span>
+                个值。在实际应用中，常按 <span class="type1">Gumbel</span>
+                分布的最大值模式对上述最大值样本进行年频率分析，以推求当地的极端高潮位；也常按
+                <span style="font-family: Times New Roman">Gumbel</span>
+                分布的最小值模式对上述最小值样本进行年频率分析，以推求当地的极端低潮位。
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">1.2
+                    &#8194Gumbel</span> 分布的最大值模式
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">&#12288&#12288对于服从
+                <span style="font-family: Times New Roman">Gumbel</span> 分布的随机变量
+                <span class="type1"><i>X</i></span>，<span
+                    style="font-family: Times New Roman">Gumbel</span> 分布引入一个专门的
+                <span class="type1">Gumbel</span> 变量（亦称简化变量）。最大值模式中的 <span
+                    style="font-family: Times New Roman">Gumbel</span> 变量
+                <span class="type1"><i>Y</i></span> 可表达为：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman">(5)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> y </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mo> + </mo>
+                        <mi> K </mi>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mo> + </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> x </mi>
+                                <mo> - </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> &#x00B5;
+                                            <!-- micro sign -->
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> x </mi>
+                                    </mrow>
+                                </msub>
+                            </mrow>
+                            <mrow>
+                                <msub>
+                                    <mrow>
+                                        <mi> &#x03C3;
+                                            <!-- greek small letter sigma -->
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> x </mi>
+                                    </mrow>
+                                </msub>
+                            </mrow>
+                        </mfrac>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> x </mi>
+                                <mo> - </mo>
+                                <mi> a </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> &#x03B2;
+                                    <!-- greek small letter beta -->
+                                </mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+
+                    <br />
+                    <!-- <img src="../static/imgs/guuse/formula6.png" alt="Gumbel Formula 6"><br />
+    <img src="../static/imgs/guuse/formula7.png" alt="Gumbel Formula 7"><br /> -->
+                    <span
+                        style="float:right; font-family: Times New Roman">(6)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> &#x03B1;
+                            <!-- greek small letter alpha -->
+                        </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> - </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mi> &#x03B2;
+                            <!-- greek small letter beta -->
+                        </mi>
+                    </math><br />
+                    <span
+                        style="float:right; font-family: Times New Roman">(7)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> &#x03B2;
+                            <!-- greek small letter beta -->
+                        </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> / </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中，<span
+                    style="font-family: Times New Roman"><i>y</i></span> 为
+                <span class="type1"><i>Y</i></span> 的取值，<span
+                    style="font-family: Times New Roman"><i>μ<sub>x</sub></i></span>
+                为 <span class="type1"><i>X</i></span> 的均值，<span
+                    style="font-family: Times New Roman"><i>σ<sub>x</sub></i></span>
+                为 <span class="type1"><i>X</i></span> 的均方差，<span
+                    style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>
+                为
+                <span
+                    style="font-family: times new roman;font-style: italic;">Y</span>
+                的均值，
+                <span
+                    style="font-family: Times New Roman"><i>σ<sub>y</sub></i></span>
+                为
+                <span class="type1"><i>Y</i></span> 的均方差，
+                <span style="font-family: Times New Roman"><i>K</i></span>
+                为频率系数，
+                <span class="type1"><i>α</i></span> 称为位置系数（或众值），
+                <span style="font-family: Times New Roman"><i>β</i></span>
+                称为尺度系数。公式(
+                <span class="type1">5</span>)可以等效写为：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right;font-family: Times New Roman ">(8)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> x </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> + </mo>
+                        <mi> K </mi>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5; </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> + </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> y </mi>
+                                <mo> - </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> &#x00B5;
+                                            <!-- micro sign -->
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> y </mi>
+                                    </mrow>
+                                </msub>
+                            </mrow>
+                            <mrow>
+                                <msub>
+                                    <mrow>
+                                        <mi> &#x03C3;
+                                            <!-- greek small letter sigma -->
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> y </mi>
+                                    </mrow>
+                                </msub>
+                            </mrow>
+                        </mfrac>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mi> &#x03B1;
+                            <!-- greek small letter alpha -->
+                        </mi>
+                        <mo> + </mo>
+                        <mi> &#x03B2;
+                            <!-- greek small letter beta -->
+                        </mi>
+                        <mi> y </mi>
+                    </math>
+
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman"><i>X</i></span> 的累积分布函数
+                <span class="type1"><i>F<sub>x</sub></i></span>、概率密度函数<span
+                    style="font-family: Times New Roman"><i>f<sub>x</sub></i></span>和超越概率函数
+                <span
+                    style="font-family: Times New Roman"><i>G<sub>x</sub></i></span>
+                可写为：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman">(9)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> F </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> X </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <msup>
+                                    <mrow>
+                                        <mi> e </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mo> - </mo>
+                                        <mi> y </mi>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </msup>
+                    </math><br />
+                    <span
+                        style="float:right; font-family: Times New Roman">(10)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> f </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> X </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mn> 1 </mn>
+                            </mrow>
+                            <mrow>
+                                <mi> &#x03B2;
+                                    <!-- greek small letter beta -->
+                                </mi>
+                            </mrow>
+                        </mfrac>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <mi> y </mi>
+                            </mrow>
+                        </msup>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <msup>
+                                    <mrow>
+                                        <mi> e </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mo> - </mo>
+                                        <mi> y </mi>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </msup>
+                    </math><br />
+                    <span
+                        style="float:right; font-family: Times New Roman">(11)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> G </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> X </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mn> 1 </mn>
+                        <mo> - </mo>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <msup>
+                                    <mrow>
+                                        <mi> e </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mo> - </mo>
+                                        <mi> y </mi>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </msup>
+                    </math>
+                    <!-- <img src="../static/imgs/guuse/formula10.png" alt="Gumbel Formula 10"><br />
+    <img src="../static/imgs/guuse/formula11.png" alt="Gumbel Formula 11"><br /> -->
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288对于由最大值构成的 <span
+                    class="type1"><i>X</i></span>，我们更关心的往往是出现一个更高值的概率；如，水位超过一个临界值就会形成洪水。因此实际应用中一般关注高于某特定值事件的回归期，其基本关系按公式(<span
+                    class="type1">4a</span>)可得：</p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman">(12)</span>
+                   <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>T</mi><mo>=</mo><mfrac><mn>1</mn><mrow><msub><mi>G</mi><mrow><mi>X</mi></mrow></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mn>1</mn><mo>−</mo><msup><mi>e</mi><mrow><mo>−</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>y</mi></mrow></msup></mrow></msup></mrow></mfrac></math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                这也是滨水工在最大值模式中分析回归期和频率的原则。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>
+                和
+                <span class="type1"><i>σ<sub>y</sub></i></span> 仅和 <span
+                    style="font-family: Times New Roman"><i>X</i></span>
+                样本的样本个数（或称样本容量）<span
+                    style="font-family: times new roman;font-style: italic;">n</span>
+                有关，其对应关系详见 <span
+                    style="font-family: Times New Roman">Gumbel</span> (<span
+                    class="type1">1958</span>)中的表<span
+                    style="font-family: Times New Roman">6.2.3</span>。该表格也常见于典型文献如
+                <span class="type1">Ponce</span> (<span
+                    style="font-family: Times New Roman">1989</span>)和 <span
+                    style="font-family: Times New Roman">Subramanya</span>
+                (<span
+                    style="font-family: Times New Roman">2008</span>)等，在此不专门列出。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288在实际应用中，也可近似采用<span
+                    style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>
+                和
+                <span
+                    style="font-family: Times New Roman"><i>σ<sub>y</sub></i></span>
+                的极限值（即
+                <span style="font-family: Times New Roman"><span
+                        style="font-family: times new roman;font-style: italic;">n</span>
+                    = ∞
+                </span>时）：
+            </p>
+            <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                align="left"><span
+                    style="float:right; font-family: Times New Roman">(13)</span>
+                <math xmlns='http://www.w3.org/1998/Math/MathML'
+                    style=" font-size:15px">
+                    <msub>
+                        <mrow>
+                            <msub>
+                                <mrow>
+                                    <mi> &#x00B5;
+                                        <!-- micro sign -->
+                                    </mi>
+                                </mrow>
+                                <mrow>
+                                    <mi> y </mi>
+                                </mrow>
+                            </msub>
+                            <mo> | </mo>
+                        </mrow>
+                        <mrow>
+                            <mi> n </mi>
+                            <mo> = </mo>
+                            <mi> &#x221E;
+                                <!-- infinity -->
+                            </mi>
+                        </mrow>
+                    </msub>
+                    <mo> = </mo>
+                    <mn> 0.5772 </mn>
+                </math> (<span
+                    style="font-family: Times New Roman">Euler</span><span
+                    style="font-family: 楷体; font-size:14px;">常数</span>)<br />
+                <span
+                    style="float:right; font-family: Times New Roman">(14)</span>
+                <math xmlns='http://www.w3.org/1998/Math/MathML'
+                    style=" font-size:15px">
+                    <msub>
+                        <mrow>
+                            <msub>
+                                <mrow>
+                                    <mi> &#x03C3;
+                                        <!-- greek small letter sigma -->
+                                    </mi>
+                                </mrow>
+                                <mrow>
+                                    <mi> y </mi>
+                                </mrow>
+                            </msub>
+                            <mo> | </mo>
+                        </mrow>
+                        <mrow>
+                            <mi> n </mi>
+                            <mo> = </mo>
+                            <mi> &#x221E;
+                                <!-- infinity -->
+                            </mi>
+                        </mrow>
+                    </msub>
+                    <mo> = </mo>
+                    <mfrac>
+                        <mrow>
+                            <mi> &#x03C0;
+                                <!-- greek small letter pi -->
+                            </mi>
+                        </mrow>
+                        <mrow>
+                            <msqrt>
+                                <mn> 6 </mn>
+                            </msqrt>
+                        </mrow>
+                    </mfrac>
+                    <mo> = </mo>
+                    <mn> 1.2825 </mn>
+                </math>
+                <!-- <img src="../static/imgs/guuse/formula14.png" alt="Gumbel Formula 14"><br /> -->
+            </div>
+            <p style="margin-top: 0px;margin-bottom: 0px">此时，偏态系数为 <span
+                    style="font-family: Times New Roman">1.1396</span>。由公式(<span
+                    class="type1">12</span>)，<span
+                    style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>极限值所对应的回归期为<span
+                    class="type1">2.3276</span>（单位略）。将公式(<span
+                    style="font-family: Times New Roman">13</span>)和(<span class="type1">14</span>)带入公式(<span
+                    style="font-family: Times New Roman">8</span>)，可得到
+                <span style="font-family: Times New Roman"><i>X</i></span> 和
+                <span style="font-family: Times New Roman"><i>Y</i></span>
+                的极限关系式：
+            </p>
+
+            <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                align="left"> <span
+                    style="float:right; font-family: Times New Roman">(15)</span>
+                <math xmlns='http://www.w3.org/1998/Math/MathML'
+                    style=" font-size:15px">
+                    <mi> x </mi>
+                    <mo> = </mo>
+                    <msub>
+                        <mrow>
+                            <mi> &#x00B5;
+                                <!-- micro sign -->
+                            </mi>
+                        </mrow>
+                        <mrow>
+                            <mi> x </mi>
+                        </mrow>
+                    </msub>
+                    <mo> + </mo>
+                    <mrow>
+                        <mo> ( </mo>
+                        <mn> 0.7797 </mn>
+                        <mi> y </mi>
+                        <mo> - </mo>
+                        <mn> 0.4501 </mn>
+                        <mo> ) </mo>
+                    </mrow>
+                    <msub>
+                        <mrow>
+                            <mi> &#x03C3;
+                                <!-- greek small letter sigma -->
+                            </mi>
+                        </mrow>
+                        <mrow>
+                            <mi> x </mi>
+                        </mrow>
+                    </msub>
+                </math>
+            </div>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">1.3
+                    &#8194Gumbel</span> 分布的最小值模式
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288如果随机变量 <span
+                    style="font-family: times new roman;font-style: italic;">X</span>
+                服从
+                <span class="type1">Gumbel</span> 分布的最小值模式，则 <span
+                    style="font-family: Times New Roman"><i>Z</i></span> (=
+                <span class="type1"><i>&#8722;X</i></span>)服从
+                <span style="font-family: Times New Roman">Gumbel</span>
+                分布的最大值模式，故可以在最大值模式的基础上对最小值模式进行分析。目前，文献中对最小值模式普遍着墨较少。在此提供具体推导过程，以供参考。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman"><i>Z</i></span> 和
+                <span class="type1"><i>X</i></span> 有下列关系：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(16)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> z </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mo> - </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> , </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> z </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                    </math>
+                    <!-- <img src="../static/imgs/guuse/formula16-b.png" alt="Gumbel Formula 16-b"><br /> -->
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中, <span
+                    style="font-family: Times New Roman"><i>μ<sub>z</sub></i></span>
+                为 <span class="type1"><i>Z</i></span> 的均值, <span
+                    style="font-family: Times New Roman"><i>σ<sub>z</sub></i></span>
+                为
+                <span class="type1"><i>Z</i></span> 的均方差。由公式(<span
+                    style="font-family: Times New Roman">10</span>)，<span
+                    class="type1"><i>Z</i></span> 的概率密度函数<span
+                    style="font-family: Times New Roman"><i>f<sub>Z</sub></i></span>可写为：
+                <span style="font-family: Times New Roman">
+                    <div
+                        style="margin-top: 5px;margin-bottom: 5px;margin-right:19%; margin-left:19%">
+                        <span
+                            style="float:right; font-family: Times New Roman; margin-top:12px">(17)</span>
+                        <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                            <msub>
+                                <mrow>
+                                    <mi> f </mi>
+                                </mrow>
+                                <mrow>
+                                    <mi> Z </mi>
+                                </mrow>
+                            </msub>
+                            <mrow>
+                                <mo> ( </mo>
+                                <mi> z </mi>
+                                <mo> ) </mo>
+                            </mrow>
+                            <mo> = </mo>
+                            <mfrac>
+                                <mrow>
+                                    <mn> 1 </mn>
+                                </mrow>
+                                <mrow>
+                                    <mi> &#x03B2;
+                                        <!-- greek small letter beta -->
+                                    </mi>
+                                </mrow>
+                            </mfrac>
+                            <msup>
+                                <mrow>
+                                    <mi> e </mi>
+                                </mrow>
+                                <mrow>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi> z </mi>
+                                            <mo> - </mo>
+                                            <mrow>
+                                                <mo> ( </mo>
+                                                <msub>
+                                                    <mrow>
+                                                        <mi> &#x00B5; </mi>
+                                                    </mrow>
+                                                    <mrow>
+                                                        <mi> z </mi>
+                                                    </mrow>
+                                                </msub>
+                                                <mo> - </mo>
+                                                <msub>
+                                                    <mrow>
+                                                        <mi> &#x00B5;
+                                                            <!-- micro sign -->
+                                                        </mi>
+                                                    </mrow>
+                                                    <mrow>
+                                                        <mi> y </mi>
+                                                    </mrow>
+                                                </msub>
+                                                <mi> &#x03B2;
+                                                    <!-- greek small letter beta -->
+                                                </mi>
+                                                <mo> ) </mo>
+                                            </mrow>
+                                        </mrow>
+                                        <mrow>
+                                            <mo> - </mo>
+                                            <mi> &#x03B2;
+                                                <!-- greek small letter beta -->
+                                            </mi>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </msup>
+                            <msup>
+                                <mrow>
+                                    <mi> e </mi>
+                                </mrow>
+                                <mrow>
+                                    <mo> - </mo>
+                                    <msup>
+                                        <mrow>
+                                            <mi> e </mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mfrac>
+                                                <mrow>
+                                                    <mi> z</mi>
+                                                    <mo> - </mo>
+                                                    <mrow>
+                                                        <mo> ( </mo>
+                                                        <msub>
+                                                            <mrow>
+                                                                <mi> &#x00B5;
+                                                                </mi>
+                                                            </mrow>
+                                                            <mrow>
+                                                                <mi> z </mi>
+                                                            </mrow>
+                                                        </msub>
+                                                        <mo> - </mo>
+                                                        <msub>
+                                                            <mrow>
+                                                                <mi> &#x00B5;
+                                                                </mi>
+                                                            </mrow>
+                                                            <mrow>
+                                                                <mi> y </mi>
+                                                            </mrow>
+                                                        </msub>
+                                                        <mi> &#x03B2;
+                                                            <!-- greek small letter beta -->
+                                                        </mi>
+                                                        <mo> ) </mo>
+                                                    </mrow>
+                                                </mrow>
+                                                <mrow>
+                                                    <mo> - </mo>
+                                                    <mi> &#x03B2;
+                                                        <!-- greek small letter beta -->
+                                                    </mi>
+                                                </mrow>
+                                            </mfrac>
+                                        </mrow>
+                                    </msup>
+                                </mrow>
+                            </msup>
+                        </math>
+                    </div>
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">&#12288&#12288由于
+                <span
+                    style="font-family: Times New Roman"><i>X</i></span>=&#8722;<span
+                    class="type1"><i>Z</i></span>，<span
+                    style="font-family: Times New Roman"><i>f<sub>X</sub></i></span>
+                和 <span class="type1"><i>F<sub>X</sub></i></span> 可写为:
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px;margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman; margin-top:12px">(18)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> f </mi>
+                            </mrow>
+                            <mrow>
+                                <mi>X</mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mn> 1 </mn>
+                            </mrow>
+                            <mrow>
+                                <mi> &#x03B2;
+                                    <!-- greek small letter beta -->
+                                </mi>
+                            </mrow>
+                        </mfrac>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mfrac>
+                                    <mrow>
+                                        <mi> x </mi>
+                                        <mo> - </mo>
+                                        <mrow>
+                                            <mo> ( </mo>
+                                            <msub>
+                                                <mrow>
+                                                    <mi> &#x00B5; </mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi> x </mi>
+                                                </mrow>
+                                            </msub>
+                                            <mo> + </mo>
+                                            <msub>
+                                                <mrow>
+                                                    <mi> &#x00B5;
+                                                        <!-- micro sign -->
+                                                    </mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi> y </mi>
+                                                </mrow>
+                                            </msub>
+                                            <mi> &#x03B2;
+                                                <!-- greek small letter beta -->
+                                            </mi>
+                                            <mo> ) </mo>
+                                        </mrow>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> &#x03B2;
+                                            <!-- greek small letter beta -->
+                                        </mi>
+                                    </mrow>
+                                </mfrac>
+                            </mrow>
+                        </msup>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <msup>
+                                    <mrow>
+                                        <mi> e </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi> x </mi>
+                                                <mo> - </mo>
+                                                <mrow>
+                                                    <mo> ( </mo>
+                                                    <msub>
+                                                        <mrow>
+                                                            <mi> &#x00B5; </mi>
+                                                        </mrow>
+                                                        <mrow>
+                                                            <mi> x </mi>
+                                                        </mrow>
+                                                    </msub>
+                                                    <mo> + </mo>
+                                                    <msub>
+                                                        <mrow>
+                                                            <mi> &#x00B5; </mi>
+                                                        </mrow>
+                                                        <mrow>
+                                                            <mi> y </mi>
+                                                        </mrow>
+                                                    </msub>
+                                                    <mi> &#x03B2;
+                                                        <!-- greek small letter beta -->
+                                                    </mi>
+                                                    <mo> ) </mo>
+                                                </mrow>
+                                            </mrow>
+                                            <mrow>
+                                                <mi> &#x03B2;
+                                                    <!-- greek small letter beta -->
+                                                </mi>
+                                            </mrow>
+                                        </mfrac>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </msup>
+                    </math><br />
+                    <!-- <img src="../static/imgs/guuse/formula19.png" alt="Gumbel Formula 19"><br /> -->
+                    <span
+                        style="float:right; font-family: Times New Roman; margin-top:12px">(19)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> F </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> X </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <msubsup>
+                            <mrow>
+                                <mo> &#x222B;
+                                    <!-- integral -->
+                                </mo>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <mi> &#x221E;
+                                    <!-- infinity -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msubsup>
+                        <msub>
+                            <mrow>
+                                <mi> f </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> X </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mn> 1 </mn>
+                        <mo> - </mo>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <msup>
+                                    <mrow>
+                                        <mi> e </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mfrac>
+                                            <mrow>
+                                                <mi> x </mi>
+                                                <mo> - </mo>
+                                                <mrow>
+                                                    <mo> ( </mo>
+                                                    <msub>
+                                                        <mrow>
+                                                            <mi> &#x00B5;
+                                                                <!-- micro sign -->
+                                                            </mi>
+                                                        </mrow>
+                                                        <mrow>
+                                                            <mi> x </mi>
+                                                        </mrow>
+                                                    </msub>
+                                                    <mo> + </mo>
+                                                    <msub>
+                                                        <mrow>
+                                                            <mi> &#x00B5;
+                                                                <!-- micro sign -->
+                                                            </mi>
+                                                        </mrow>
+                                                        <mrow>
+                                                            <mi> y </mi>
+                                                        </mrow>
+                                                    </msub>
+                                                    <mi> &#x03B2;
+                                                        <!-- greek small letter beta -->
+                                                    </mi>
+                                                    <mo> ) </mo>
+                                                </mrow>
+                                            </mrow>
+                                            <mrow>
+                                                <mi> &#x03B2;
+                                                    <!-- greek small letter beta -->
+                                                </mi>
+                                            </mrow>
+                                        </mfrac>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </msup>
+                    </math>
+
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288在最小值模式中，<span
+                    style="font-family: Times New Roman"><i>α</i></span>被定义为:
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman">(20)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> &#x03B1;
+                            <!-- greek small letter alpha -->
+                        </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> + </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mi> &#x03B2;
+                            <!-- greek small letter beta -->
+                        </mi>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288最小值模式中的 <span
+                    style="font-family: Times New Roman">Gumbel</span> 变量
+                <span class="type1"><i>W</i></span> 可写为：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(21)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> w </mi>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> x </mi>
+                                <mo> - </mo>
+                                <mi> &#x03B1;
+                                    <!-- greek small letter alpha -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> &#x03B2;
+                                    <!-- greek small letter beta -->
+                                </mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中,<span
+                    style="font-family: Times New Roman"><i> w</i></span> 为
+                <span class="type1"><i>W</i></span> 的取值。于是公式(<span
+                    style="font-family: Times New Roman">19</span>)可重写为:
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(22)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> F </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> X </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mn> 1 </mn>
+                        <mo> - </mo>
+                        <msup>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                            <mrow>
+                                <mo> - </mo>
+                                <msup>
+                                    <mrow>
+                                        <mi> e </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> w </mi>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </msup>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">比较公式(<span
+                    style="font-family: Times New Roman">6</span>)和(<span
+                    style="font-family: Times New Roman">20</span>)可知，<span
+                    class="type1"><i>α</i></span>在最大值和最小值这两种模式中的定义有所不同。因此，<span
+                    style="font-family: Times New Roman">Gumbel</span>
+                变量在两种模式中是有区别的，二者有如下关系：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(23)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> w </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mo> - </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mo> , </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> w </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中，<span
+                    style="font-family: Times New Roman"><i>μ<sub>w</sub></i></span>
+                为 <span class="type1"><i>W</i></span> 的均值，<span
+                    style="font-family: Times New Roman"><i>σ<sub>w</sub></i></span>
+                为
+                <span class="type1"><i>W</i></span> 的均方差。由公式(<span
+                    style="font-family: Times New Roman">16</span>)和公式(<span
+                    class="type1">23</span>)可知，无论是用<span
+                    style="font-family: Times New Roman"><i>σ<sub>z</sub></i></span>还是<span
+                    class="type1"><i>σ<sub>x</sub></i></span>，<span
+                    style="font-family: Times New Roman"><i>σ<sub>w</sub></i></span>还是
+                <span class="type1"><i>σ<sub>y</sub></i></span>，
+                <span
+                    style="font-family: Times New Roman"><i>β</i></span>始终不变，这两种模式中保持一致。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288对于由最小值构成的 <span
+                    class="type1"><i>X</i></span>，我们更关心的往往是出现一个更低值的概率。故实际应用中一般关注不高于某特定值事件的回归期，其基本关系按公式(<span
+                    class="type1">4b</span>)可得：</p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman">(24)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> T </mi>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mn> 1 </mn>
+                            </mrow>
+                            <mrow>
+                                <msub>
+                                    <mrow>
+                                        <mi> F </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> X </mi>
+                                    </mrow>
+                                </msub>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <mi> x </mi>
+                                    <mo> ) </mo>
+                                </mrow>
+                            </mrow>
+                        </mfrac>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mn> 1 </mn>
+                            </mrow>
+                            <mrow>
+                                <mn> 1 </mn>
+                                <mo> - </mo>
+                                <msup>
+                                    <mrow>
+                                        <mi> e </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mo> - </mo>
+                                        <msup>
+                                            <mrow>
+                                                <mi> e </mi>
+                                            </mrow>
+                                            <mrow>
+                                                <mi> w </mi>
+                                            </mrow>
+                                        </msup>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </mfrac>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                这也是滨水工在最小值模式中分析回归期和频率的原则。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288比较公式(<span
+                    style="font-family: Times New Roman">12</span>)和(<span
+                    class="type1">24</span>)可知，当<span
+                    style="font-family: Times New Roman"><i>T</i></span>相同时，<span
+                    class="type1"><i>w</i></span>=<span
+                    style="font-family: Times New Roman"><i>&#8722;y</i></span>。于是，
+                <span class="type1"><i>X</i></span> 和 <span
+                    style="font-family: Times New Roman"><i>W</i></span>
+                的关系式亦可写为：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(25)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> x </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> + </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> &#x03C9;
+                                    <!-- greek small letter omega -->
+                                </mi>
+                                <mo> + </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> &#x00B5;
+                                            <!-- micro sign -->
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> y </mi>
+                                    </mrow>
+                                </msub>
+                            </mrow>
+                            <mrow>
+                                <msub>
+                                    <mrow>
+                                        <mi> &#x03C3;
+                                            <!-- greek small letter sigma -->
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> y </mi>
+                                    </mrow>
+                                </msub>
+                            </mrow>
+                        </mfrac>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> - </mo>
+                        <mi> K </mi>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                    </math>
+
+
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">比较公式(<span
+                    style="font-family: Times New Roman">8</span>)和(<span
+                    style="font-family: Times New Roman">25</span>)可知，针对同一个
+                <span style="font-family: Times New Roman"><i>T</i></span>，<span
+                    style="font-family: Times New Roman"><i>x</i></span> 由
+                <span class="type1"><i>μ<sub>x</sub></i></span>、<span
+                    style="font-family: Times New Roman"><i>σ<sub>x</sub></i></span>
+                和
+                <span class="type1"><i>K</i></span> 来表达时，在两种模式中的区别仅在于 <span
+                    style="font-family: Times New Roman"><i>K</i></span> 的正负号。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288由公式(<span
+                    style="font-family: Times New Roman">23</span>)，当
+                <span class="type1"><span
+                        style="font-family: times new roman;font-style: italic;">n</span>
+                    = ∞
+                </span>时，<span
+                    style="font-family: Times New Roman"><i>μ<sub>w</sub></i></span>
+                的极限值为
+                <span
+                    style="font-family: Times New Roman">&#8722;0.5772</span>，<span
+                    style="font-family: Times New Roman"><i>σ<sub>w</sub></i></span>
+                的极限值为
+                <span
+                    style="font-family: Times New Roman">1.2825</span>。此时，<span
+                    style="font-family: Times New Roman">Gumbel</span>
+                分布最小值模式的偏态系数为
+                <span class="type1">&#8722;1.1396</span>。由公式(<span
+                    style="font-family: Times New Roman">24</span>)，<span
+                    class="type1"><i>μ<sub>w</sub></i></span> 极限值所对应的回归期仍为
+                <span
+                    style="font-family: Times New Roman">2.3276</span>（单位略）。按公式(<span
+                    style="font-family: Times New Roman">25</span>)可得到 <span
+                    style="font-family: Times New Roman"><i>X</i></span> 和
+                <span style="font-family: Times New Roman"><i>W</i></span>
+                的极限关系式：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(26)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <mi> x </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                        <mo> + </mo>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mn> 0.7797 </mn>
+                            <mi> w </mi>
+                            <mo> + </mo>
+                            <mn> 0.4501 </mn>
+                            <mo> ) </mo>
+                        </mrow>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                        </msub>
+                    </math>
+                </div>
+            </span>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">1.4</span>
+                &#8194在频率分析中应用<span
+                    style="font-family: Times New Roman">Gumbel</span>分布的典型步骤
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288综上所述，基本步骤总结如下：
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman">1)</span>
+                获取某物理量 <span class="type1"><i>X</i></span> 的基本统计特征
+                <span
+                    style="font-family: Times New Roman">(<i>μ<sub>x</sub></i>,
+                    <i>σ<sub>x</sub></i>, <i>n</i>)</span>；
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman">2)</span> 获取<span
+                    class="type1"><i>μ<sub>y</sub></i></span>和<span
+                    style="font-family: Times New Roman"><i>σ<sub>y</sub></i></span>；
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman">3)</span> 对于某回归期
+                <span class="type1"><i>T</i></span>，由 <span
+                    style="font-family: Times New Roman"><i>T</i></span> 和
+                <span style="font-family: Times New Roman">Gumbel</span>
+                变量的关系式，获得对应的 <span
+                    style="font-family: Times New Roman">Gumbel</span> 变量值；
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288&#12288&#12288 • 在最大值模式中，由公式(<span class="type1">11</span>)获得对应的 <span
+                    style="font-family: Times New Roman"><i>y</i></span> 值
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288&#12288&#12288 • 在最小值模式中，由公式(<span class="type1">24</span>)获得对应的 <span
+                    style="font-family: Times New Roman"><i>w</i></span> 值
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">&#12288&#12288 4) 由
+                <span
+                    style="font-family: times new roman;font-style: italic;"><i>X</i></span>
+                和 <span class="type1">Gumbel</span> 变量的关系式获得对应的 <span
+                    style="font-family: times new roman;font-style: italic;">x</span>
+                值，此为这一回归期下该物理量的取值。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288&#12288&#12288 • 在最大值模式中，采用 <span
+                    class="type1"><i>X</i></span> 和 <span
+                    style="font-family: Times New Roman"><i>Y</i></span> 的关系式，如公式<span
+                    style="font-family: Times New Roman">(8)</span>或<span
+                    style="font-family: Times New Roman">(15)</span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288&#12288&#12288 • 在最小值模式中，采用 <span
+                    class="type1"><i>X</i></span> 和 <span
+                    style="font-family: Times New Roman"><i>W</i></span> 的关系式，如公式<span
+                    style="font-family: Times New Roman">(25)</span>或<span
+                    style="font-family: Times New Roman">(26)</span>
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">2.</span>&#8194 计算方法
+            </h3>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">2.1</span>&#8194样本统计
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288滨水工可以直接采用样本的基本统计特征进行频率分析，包括均值、均方差、样本容量。<br>
+                &#12288&#12288滨水工也可以直接处理所提供的样本，以获取基本的统计特征用于频率分析。对于随机变量 <span
+                    style="font-family: Times New Roman"><i>X</i></span>
+                的一组原始样本(
+                <span class="type1"><i>x</i></span><span
+                    style="font-family: Times New Roman"><sub>1</sub></span>,<span
+                    class="type1"><i>x</i></span><span
+                    style="font-family: Times New Roman"><sub>2</sub></span>, …,
+                <span
+                    style="font-family: Times New Roman"><i>x<sub>n</sub></i></span>)，滨水工提供常规的样本估计：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-left:19%; margin-right:19%"
+                    align="left">
+                    <!-- <img src="../static/imgs/guuse/formula28.png" alt="Gumbel Formula 28"><br />
+    <img src="../static/imgs/guuse/formula29.png" alt="Gumbel Formula 29"><br /> -->
+                    <span
+                        style="float:right; font-family: Times New Roman">(27)</span>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" ><msub><mrow><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub></math>
+<br />
+                    <span
+                        style="float:right; font-family: Times New Roman">(28)</span>
+                   <math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow><mover><mi>σ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow><mrow><mn>2</mn></mrow></msubsup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">(</mo><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub><mo>−</mo><msub><mrow><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo data-mjx-texclass="CLOSE">)</mo></mrow><mrow><mn>2</mn></mrow></msup></math>
+                    <br />
+                    <span
+                        style="float:right; font-family: Times New Roman">(29)</span>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow><mover><mi>γ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo>=</mo><mfrac><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><msubsup><mrow><mover><mi>σ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow><mrow><mn>3</mn></mrow></msubsup></mrow></mfrac><munderover><mo data-mjx-texclass="OP">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi></mrow></munderover><msup><mrow data-mjx-texclass="INNER"><mo data-mjx-texclass="OPEN">(</mo><msub><mi>x</mi><mrow><mi>i</mi></mrow></msub><mo>−</mo><msub><mrow><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mrow><mi>x</mi></mrow></msub><mo data-mjx-texclass="CLOSE">)</mo></mrow><mrow><mn>3</mn></mrow></msup></math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中,
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                        <mrow>
+                            <mover>
+                                <mi>μ</mi>
+                                <mo stretchy="false">^</mo>
+                            </mover>
+                        </mrow>
+                        <mrow>
+                            <mi>x</mi>
+                        </mrow>
+                    </msub>
+                </math>
+                为<span class="type1"><i>μ<sub>x</sub></i></span>的估计值，
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                        <mrow>
+                            <mover>
+                                <mi>σ</mi>
+                                <mo stretchy="false">^</mo>
+                            </mover>
+                        </mrow>
+                        <mrow>
+                            <mi>x</mi>
+                        </mrow>
+                    </msub>
+                </math>
+                为<span class="type1"><i>σ<sub>x</sub></i></span>的估计值，
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                        <mrow>
+                            <mover>
+                                <mi>γ</mi>
+                                <mo stretchy="false">^</mo>
+                            </mover>
+                        </mrow>
+                        <mrow>
+                            <mi>x</mi>
+                        </mrow>
+                    </msub>
+                </math>为偏态系数的估计值。在分析中假设
+                <span
+                    style="font-family: Times New Roman"><i>μ<sub>x</sub></i></span>和<span
+                    class="type1"><i>σ<sub>x</sub></i></span>等于它们的估计值。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288样本中每个样本值的经验超越概率<span
+                    class="type1"><i>G<sub>o</sub></i></span>和经验累积分布值<span
+                    style="font-family: Times New Roman"><i>F<sub>o</sub></i></span>按下式估计：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(30)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> G </mi>
+                            </mrow>
+                            <mrow>
+                                <mn>
+                                    <mi> o </mi>
+                                </mn>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <msub>
+                                <mrow>
+                                    <mi> | </mi>
+                                </mrow>
+                                <mrow>
+                                    <mi> m </mi>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mn> 1 </mn>
+                        <mo> - </mo>
+                        <msub>
+                            <mrow>
+                                <mi> F </mi>
+                            </mrow>
+                            <mrow>
+                                <mn>
+                                    <mi> o </mi>
+                                </mn>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> x </mi>
+                            <msub>
+                                <mrow>
+                                    <mi> | </mi>
+                                </mrow>
+                                <mrow>
+                                    <mi> m </mi>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> m </mi>
+                                <mo> - </mo>
+                                <mi> a </mi>
+                            </mrow>
+                            <mrow>
+                                <mn> 1 </mn>
+                                <mo> + </mo>
+                                <mi> n </mi>
+                                <mo> - </mo>
+                                <mn> 2 </mn>
+                                <mi> a </mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中, <span
+                    style="font-family: Times New Roman"><i>x</i></span>|<span
+                    class="type1"><i><sub>m</sub></i></span>为(<span
+                    style="font-family: Times New Roman"><i>x</i></span><span
+                    class="type1"><sub>1</sub></span>, <span
+                    style="font-family: Times New Roman"><i>x</i></span>
+                <span class="type1"><sub>2</sub></span>, …, <span
+                    style="font-family: Times New Roman"><i>x<sub>n</sub></i></span>)中的一个样本值，
+                <span style="font-family: Times New Roman"><i>m</i></span>为<span
+                    style="font-family: Times New Roman"><i>x</i></span>|<span
+                    class="type1"><i><sub>m</sub></i></span> 的排位，
+                <span style="font-family: Times New Roman"><i>a</i></span>
+                为一个选择参数。所有样本值按下降顺序排序，即最大的样本值排第一位，其 <span
+                    style="font-family: Times New Roman"><i>m</i></span> 值为
+                <span style="font-family: Times New Roman">1</span>，而其它
+                <span class="type1"><i>m</i></span> 值按样本值的下降顺序依次累加递增。在实际应用中，
+                <span style="font-family: Times New Roman"><i>a</i></span>
+                有多种选择，详见 <span class="type1">Stedinger</span>等 (<span
+                    style="font-family: Times New Roman">1993</span>)。滨水工为 <span
+                    class="type1"><i>a</i></span> 提供三种常见的选择： <span
+                    style="font-family: Times New Roman">0</span> (<span
+                    class="type1">Weibull</span>)，<span
+                    style="font-family: Times New Roman">0.3175</span>
+                (中值，即<span class="type1">Median</span>)，<span
+                    style="font-family: Times New Roman">0.44</span> (<span
+                    class="type1">Gringorten</span>)。<span
+                    style="font-family: Times New Roman">Weibull</span>方法在频率分析中很常见。通常而言，<span
+                    class="type1">Weibull</span> 方法最适合均匀分布的样本 (<span
+                    style="font-family: Times New Roman">Cunnane
+                    1978</span>)，但并不适合 <span class="type1">Gumbel</span> 分布的样本
+                (<span style="font-family: Times New Roman">Gringorten
+                    1963</span>)。根据
+                <span class="type1">Gringorten</span> (<span
+                    style="font-family: Times New Roman">1963</span>)，<span
+                    style="font-family: Times New Roman">Gringorten</span>
+                方法比较适合 <span style="font-family: Times New Roman">Gumbel</span>
+                分布的样本，尤其是最大值。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288每个样本值的经验回归期<span
+                    class="type1"><i>T<sub>o</sub></i></span>按公式(<span
+                    style="font-family: Times New Roman">4</span>)估计：在最大值模式中，等于
+                <span class="type1"><i>G<sub>o</sub></i></span> 的倒数；在最小值模式中，等于
+                <span
+                    style="font-family: Times New Roman"><i>F<sub>o</sub></i></span>
+                的倒数。
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">2.2</span>&#8194<span style="font-family: Times New Roman">Gumbel</span> 分布的求解
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288在得到<span
+                    style="font-family: Times New Roman"><i>μ<sub>x</sub></i></span>
+                和
+                <span class="type1"><i>σ<sub>x</sub></i></span>
+                以后，滨水工采用两种方法进行频率分析，主要区别在 <span
+                    style="font-family: Times New Roman">1.4</span> 中的第
+                <span style="font-family: Times New Roman">2</span> 步和第
+                <span class="type1">4</span> 步。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">&#12288&#12288方法一在
+                <span style="font-family: Times New Roman">1.4</span> 中的第
+                <span class="type1">2</span> 步直接采用<span
+                    style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>
+                和
+                <span class="type1"><i>σ<sub>y</sub></i></span> 的极限值，即公式(<span style="font-family: Times New Roman">13</span>)和(<span
+                    class="type1">14</span>)，在第 <span
+                    style="font-family: Times New Roman">4</span> 步由公式(<span
+                    style="font-family: Times New Roman">15</span>)或(<span class="type1">26</span>)获得不同回归期下物理量的值。这样得到的 <span
+                    style="font-family: Times New Roman"> Gumbel</span> 分布称为极限理论
+                <span class="type1">Gumbel</span> 分布。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288方法二在获取<span
+                    style="font-family: Times New Roman"><i>μ<sub>y</sub></i></span>
+                和
+                <span
+                    style="font-family: Times New Roman"><i>σ<sub>y</sub></i></span>
+                时考虑
+                <span
+                    style="font-family: Times New Roman"><i>n</i></span>的影响。如前所述，<span
+                    class="type1"><i>μ<sub>y</sub></i></span> 和
+                <span
+                    style="font-family: Times New Roman"><i>σ<sub>y</sub></i></span>
+                可以根据
+                <span class="type1"><i>n</i></span>
+                从标准表格中查取。近年来，也有学者利用回归公式对该标准表格进行拟合，并取得了较好的成果。方法二在 <span
+                    class="type1">1.4</span> 中的第 <span
+                    style="font-family: Times New Roman">2</span> 步采用 <span
+                    style="font-family: Times New Roman">Onen</span> 和
+                <span class="type1">Bagatur</span> (
+                <span style="font-family: Times New Roman">2017</span>) 提出的公式：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(31)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> &#x00B5;
+                                    <!-- micro sign -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mn> 0.5775 </mn>
+                        <msup>
+                            <mrow>
+                                <mi> n </mi>
+                            </mrow>
+                            <mrow>
+                                <mfrac>
+                                    <mrow>
+                                        <mo> - </mo>
+                                        <mn> 0.66 </mn>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> n </mi>
+                                    </mrow>
+                                </mfrac>
+                            </mrow>
+                        </msup>
+                    </math><br />
+                    <span
+                        style="float:right; font-family: Times New Roman">(32)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> &#x03C3;
+                                    <!-- greek small letter sigma -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> y </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mn> 1.2811 </mn>
+                        <msup>
+                            <mrow>
+                                <mi> n </mi>
+                            </mrow>
+                            <mrow>
+                                <mfrac>
+                                    <mrow>
+                                        <mo> - </mo>
+                                        <mn> 1.268 </mn>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> n </mi>
+                                    </mrow>
+                                </mfrac>
+                            </mrow>
+                        </msup>
+                    </math>
+                    <!-- <img src="../static/imgs/guuse/formula32.png" alt="Gumbel Formula 32"><br /> -->
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">在第 <span
+                    style="font-family: Times New Roman">4</span> 步由公式(<span
+                    style="font-family: Times New Roman">8</span>)或(<span
+                    class="type1">25</span>)获得不同回归期下物理量的值。这样得到的 <span
+                    style="font-family: Times New Roman">Gumbel</span>
+                分布称为基于样本容量的理论
+                <span class="type1">Gumbel</span> 分布。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288在滨水工中，这两种理论
+                <span class="type1">Gumbel</span> 分布均不考虑截尾。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288滨水工也为这两种理论
+                <span class="type1">Gumbel</span> 分布中的分位点提供置信度为 <span
+                    style="font-family: Times New Roman">90%</span>
+                的置信限。在工程水文中，当 <span
+                    style="font-family: times new roman;font-style: italic;">n</span>
+                很大时，分位点的估计近似服从状态分布 (<span
+                    style="font-family: Times New Roman">Stedinger</span>等
+                <span class="type1">1993</span>; <span
+                    style="font-family: Times New Roman">Reeve 2010</span>)
+                ，于是有：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(33)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> T </mi>
+                                <mn> 90 </mn>
+                                <mo> % </mo>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> x </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> T </mi>
+                            </mrow>
+                        </msub>
+                        <mo> &#x00B1;
+                            <!-- plus-minus sign -->
+                        </mo>
+                        <mn> 1.645 </mn>
+                        <msqrt>
+                            <mi> V </mi>
+                            <mi> a </mi>
+                            <mi> r </mi>
+                            <mrow>
+                                <mo> ( </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> x </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> T </mi>
+                                    </mrow>
+                                </msub>
+                                <mo> ) </mo>
+                            </mrow>
+                        </msqrt>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中, <span
+                    style="font-family: times new roman;font-style: italic;">x<sub>T</sub></span>
+                为 <span class="type1">Gumbel</span> 分布中回归期 <span
+                    style="font-family: times new roman;font-style: italic;">T</span>
+                对应的
+                <span
+                    style="font-family: times new roman;font-style: italic;">x</span>
+                值，
+                <span
+                    style="font-family: times new roman;font-style: italic;">Var</span>(<span
+                    style="font-family: times new roman;font-style: italic;">x<sub>T</sub></span>)为
+                <span class="type2">x<sub>T</sub></span> 估计的方差，<span
+                    style="font-family: times new roman;"><i>x</i><sub><i>T</i>90%</sub>
+                </span> 为 <span
+                    style="font-family: times new roman;font-style: italic;">x<sub>T</sub></span>
+                估计的置信上下限（置信度为 <span
+                    style="font-family: Times New Roman">90%</span>）。<span
+                    style="font-family: times new roman;font-style: italic;">Var</span>(<span
+                    class="type2">x<sub>T</sub></span>)有多种估计方法，滨水工采用
+                <span style="font-family: Times New Roman">Natural
+                    Environmental Research Council</span> (<span
+                    style="font-family: Times New Roman">1975</span>)推荐的方法：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(34)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <mi> V </mi>
+                        <mi> a </mi>
+                        <mi> r </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> x </mi>
+                                </mrow>
+                                <mrow>
+                                    <mi> T </mi>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <msup>
+                                    <mrow>
+                                        <mi> &#x03B2;
+                                            <!-- greek small letter beta -->
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn> 2 </mn>
+                                    </mrow>
+                                </msup>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <mn> 1.11 </mn>
+                                    <mo> + </mo>
+                                    <mn> 0.52 </mn>
+                                    <mi> v </mi>
+                                    <mo> + </mo>
+                                    <mn> 0.61 </mn>
+                                    <msup>
+                                        <mrow>
+                                            <mi> v </mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn> 2 </mn>
+                                        </mrow>
+                                    </msup>
+                                    <mo> ) </mo>
+                                </mrow>
+                            </mrow>
+                            <mrow>
+                                <mi> n </mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+
+
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中，<span
+                    style="font-family: Times New Roman"><i>v</i></span>为<span
+                    style="font-family: times new roman;font-style: italic;">x<sub>T</sub></span>所对应的<span
+                    style="font-family: Times New Roman"><i>y</i></span>值<span
+                    style="font-family: Times New Roman">(</span>最大值模式<span
+                    style="font-family: Times New Roman">)</span>，或<span
+                    style="font-family: times new roman;font-style: italic;">x<sub>T</sub></span>所对应的<span
+                    style="font-family: Times New Roman"><i>w</i></span>值<span
+                    style="font-family: Times New Roman">(</span>最小值模式<span
+                    style="font-family: Times New Roman">)</span>。
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">2.3</span>&#8194分布的拟合检验
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288如果直接处理所提供的样本，滨水工为两种理论
+                <span class="type1">Gumbel</span>
+                分布提供两个常规的拟合检验值，但并不据此对它们的拟合优度做具体评判。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: Times New Roman">Kolmogorov-Smirnov</span>
+                检验值 <span class="type2">D<sub>KS</sub></span> 由下式计算：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left"> <span
+                        style="float:right; font-family: Times New Roman">(35)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> D </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> K </mi>
+                                <mi> S </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mi> max </mi>
+                        <mrow>
+                            <mo> | </mo>
+                            <mi> F </mi>
+                            <mrow>
+                                <mo> ( </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> x </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> i </mi>
+                                    </mrow>
+                                </msub>
+                                <mo> ) </mo>
+                            </mrow>
+                            <mo> - </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> F </mi>
+                                </mrow>
+                                <mrow>
+                                    <mn> o </mn>
+                                </mrow>
+                            </msub>
+                            <mrow>
+                                <mo> ( </mo>
+                                <msub>
+                                    <mrow>
+                                        <mi> x </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> i </mi>
+                                    </mrow>
+                                </msub>
+                                <mo> ) </mo>
+                            </mrow>
+                            <mo> | </mo>
+                        </mrow>
+                        <mo> ( </mo>
+                        <mi> i </mi>
+                        <mo> = </mo>
+                        <mn> 1 </mn>
+                        <mo> , </mo>
+                        <mn> 2 </mn>
+                        <mo> &#x2026;
+                            <!-- horizontal ellipsis -->
+                        </mo>
+                        <mi> n </mi>
+                        <mo> ) </mo>
+                    </math>
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">其中, <span
+                    style="font-family: times new roman;font-style: italic;">F</span>(<span
+                    style="font-family: times new roman;font-style: italic;">x<sub>i</sub></span>)
+                为样本值 <span
+                    style="font-family: times new roman;font-style: italic;">x<sub>i</sub></span>
+                在理论
+                <span style="font-family: Times New Roman">Gumbel</span>
+                分布中对应的累积分布值。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">&#12288&#12288将
+                <span
+                    style="font-family: times new roman;font-style: italic;">X</span>
+                样本按区间分为 <span
+                    style="font-family: times new roman;font-style: italic;">k</span>
+                组，
+                <span
+                    style="font-family: times new roman;font-style: italic;">𝜒</span><span
+                    style="font-family: Times New Roman"><sup>2</sup></span> 检验值
+                <span class="type2">D<sub>𝜒</sub></span><span
+                    style="font-family: Times New Roman"><sub><sup>2</sup></sub></span>
+                由下式计算：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div style="margin-top: 5px;margin-bottom: 5px; margin-right:19%; margin-left:19%"
+                    align="left">
+                    <span
+                        style="float:right; font-family: Times New Roman">(36)</span><math
+                        xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> D </mi>
+                            </mrow>
+                            <mrow>
+                                <msup>
+                                    <mrow>
+                                        <mi> &#x03c7; </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn> 2 </mn>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <munderover>
+                            <mrow>
+                                <mo> &#x2211;
+                                    <!-- n-ary summation -->
+                                </mo>
+                            </mrow>
+                            <mrow>
+                                <mi> i </mi>
+                                <mo> = </mo>
+                                <mn> 1 </mn>
+                            </mrow>
+                            <mrow>
+                                <mi> k </mi>
+                            </mrow>
+                        </munderover>
+                        <mfrac>
+                            <mrow>
+                                <msup>
+                                    <mrow>
+                                        <mrow>
+                                            <mo> ( </mo>
+                                            <msub>
+                                                <mrow>
+                                                    <mi> o </mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi> i </mi>
+                                                </mrow>
+                                            </msub>
+                                            <mo> - </mo>
+                                            <mi> n </mi>
+                                            <msub>
+                                                <mrow>
+                                                    <mi> p </mi>
+                                                </mrow>
+                                                <mrow>
+                                                    <mi> i </mi>
+                                                </mrow>
+                                            </msub>
+                                            <mo> ) </mo>
+                                        </mrow>
+                                    </mrow>
+                                    <mrow>
+                                        <mn> 2 </mn>
+                                    </mrow>
+                                </msup>
+                            </mrow>
+                            <mrow>
+                                <mi> n </mi>
+                                <msub>
+                                    <mrow>
+                                        <mi> p </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi> i </mi>
+                                    </mrow>
+                                </msub>
+                            </mrow>
+                        </mfrac>
+                    </math>
+
+                </div>
+            </span>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                其中，<span
+                    style="font-family: times new roman;font-style: italic;">o<sub>i</sub></span>
+                为第 <span class="type2">i</span> 组的样本个数，
+                <span
+                    style="font-family: times new roman;font-style: italic;">p<sub>i</sub></span>
+                为理论 <span class="type1">Gumbel</span> 分布中第 <span
+                    style="font-family: times new roman;font-style: italic;">i</span>
+                组的区间概率。在初始情况下，滨水工将 <span
+                    style="font-family: times new roman;font-style: italic;">X</span>
+                样本的取值范围（最大值和最小值之间）均分为 <span class="type1">10</span> 个区间。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288<span
+                    style="font-family: times new roman;font-style: italic;">𝜒</span><span
+                    class="type1"><sup>2</sup></span> 检验要求
+                <span
+                    style="font-family: times new roman;font-style: italic;">n</span>
+                足够大，至少为 <span class="type1">50</span> (盛骤等
+                <span style="font-family: Times New Roman">1989</span>)，甚至
+                <span style="font-family: Times New Roman">120</span> (<span
+                    style="font-family: Times New Roman">Ochi
+                    1998</span>)。如果 <span
+                    style="font-family: times new roman;font-style: italic;">n</span>
+                小于
+                <span class="type1">30</span>，滨水工将不进行
+                <span
+                    style="font-family: times new roman;font-style: italic;">𝜒</span><span
+                    class="type1"><sup>2</sup></span> 检验。<span
+                    style="font-family: times new roman;font-style: italic;">𝜒</span><span
+                    class="type1"><sup>2</sup></span> 检验也要求每个区间的 <span
+                    style="font-family: times new roman;font-style: italic;">np<sub>i</sub></span>
+                足够大，至少为
+                <span class="type1">5</span> (盛骤等 <span
+                    style="font-family: Times New Roman">1989</span>; <span
+                    style="font-family: Times New Roman">Wolstenholme
+                    1999</span>)。在滨水工中，如果某区间的
+                <span
+                    style="font-family: times new roman;font-style: italic;">np<sub>i<sub></span>值小于
+                <span
+                    style="font-family: Times New Roman">5</span>，该区间会与相邻区间自动合并，以确保在合并后的区间内
+                <span
+                    style="font-family: times new roman;font-style: italic;">np<sub>i</sub></span>
+                值至少为 <span class="type1">5</span>，<span
+                    style="font-family: times new roman;font-style: italic;">k</span>
+                也会相应调整。
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                <span style="font-family: Times New Roman">3.</span> &#8194参数输入
+            </h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288用户需要在参数输入页面上给定以下信息：
+            </p>
+            <div>
+                <ul style="margin-bottom:0px;">
+                    <br />
+                    <li style="font-family: 楷体;">物理量名称及其单位</li>
+                    <li style="font-family: 楷体;list-style: none;">
+                        物理量即频率分析所针对的随机变量，如流量、水位、降雨量等。这两项均为选填项。如果选择不定义物理量，滨水工会在计算结果中将所分析的随机变量命名为“物理量”。如果选择不提供单位，滨水工将为物理量的取值标注“无单位”。
+                    </li>
+                    <br />
+
+                    <li style="font-family: 楷体;">样本数据的时间间距
+                    <li style="font-family: 楷体;list-style: none;">
+                        时间间距如年、月等，也是回归期的单位。这一项为选填项。如果选择不提供时间间距，滨水工会将回归期的单位定义为“单位时段”。
+                    </li>
+                    <br />
+                    <li style="font-family: 楷体;">概率分析的类型</li>
+                    <li style="font-family: 楷体;list-style: none;"><span
+                            style="font-family: Times New Roman">Gumbel</span>
+                        分布有最大值和最小值两种模式，用户必须选择其一进行频率分析。对于一个最大值序列样本，宜采用最大值模式进行频率分析；对于一个最小值序列样本，宜采用最小值模式进行频率分析。然而，在数学上，仍然可以对一个最大值序列样本采用最小值模式进行频率分析，反之亦然，尽管这种应用的实际物理意义不甚明朗。用户必须要明确自己想要分析的是哪种频率和回归期，并恰当选择。
+                    </li>
+                    <br />
+                    <li style="font-family: 楷体;">样本的基本统计特征</li>
+                    <li style="font-family: 楷体;list-style: none;">
+                        如果直接采用样本的基本统计特征进行频率分析，用户必须提供样本的均值、均方差、样本容量。水文频率分析通常要求<i>n</i>足够大，具体要求详见相关规范、手册。
+                        <span
+                            style="font-family: Times New Roman">Gumbel</span>分布可有效应用于
+                        <span
+                            style="font-family: Times New Roman"><i>n</i>&#60;50</span>
+                        的样本 <span style="font-family: Times New Roman">(Cunnane
+                            1989)</span>。在实际应用中，<span
+                            style="font-family: Times New Roman">Gumbel</span>分布比较适合<span
+                            style="font-family: Times New Roman"><i>n</i>&#x2265;10</span>的年极值序列
+                        <span
+                            style="font-family: Times New Roman">(Onen</span>和<span
+                            style="font-family: Times New Roman">Bagatur
+                            2017)</span>。滨水工建议<span
+                            style="font-family: Times New Roman"><i>n</i></span>至少为<span
+                            style="font-family: Times New Roman">10</span>，以取得有意义的结果。
+                    </li>
+                    <br />
+                    <li style="font-family: 楷体;">样本</li>
+                    <li style="font-family: 楷体;list-style: none;">
+                        用户也可以选择直接处理一个样本以获取基本的统计特征。样本数据的格式为数值和逗号：由数值起始，一个数值后面紧跟一个逗号，但最后一个数值后不能有逗号。（滨水工仅接受半角的逗号，不接受全角的逗号。）滨水工会自动获取输入样本的<span
+                            style="font-family: Times New Roman"><i>n</i></span>用于计算。如前所述，滨水工建议<span
+                            style="font-family: Times New Roman"><i>n</i></span>至少为<span
+                            style="font-family: Times New Roman">10</span>。滨水工默认输入样本的质量满足频率分析的要求，不对样本数据本身进行统计检验。用户需对原始样本数据进行评判，如时间序列样本数据的非平稳性、特大值等。
+                    </li><br />
+                    <li style="font-family: 楷体;">经验累积概率的估计办法</li>
+                    <li style="font-family: 楷体;list-style: none;">
+                        如果直接处理样本以获取基本的统计特征，用户必须选择一个经验累积概率的估计办法。滨水工提供三种常见的估计方法：
+                        <span class="type1">Weibull</span>、中值、<span
+                            class="type1">Gringorten</span>。
+                    </li>
+                </ul>
+            </div>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                4. &#8194结果输出</h3>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288滨水工采用<span
+                    style="font-family: Times New Roman">Python 3.9.0 (van
+                    Rossum</span>等<span style="font-family: Times New Roman">
+                    2022)</span>开发本计算程序。<br />
+                &#12288&#12288频率分析的结果展示于 <span
+                    style="font-family: Times New Roman">Gumbel</span> 概率纸上。
+                <span class="type1">Gumbel</span> 概率纸的构造方法详见
+                <span style="font-family: Times New Roman">Ponce</span> (<span
+                    class="type1">1989</span>)和 <span
+                    style="font-family: Times New Roman">Subramanya</span>
+                (<span style="font-family: Times New Roman">2008</span>)。一个
+                <span style="font-family: Times New Roman">Gumbel</span> 分布会在
+                <span style="font-family: Times New Roman">Gumbel</span>
+                概率纸上产生一条直线。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288计算结果图的回归期范围从 <span
+                    style="font-family: Times New Roman">1.005</span> 至
+                <span
+                    class="type1">200</span>（单位略），这一范围可以满足常规的工程要求。两种理论分布的置信限在回归期
+                <span style="font-family: Times New Roman">2</span> 至 <span
+                    class="type1">200</span> 间展示。如果 <span
+                    style="font-family: times new roman;font-style: italic;">T</span>
+                =
+                <span style="font-family: Times New Roman">1</span>, 由公式(<span class="type1">8</span>)和(<span
+                    style="font-family: Times New Roman">12</span>)，在理论上，当
+                <span
+                    style="font-family: times new roman;font-style: italic;">y</span><span
+                    class="type1">→&minus;∞</span>时，
+                <span
+                    style="font-family: times new roman;font-style: italic;">x</span><span
+                    class="type1">→&minus;∞</span>；对工程水文中大部分普通的物理量而言，这种极限值缺乏实际物理意义。故滨水工将回归期的下限设为一个稍稍大于
+                <span style="font-family: Times New Roman">1</span>
+                的值。用户需谨慎考虑外延图中两种理论分布的累积分布线为极长的回归期取值，如 <span
+                    class="type1">500</span>、
+                <span style="font-family: Times New Roman">1000</span>
+                等。在频率分析中，一般而言，想要估计的事件回归期越长，所需要的样本容量也越大。如果样本容量不够大，这种外延可能不尽合理。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288所有的样本值及对应的经验回归期，均绘于计算结果图上。
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msub>
+                        <mrow>
+                            <mover>
+                                <mi>μ</mi>
+                                <mo stretchy="false">^</mo>
+                            </mover>
+                        </mrow>
+                        <mrow>
+                            <mi>x</mi>
+                        </mrow>
+                    </msub>
+                </math>
+                也显示在图中，其对应的经验回归期假设为
+                <span style="font-family: Times New Roman">2.3276</span>（单位略）。
+                <br />
+            </p>
+            <br />
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                参考文献</h3>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Cunnane, C.
+                    (1978) Unbiased
+                    Plotting
+                    Positions - A Review, <span
+                        style="font-family: times new roman;font-style: italic;">Journal
+                        of
+                        Hydrology</span>, 37(3-4): 205-222.</span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Cunnane, C.
+                    (1989) <span
+                        style="font-family: times new roman;font-style: italic;">Statistical
+                        Distributions for Flood Frequency Analysis</span>,
+                    Operational Hydrology Report No. 33, World Meteorological
+                    Organization.
+                </span>
+            </p>
+
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Gringorten,
+                    I. I. (1963) A Plotting
+                    Rule for Extreme
+                    Probability Paper, <span
+                        style="font-family: times new roman;font-style: italic;">Journal
+                        of
+                        Geophysical Research</span>, 68(3):813-814.</span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Natural
+                    Environmental Research
+                    Council (1975) <span
+                        style="font-family: times new roman;font-style: italic;">Flood
+                        Studies Report (Volume 1)</span><i>: Hydrological
+                        Studies</i>,
+                    London, UK.
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Ochi M.
+                    (1990) <span
+                        style="font-family: times new roman;font-style: italic;">Applied
+                        Probability and Stochastic
+                        Processes in Engineering and
+                        Physical Sciences</span>, John Wiley & Sons.</span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Ochi M.
+                    (1998) <span
+                        style="font-family: times new roman;font-style: italic;">Ocean
+                        Waves: The
+                        Stochastic Approach</span>, Cambridge University Press.
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Onen, F.,
+                    Bagatur, T. (2017)
+                    Prediction of Flood Frequency
+                    Factor for Gumbel
+                    Distribution Using Regression and GEP Model, <span
+                        style="font-family: times new roman;font-style: italic;">Arabian
+                        Journal for Science and
+                        Engineering</span>, 42:3895-3906.</span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Ponce, V. M.
+                    (1989) <span
+                        style="font-family: times new roman;font-style: italic;">Engineering
+                        Hydrology: Principles and Practices</span>, Prentice
+                    Hall.
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Reeve, D.
+                    (2010) <span
+                        style="font-family: times new roman;font-style: italic;">Risk
+                        and
+                        Reliability:
+                        Coastal and Hydraulic Engineering</span>, Spon Press.
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                盛骤、谢式千、潘承毅
+                <span style="font-family: Times New Roman">(1989)</span>
+                <i>概率论与数理统计（第二版）</i>，高等教育出版社。
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Stedinger,
+                    J. R., Vogel, R. M.,
+                    Foufoula-Georgiou, E.
+                    (1993) Frequency Analysis of
+                    Extreme Events, <span
+                        style="font-family: times new roman;font-style: italic;">Handbook
+                        of
+                        Hydrology</span>, edited by Maidment, D. R.,
+                    McGraw-Hill, Inc.
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Subramanya
+                    K. (2008)
+                    <span
+                        style="font-family: times new roman;font-style: italic;">Engineering
+                        Hydrology (Third
+                        Edition)</span>, Tata McGraw-Hill Publishing Company
+                    Limited.
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">van Rossum, G., and
+                    the Python Development Team (2022) <i>The Python Language
+                        Reference (Release 3.9.13)</i>, Python Software
+                    Foundation (http://www.python.org)</span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Wolstenholme
+                    L. C. (1999) <span
+                        style="font-family: times new roman;font-style: italic;">Reliability
+                        Modeling: A
+                        Statistical Approach</span>, Chapman & Hall/CRC.
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

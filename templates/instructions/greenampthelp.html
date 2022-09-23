@@ -1,0 +1,1179 @@
+<!--
+ * @Author: BDFD
+ * @Date: 2022-01-29 16:07:15
+ * @LastEditTime: 2022-07-07 13:12:38
+ * @LastEditors: BDFD
+ * @Description: 
+ * @FilePath: \SideProject053_LakeBlue\templates\instructions\greenampthelp.html
+-->
+{% extends "layout/user_guide_base2.html" %} {% block content %}
+
+<head>
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- <script src="http://fred-wang.github.io/mathjax.js/mpadded-min.js"></script> -->
+    <style>
+        html {
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            margin: 0
+        }
+
+        main {
+            display: block
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: .67em 0
+        }
+
+        hr {
+            box-sizing: content-box;
+            height: 0;
+            overflow: visible
+        }
+
+        pre {
+            font-family: monospace, monospace;
+            font-size: 1em
+        }
+
+        a {
+            background-color: transparent
+        }
+
+        abbr[title] {
+            border-bottom: none;
+            text-decoration: underline;
+            text-decoration: underline dotted
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        samp {
+            font-family: monospace, monospace;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        /* img {
+    border-style: none
+} */
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0
+        }
+
+        button,
+        input {
+            overflow: visible
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        [type=button],
+        [type=reset],
+        [type=submit],
+        button {
+            -webkit-appearance: button
+        }
+
+        [type=button]::-moz-focus-inner,
+        [type=reset]::-moz-focus-inner,
+        [type=submit]::-moz-focus-inner,
+        button::-moz-focus-inner {
+            border-style: none;
+            padding: 0
+        }
+
+        [type=button]:-moz-focusring,
+        [type=reset]:-moz-focusring,
+        [type=submit]:-moz-focusring,
+        button:-moz-focusring {
+            outline: 1px dotted ButtonText
+        }
+
+        fieldset {
+            padding: .35em .75em .625em
+        }
+
+        legend {
+            box-sizing: border-box;
+            color: inherit;
+            display: table;
+            max-width: 100%;
+            padding: 0;
+            white-space: normal
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        textarea {
+            overflow: auto
+        }
+
+        [type=checkbox],
+        [type=radio] {
+            box-sizing: border-box;
+            padding: 0
+        }
+
+        [type=number]::-webkit-inner-spin-button,
+        [type=number]::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        [type=search]::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        details {
+            display: block
+        }
+
+        summary {
+            display: list-item
+        }
+
+        template {
+            display: none
+        }
+
+        [hidden] {
+            display: none
+        }
+    </style>
+</head>
+
+<div class="thebody" id="div1">
+    <!-- DEMO STYLES -->
+    <div class="row ">
+        <div class="col-md-6 m-auto">
+            <div class="row">
+                <div class="col">
+                    <h4
+                        style="font-family: 楷体;margin-bottom: 0px;margin-top: 0px;color:blue;line-height:1.45;">
+                        <strong><span
+                                style="font-family: Times New Roman;">Green-Ampt</span>下渗模型</strong>
+                    </h4>
+                </div>
+                <div class="col" align="right">
+                    <a href="/greenampt.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>计算页面</strong></a>
+                    <a href="#" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(233, 236, 239);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>技术指南</strong></a>
+                    <a href="/greenamptupdate.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>更新记录</strong></a>
+                </div>
+            </div>
+            <div class="card-header" align="right"
+                style="height:24px;padding: 0rem;background-color:rgb(233, 236, 239) ;">
+                <span
+                    style="font-size:12px;font-family:'Times New Roman',楷体;margin-top:0px;margin-bottom: 0px;">
+                    当前“技术指南”版本：202201，最后更新于2022.08
+                </span>
+            </div>
+            <h3
+                style="font-family:'Times New Roman',楷体;margin-bottom:0px;font-size:18px;font-weight:bold"><br />
+                1. 理论基础
+            </h3>
+            <p
+                style="font-family: 'Times New Roman',楷体;margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288滨水工只求解基本的 <span
+                    style="font-family: Times New Roman">Green-Ampt</span>下渗模型，不涉及它的各种改进版本。其原理可参阅相关文献，如<span
+                    style="font-family: Times New Roman">Mays</span>
+                (2019)等。在此仅列出其核心公式：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div align="left"
+                    style="margin-top: 5px;margin-bottom: 5px;margin-right:22%; margin-left:22%">
+                    <span
+                        style="float:right; font-family: Times New Roman; font-size:14px">(1)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <mi> &#x0394;
+                            <!-- greek capital letter delta -->
+                        </mi>
+                        <mi> &#x03B8;
+                            <!-- greek small letter theta -->
+                        </mi>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03B8;
+                                    <!-- greek small letter theta -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> s </mi>
+                            </mrow>
+                        </msub>
+                        <mo> - </mo>
+                        <msub>
+                            <mrow>
+                                <mi> &#x03B8;
+                                    <!-- greek small letter theta -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> i </mi>
+                            </mrow>
+                        </msub>
+                    </math> <br>
+                    <span
+                        style="float:right; font-family: Times New Roman; font-size:14px">(2)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> F </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> p </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> t </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mi> K </mi>
+                        <mi> t </mi>
+                        <mo> + </mo>
+                        <mi> &#x03C8;
+                            <!-- greek small letter psi -->
+                        </mi>
+                        <mi> &#x0394;
+                            <!-- greek capital letter delta -->
+                        </mi>
+                        <mi> &#x03B8;
+                            <!-- greek small letter theta -->
+                        </mi>
+                        <mi> ln </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mn> 1 </mn>
+                            <mo> + </mo>
+                            <mfrac>
+                                <mrow>
+                                    <msub>
+                                        <mrow>
+                                            <mi> F </mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mi> p </mi>
+                                        </mrow>
+                                    </msub>
+                                    <mrow>
+                                        <mo> ( </mo>
+                                        <mi> t </mi>
+                                        <mo> ) </mo>
+                                    </mrow>
+                                </mrow>
+                                <mrow>
+                                    <mi> &#x03C8;
+                                        <!-- greek small letter psi -->
+                                    </mi>
+                                    <mi> &#x0394;
+                                        <!-- greek capital letter delta -->
+                                    </mi>
+                                    <mi> &#x03B8;
+                                        <!-- greek small letter theta -->
+                                    </mi>
+                                </mrow>
+                            </mfrac>
+                            <mo> ) </mo>
+                        </mrow>
+                    </math>
+
+                    <br>
+                    <span
+                        style="float:right; font-family: Times New Roman; font-size:14px">(3)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> f </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> p </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> t </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mi> K </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mfrac>
+                                <mrow>
+                                    <mi> &#x03C8;
+                                        <!-- greek small letter psi -->
+                                    </mi>
+                                    <mi> &#x0394;
+                                        <!-- greek capital letter delta -->
+                                    </mi>
+                                    <mi> &#x03B8;
+                                        <!-- greek small letter theta -->
+                                    </mi>
+                                </mrow>
+                                <mrow>
+                                    <msub>
+                                        <mrow>
+                                            <mi> F </mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mi> p </mi>
+                                        </mrow>
+                                    </msub>
+                                    <mrow>
+                                        <mo> ( </mo>
+                                        <mi> t </mi>
+                                        <mo> ) </mo>
+                                    </mrow>
+                                </mrow>
+                            </mfrac>
+                            <mo> + </mo>
+                            <mn> 1 </mn>
+                            <mo> ) </mo>
+                        </mrow>
+                    </math>
+                </div>
+            </span>
+            <p style="font-family: 'Times New Roman',楷体; margin-top: 0px">
+                其中，<span
+                    style="font-family: Times New Roman"><i>θ<sub>i</sub></i></span>为土体的初始体积含水率，<span
+                    style="font-family: Times New Roman"><i>θ<sub>s</sub></i></span>为土体的饱和体积含水率（即土体的孔隙率），<span
+                    style="font-family: Times New Roman"><i>t</i></span>为时间，
+                <span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>为理论（或称潜势）累计入渗深度
+                (mm)，<span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>为理论（或称潜势）入渗率
+                (mm/h), <span
+                    style="font-family: Times New Roman"><i>K</i></span>为土体的渗透系数或饱和导水率
+                (mm/h)，<span
+                    style="font-family: Times New Roman"><i>ψ</i></span>为土体的吸力水头
+                (mm)。由公式 <span
+                    style="font-family: Times New Roman">(3)</span>可知，对于饱和土体
+                <span
+                    style="font-family: Times New Roman">(&#x0394;<i>&#x03B8;</i>
+                    = 0)</span>
+                ，<span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>始终等于<span
+                    style="font-family: Times New Roman; font-style:italic">K</span>。对于非饱和土体
+                <span
+                    style="font-family: Times New Roman">(&#x0394;<i>&#x03B8;</i>
+                    &gt; 0)</span>，<span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>随时间单调下降，其渐进极限值为<span
+                    style="font-family: Times New Roman; font-style:italic">K</span>。
+
+                <br />
+                &#12288&#12288公式(2)和(3)代表了一个连续的下渗过程，假设地表始终有足够多的积水以保证土体中充分的下渗。实际的降雨不一定能提供足够的地表积水，这样，降雨和下渗的互动过程将产生实际累计入渗深度
+                <span
+                    style="font-family: Times New Roman"><i>F</i></span>和实际入渗率<span
+                    style="font-family: Times New Roman"><i>f</i></span>。
+            </p>
+            <h3
+                style="font-family: 'Times New Roman',楷体;margin-bottom: 0px;font-size:18px;font-weight:bold">
+                2. 计算方法</h3>
+            <p
+                style="font-family: 'Times New Roman',楷体;margin-top: 0px;margin-bottom: 0px;">
+                &#12288&#12288滨水工使用渐进迭代法求解公式(2)以获得 <span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>,
+                然后按照公式(3)求得<span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>。公式(2)的迭代求解由假设的
+                <span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>初值开始，迭代计算精度为0.01
+                mm。当前后两次<span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>估计值之差的绝对值小于或等于0.01
+                mm时，迭代计算结束，最后的<span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>估计值即为
+                <span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>的近似解；否则，取前后两次
+                <span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>估计值的均值，代入公式(2)继续求解。迭代采用的计算精度不同，<span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>的结果当然会有所区别。如，采用迭代计算精度0.01
+                mm计算<span style="font-family: Times New Roman">Mays</span>
+                (2019)中算例7.4.3，
+                滨水工所得的结果与
+                <span style="font-family: Times New Roman">Mays</span>
+                (2019)的结果一致。当采用0.001 mm时，计算结果略有不同，如表1所示。迭代计算精度0.01
+                mm应该可以满足常规的工程计算要求。
+            </p><br />
+            <div align="center" style="margin-top: 0px; margin-bottom: 0px;">
+                <strong style="font-family: 'Times New Roman',楷体">表1：<span
+                        style="font-family: Times New Roman">Mays</span>
+                    (2019)算例7.4.3的<span
+                        style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>计算结果比较
+                    (单位：mm/h)</strong><br /><img
+                    src="../static/imgs/gause/table1.png" alt="Table 1">
+            </div>
+            <p
+                style="font-family: 'Times New Roman',楷体;margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288当有降雨时，降雨量首先用于填充地表的坑洼。在填洼量蓄满以后，下渗开始。填洼量蓄满的时刻为<span
+                    style="font-family: Times New Roman"><i>t<sub>d</sub></i></span>。<span
+                    style="font-family: Times New Roman"><i>t<sub>d</sub></i></span>有可能是一个标准单元时段以内某个时刻，而不一定在一个时段的起止点。如果
+                <span
+                    style="font-family: Times New Roman"><i>t<sub>d</sub></i></span>为一个时段以内某个时刻，下渗计算的第一个时间步长为
+                <span
+                    style="font-family: Times New Roman"><i>t<sub>d</sub></i></span>至该时段的终点。之后，下渗计算的时间步长恢复至标准时间步长（即用户给定的计算时间步长）。<br />
+                &#12288&#12288如果在一个时间段内有下渗发生，在这个时间段结束时，
+                <span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>会被修正，记为<span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>；具体方法在后面说明。<span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>称为修正后的潜势入渗率，代表了一个实时的入渗潜力，是土体与实际降雨过程互动的结果。如果在一个时间段内没有下渗发生，这个时间段结束时的<span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>则等于前一时间段结束时的<span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>。<br />
+                &#12288&#12288累计入渗深度的起始值为零；即，当下渗开始时，
+                <span style="font-family: Times New Roman"><i>F</i></span> =
+                <span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>
+                = 0。对于非饱和土体
+                <span style="font-family: Times New Roman">(∆<i>θ</i> &gt;
+                    0)</span>
+                ，由公式(3)可知，在理论上，
+                <span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>的起始值为正无穷大，即
+                <span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>
+                = +∞。在这种情况下，
+                滨水工假设<span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>和<span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>的起始值均为正无穷大（无具体数值），并进而假设实际入渗率(
+                <span
+                    style="font-family: Times New Roman"><i>f</i></span>)的起始值等于下渗开始时刻的降雨强度。<br />
+                &#12288&#12288由前所述，公式(2)用于计算潜势入渗深度
+                <span
+                    style="font-family: Times New Roman"><i>F<sub>p</sub></i></span>。如果实际雨量低于土体的下渗能力，公式(2)所代表的连续充分下渗过程会被扰乱，故公式(2)计算中的时间项不能采用下渗开始以来的自然累计时间。此时，公式(2)需要一个用于潜势入渗计算的等效时间，<span
+                    style="font-family: Times New Roman"><i>t<sub>e</sub></i></span>。这个等效时间虚拟了一个自下渗开始以来公式(2)所经历的累计时间。由公式(2)，
+            </p>
+            <span style="font-family: Times New Roman">
+                <div align="left"
+                    style="margin-top: 5px;margin-bottom: 5px; margin-right:22%; margin-left:22%">
+                    <span
+                        style="float:right; font-family: Times New Roman; margin-top:6px; font-size:14px">(4)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <mi> t </mi>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> F </mi>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <mi> t </mi>
+                                    <mo> ) </mo>
+                                </mrow>
+                                <mo> - </mo>
+                                <mi> &#x03C8;
+                                    <!-- greek small letter psi -->
+                                </mi>
+                                <mi> &#x0394;
+                                    <!-- greek capital letter delta -->
+                                </mi>
+                                <mi> &#x03B8;
+                                    <!-- greek small letter theta -->
+                                </mi>
+                                <mi> ln </mi>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <mn> 1 </mn>
+                                    <mo> + </mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi> F </mi>
+                                            <mrow>
+                                                <mo> ( </mo>
+                                                <mi> t </mi>
+                                                <mo> ) </mo>
+                                            </mrow>
+                                        </mrow>
+                                        <mrow>
+                                            <mi> &#x03C8;
+                                                <!-- greek small letter psi -->
+                                            </mi>
+                                            <mi> &#x0394;
+                                                <!-- greek capital letter delta -->
+                                            </mi>
+                                            <mi> &#x03B8;
+                                                <!-- greek small letter theta -->
+                                            </mi>
+                                        </mrow>
+                                    </mfrac>
+                                    <mo> ) </mo>
+                                </mrow>
+                            </mrow>
+                            <mrow>
+                                <mi> K </mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+
+                </div>
+            </span>
+            <p
+                style="font-family: 'Times New Roman',楷体;margin-top: 0px;margin-bottom: 0px">
+                其中,<span style="font-family: Times New Roman"><i>
+                        t<sub>e</sub></i>(<i>t</i>)</span>为<span
+                    style="font-family: Times New Roman"><i>t</i></span>时刻的潜势入渗等效时间。在<span
+                    style="font-family: Times New Roman"><i>t</i></span>之前，如果降雨量始终能够保证土体中充分的下渗，
+                <span
+                    style="font-family: Times New Roman"><i>t<sub>e</sub></i></span>=
+                <span
+                    style="font-family: Times New Roman"><i>t</i></span>；否则，<span
+                    style="font-family: Times New Roman"><i>t<sub>e</sub></i></span></span>&lt;
+                <span style="font-family: Times New Roman"><i>t</i>
+                </span>。<br /> &#12288&#12288如图1所示，在任一时刻<span
+                    style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>，<span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>和<span
+                    style="font-family: Times New Roman"><i>i</i></span>之间可能存在三种情况。时刻
+                <span
+                    style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>后的计算时间步长为<span
+                    style="font-family: Times New Roman"><i>dt</i></span>，下一时刻为<span
+                    style="font-family: Times New Roman"><i>t</i><sub>2</sub></span>。在情况(1)或(2)中，
+                <span
+                    style="font-family: Times New Roman"><i>i</i>(<i>t</i><sub>1</sub>)</span>
+                &lt; <span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i>(<i>t</i><sub>1</sub>)
+                </span> ；在情况(3)中，<span
+                    style="font-family: Times New Roman"><i>i</i>(<i>t</i><sub>1</sub>)</span>&ge;
+                <span style="font-family: Times New Roman"><i>f<sub>pu</sub></i>
+                    (<i>t</i><sub>1</sub>)</span>。这三种情况亦可参阅
+                <span style="font-family: Times New Roman">Alan A. Smith
+                    Inc.</span>
+                (2004)。如，对于非饱和土体，下渗的初始时刻属于情况(1)或(2)。下渗计算在这三种情况中将有所区别。
+            </p>
+            <div align="center" style="margin-top: 0px;margin-bottom: 0px;"><img
+                    src="../static/imgs/gause/graph1.png"
+                    alt="Graph 1"><br /><span style="margin-bottom: 0px"><strong
+                        style="font-family: 'Times New Roman',楷体;">图1：在任一时刻<span
+                            style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>和<span
+                            style="font-family: Times New Roman"><i>i</i></span>之间的三种情况</strong>
+                </span>
+            </div><br />
+            <div style="margin-bottom: 0px; margin-top: 0px;">
+                <ul style="margin-top: 0px;margin-bottom: 0px;">
+                    <li style="font-family: 'Times New Roman',楷体;">情况(1)：在<span
+                            style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>和<span
+                            style="font-family: Times New Roman"><i>t</i><sub>2</sub></span>之间，所有降雨会下渗，没有净雨产生。
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">情况(2)：<span
+                            style="font-family: Times New Roman"><i>dt</i></span>被分为两段，前一段长度为<span
+                            style="font-family: Times New Roman"><i>t<sub>t</sub></i></span>，后一段长度为<span
+                            style="font-family: Times New Roman"><i>dt</i>－<i>t<sub>t</sub></i></span>
+                        。在前一段，所有降雨会下渗，没有净雨产生。在后一段，部分降雨将成为净雨。
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">情况(3)：在<span
+                            style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>和<span
+                            style="font-family: Times New Roman"><i>t</i><sub>2</sub></span>之间，入渗按该时段内的<span
+                            style="font-family: Times New Roman"><i>f<sub>pu</sub></i></span>发生，部分降雨将成为净雨。
+                    </li>
+                </ul>
+            </div>
+            <p
+                style="font-family: 'Times New Roman',楷体;margin-top: 0px;margin-bottom: 0px">
+                &#12288&#12288情况(1)或(2)可由积水时间(<span
+                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>)来进一步判别。由<span
+                    style="font-family: Times New Roman">Alan A. Smith Inc.
+                    (2004)</span> 所示，在<span
+                    style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>之后，对任意降雨强度<span
+                    style="font-family: Times New Roman"><i>i</i></span>
+                (mm/h)，可结合公式(3)获得一个对应的<span
+                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>：
+            </p>
+            <span style="font-family: Times New Roman">
+                <div align="left"
+                    style="margin-top: 5px;margin-bottom: 5px; margin-right:22%; margin-left:22%">
+                    <span
+                        style="float:right; font-family: Times New Roman; font-size:14px">(5)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'>
+                        <msub>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> p </mi>
+                            </mrow>
+                        </msub>
+                        <mo> = </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> K </mi>
+                                <mi> &#x03C8;
+                                    <!-- greek capital letter psi -->
+                                </mi>
+                                <mi> &#x0394;
+                                    <!-- greek capital letter delta -->
+                                </mi>
+                                <mi> &#x03B8;
+                                    <!-- greek small letter theta -->
+                                </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> i </mi>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <mi> i </mi>
+                                    <mo> - </mo>
+                                    <mi> K </mi>
+                                    <mo> ) </mo>
+                                </mrow>
+                            </mrow>
+                        </mfrac>
+                        <mo> - </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> F </mi>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi> t </mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn> 1 </mn>
+                                        </mrow>
+                                    </msub>
+                                    <mo> ) </mo>
+                                </mrow>
+                            </mrow>
+                            <mrow>
+                                <mi> i </mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+
+                </div>
+            </span>
+            <blockquote style="margin-bottom: 0px; margin-top: 0px">
+                在情况(1)中，<span
+                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>
+                &ge; <span
+                    style="font-family: Times New Roman"><i>dt</i></span>。在情况(2)中，<span
+                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>
+                &lt; <span
+                    style="font-family: Times New Roman"><i>dt</i></span>，此时<span
+                    style="font-family: Times New Roman"><i>t<sub>t</sub></i></span>
+                = <span
+                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>。
+                <br /><br />2.1 情况(1)：<span
+                    style="font-family: Times New Roman"><i>i</i></span>(
+                <span
+                    style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>)
+                &lt; <span style="font-family: Times New Roman">
+                    <i>f<sub>pu</sub></i></span>(<span
+                    style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>),
+                <span
+                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>
+                &ge; <span
+                    style="font-family: Times New Roman"><i>dt</i></span><br />
+                &#12288&#12288主要计算内容如下：
+            </blockquote>
+            <div>
+                <ul style="margin-top: 0px;">
+                    <li style="font-family: 'Times New Roman',楷体;"><span><span
+                                style="font-family: Times New Roman"><i>f</i>(<i>t</i><sub>1</sub>)</span>
+                            =
+                            <span
+                                style="font-family: Times New Roman"><i>i</i>(<i>t</i><sub>1</sub>)</span></span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;"><span><span
+                                style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>和<span
+                                style="font-family: Times New Roman"><i>t</i><sub>2</sub></span>之间的下渗量<span
+                                style="font-family: Times New Roman"><i>F</i>[<i>t</i><sub>1</sub>,<i>t</i><sub>2</sub>]</span>
+                            =
+                            <span
+                                style="font-family: Times New Roman"><i>i</i>(<i>t</i><sub>1</sub>)⋅<i>dt</i></span>。与<span
+                                style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>1</sub>)</span>累加，可以获得<span
+                                style="font-family: Times New Roman"><i>t<sub>d</sub></i></span>和
+                            <span
+                                style="font-family: Times New Roman"><i>t</i><sub>2</sub></span>之间的总下渗量<span
+                                style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>2</sub>)。</span></span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">由公式(3)获得<span
+                            style="font-family: Times New Roman"><i>f<sub>pu</sub></i>(<i>t</i><sub>2</sub>)</span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">由公式(4)获得<span
+                            style="font-family: Times New Roman"><i>t<sub>e</sub></i>(<i>t</i><sub>2</sub>)</span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">这个时段的净雨<span
+                            style="font-family: Times New Roman">(<i>i<sub>e</sub></i>)</span>为零
+                    </li>
+                </ul>
+            </div>
+            <blockquote style="margin-bottom: 0px;"> 2.2 情况(2)：<span
+                    style="font-family: Times New Roman"><i>i</i>(<i>t</i><sub>1</sub>)</span>
+                &lt; <span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i>(<i>t</i><sub>1</sub>)</span>,
+                <span
+                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>
+                &lt; <span style="font-family: Times New Roman"><i>dt</i>
+                </span><br /> &#12288&#12288主要计算内容如下：
+            </blockquote>
+            <div style="margin-bottom: 0px;">
+                <ul style="margin-top: 0px;margin-bottom: 0px;">
+                    <li style="font-family: 'Times New Roman',楷体;"><span><span
+                                style="font-family: Times New Roman"><i>f</i>(<i>t</i><sub>1</sub>)</span>
+                            =
+                            <span
+                                style="font-family: Times New Roman"><i>i</i>(<i>t</i><sub>1</sub>)</span></span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;"><span><span
+                                style="font-family: Times New Roman"><i>t<sub>t</sub></i>
+                                =
+                                <span
+                                    style="font-family: Times New Roman"><i>t<sub>p</sub></i></span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;"><span
+                            style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>和<span
+                            style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>+<span
+                            style="font-family: Times New Roman"><i>t<sub>t</sub></i></span>之间的下渗量<span
+                            style="font-family: Times New Roman"><i>F</i>[<i>t</i><sub>1</sub>,<i>t</i><sub>1</sub>+<i>t<sub>t</sub></i>]
+                            =<i>i</i>(<i>t</i><sub>1</sub>)⋅<i>t<sub>t</sub></i></span>。与<span
+                            style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>1</sub>)</span>累加，可以获得<span
+                            style="font-family: Times New Roman"><i>t</i><sub>1</sub>+<i>t<sub>t</sub></i></span>处的总下渗量
+                        <span
+                            style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>1</sub>+<i>t<sub>t</sub></i>)</span>。
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;"><span
+                            style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>2</sub>)</span>可结合<span
+                            style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>1</sub>+<i>t<sub>t</sub></i>)</span>根据公式(2)的迭代计算求得，但需要<span
+                            style="font-family: Times New Roman"><i>t<sub>e</sub></i>(<i>t</i><sub>2</sub>)</span>。首先由公式(4)获得
+                        <span
+                            style="font-family: Times New Roman"><i>t<sub>e</sub></i>(<i>t</i><sub>1</sub>+<i>t<sub>t</sub></i>)</span>，然后，
+                    </li>
+                </ul>
+            </div>
+            <span style="font-family: Times New Roman">
+                <div align="left"
+                    style="margin-bottom: 5px;margin-right:22%; margin-left:22%">
+                    <span
+                        style="float:right; font-family: Times New Roman; font-size:14px">(6)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                                <mrow>
+                                    <mn> 2 </mn>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                                <mrow>
+                                    <mn> 1 </mn>
+                                </mrow>
+                            </msub>
+                            <mo> + </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> + </mo>
+                        <mi> d</mi>
+                        <mi>t </mi>
+                        <mo> - </mo>
+                        <msub>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                        </msub>
+                    </math>
+                </div>
+            </span>
+            <div style="margin-top: 0px; margin-bottom: 0px">
+                <ul style=" margin-top: 0px; margin-bottom: 0px">
+                    <li
+                        style=" font-family: 'Times New Roman',楷体;list-style:none;">
+                        基于<span
+                            style="font-family: Times New Roman"><i>t<sub>e</sub></i>(<i>t</i><sub>2</sub>)</span>，由公式(2)获得<span
+                            style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>2</sub>)</span>。
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">由公式(3)获得<span
+                            style="font-family: Times New Roman"><i>f<sub>pu</sub></i>(<i>t</i><sub>2</sub>)</span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;"><span
+                            style="font-family: Times New Roman"><i>t</i><sub>1</sub></span>处的净雨，<span
+                            style="font-family: Times New Roman"><i>i<sub>e</sub></i>(<i>t</i><sub>1</sub>)</span>，可按下式求得：
+                    </li>
+                </ul>
+            </div>
+            <span style="font-family: Times New Roman">
+                <div align="left" style="margin-right:22%; margin-left:22%">
+                    <span
+                        style="float:right; font-family: Times New Roman; font-size:14px">(7)</span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> i </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                                <mrow>
+                                    <mn> 1 </mn>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <mi> i </mi>
+                        <mrow>
+                            <mo> ( </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                                <mrow>
+                                    <mn> 1 </mn>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> - </mo>
+                        <mfrac>
+                            <mrow>
+                                <mi> F </mi>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi> t </mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn> 2 </mn>
+                                        </mrow>
+                                    </msub>
+                                    <mo> ) </mo>
+                                </mrow>
+                                <mo> - </mo>
+                                <mi> F </mi>
+                                <mrow>
+                                    <mo> ( </mo>
+                                    <msub>
+                                        <mrow>
+                                            <mi> t </mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn> 1 </mn>
+                                        </mrow>
+                                    </msub>
+                                    <mo> ) </mo>
+                                </mrow>
+                            </mrow>
+                            <mrow>
+                                <mi> d</mi>
+                                <mi>t </mi>
+                            </mrow>
+                        </mfrac>
+                    </math>
+
+                </div>
+            </span>
+            <div style="margin-top: 0px">
+                <ul style="margin-top: 0px;">
+                    <li
+                        style="font-family: 'Times New Roman',楷体;margin-top: 0px;list-style:none;">
+                        </span>注意：在一个时间步长内，<span
+                            style="font-family: Times New Roman"><i>i<sub>e</sub></i></span>是该步长内的平均值。
+                    </li>
+                </ul>
+            </div>
+            <blockquote style="margin-bottom: 0px;padding-right: 50px"> 2.3
+                情况(3)：
+                <span
+                    style="font-family: Times New Roman"><i>i</i>(<i>t</i><sub>1</sub>)</span>
+                &ge; <span
+                    style="font-family: Times New Roman"><i>f<sub>pu</sub></i>
+                    (<i>t</i><sub>1</sub>)</span><br /> &#12288&#12288主要计算内容如下：
+            </blockquote>
+            <div style="margin-bottom: 0px">
+                <ul style="margin-top: 0px;margin-bottom: 0px">
+                    <li style="font-family: 'Times New Roman',楷体;"><span
+                            style="font-family: Times New Roman"><i>f</i>(<i>t</i><sub>1</sub>)</span>
+                        =
+                        <span
+                            style="font-family: Times New Roman"><i>f<sub>pu</sub></i>
+                            (<i>t</i><sub>1</sub>)</span>
+                    </li>
+                    <li
+                        style="font-family: 'Times New Roman',楷体;margin-bottom: 0px">
+                        <span
+                            style="font-family: Times New Roman"><i>t<sub>e</sub></i>(<i>t</i><sub>2</sub>)</span>由<span
+                            style="font-family: Times New Roman"><i>t<sub>e</sub></i>(<i>t</i><sub>1</sub>)</span>直接累加：
+                    </li>
+                </ul>
+            </div>
+            <span style="font-family: Times New Roman">
+                <div align="left" style="margin-right:22%; margin-left:22%">
+                    <span
+                        style=" float:right; font-family: Times New Roman; font-size:14px">(8)
+                    </span>
+                    <math xmlns='http://www.w3.org/1998/Math/MathML'
+                        style=" font-size:15px">
+                        <msub>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                                <mrow>
+                                    <mn> 2 </mn>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> = </mo>
+                        <msub>
+                            <mrow>
+                                <mi> t </mi>
+                            </mrow>
+                            <mrow>
+                                <mi> e </mi>
+                            </mrow>
+                        </msub>
+                        <mrow>
+                            <mo> ( </mo>
+                            <msub>
+                                <mrow>
+                                    <mi> t </mi>
+                                </mrow>
+                                <mrow>
+                                    <mn> 1 </mn>
+                                </mrow>
+                            </msub>
+                            <mo> ) </mo>
+                        </mrow>
+                        <mo> + </mo>
+                        <mi> d </mi>
+                        <mi> t </mi>
+                    </math>
+                </div>
+            </span>
+            <div>
+                <ul style="margin-top:0px">
+                    <li style="font-family: 'Times New Roman',楷体;">基于<span
+                            style="font-family: Times New Roman"><i>t<sub>e</sub></i>(<i>t</i><sub>2</sub>)</span>，由公式(2)获得<span
+                            style="font-family: Times New Roman"><i>F</i>(<i>t</i><sub>2</sub>)</span>。
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">由公式(3)获得<span
+                            style="font-family: Times New Roman"><i>f<sub>pu</sub></i>(<i>t</i><sub>2</sub>)</span>
+                    </li>
+                    <li style="font-family: 'Times New Roman',楷体;">由公式(7)获得<span
+                            style="font-family: Times New Roman"><i>i<sub>e</sub></i>(<i>t</i><sub>1</sub>)</span></li></ul></div>
+            <h3
+                style="font-family: 'Times New Roman',楷体;margin-bottom:0px;font-size:18px;font-weight:bold">
+                3. 参数输入</h3>
+            <p style="font-family: 'Times New Roman',楷体;margin-top:0px;">
+                &#12288&#12288用户需要在参数输入页面上给定以下信息：
+            </p>
+            <div>
+                <ul style="margin-bottom:0px;">
+                    <li style="font-family: 'Times New Roman',楷体;"><span
+                            style="font-family: Times New Roman"><i>θ<sub>i</sub></i></span>,
+                        <span
+                            style="font-family: Times New Roman"><i>θ<sub>s</sub></i></span>,
+                        <span
+                            style="font-family: Times New Roman"><i>K</i></span>和<span
+                            style="font-family: Times New Roman"><i>ψ</i></span>
+                    </li><br />
+                    <li style="font-family: 'Times New Roman',楷体;">时间步长 (min)
+                    </li>
+                    <li
+                        style="font-family: 'Times New Roman',楷体;list-style: none;">
+                        这是指计算所采用的时间步长。在需要生成净雨过程时，这个时间步长必须和降雨强度过程的时间步长一致。
+                    </li>
+                    <br />
+                    <li style="font-family: 'Times New Roman',楷体;">总时间步长数</li>
+                    <li
+                        style="font-family: 'Times New Roman',楷体;list-style: none;">
+                        这是指分析时段内的总时间步长数，即进行计算的总时长。当需要生成净雨过程时，如果用户给定的分析时段短于或等于降雨强度过程，滨水工的计算及结果展示将采用降雨强度过程的时长；如果用户给定的分析时段长于降雨强度过程，计算及结果展示将采用用户给定的分析时长，但假定降雨结束之后的降雨强度均为零。这一项只能输入整数，不得带有小数点。
+                    </li><br />
+                    <li style="font-family: 'Times New Roman',楷体;">地表初期填洼量 (mm)
+                    </li>
+                    <li
+                        style="font-family: 'Times New Roman',楷体;list-style: none;">
+                        这一项仅在需要生成净雨过程时输入。地表初期填洼量可以为零，即不考虑这一项，此时应输入0。</li><br />
+                    <li style="font-family: 'Times New Roman',楷体;">降雨强度过程 (mm/h)
+                    </li>
+                    <li
+                        style="font-family: 'Times New Roman',楷体;list-style: none;">
+                        这一项仅在需要生成净雨过程时输入。降雨强度过程的格式为数值和逗号。由数值起始，一个数值后面紧跟一个逗号，但最后一个数值后不能有逗号。滨水工仅接受半角的逗号，不接受全角的逗号。一个降雨强度值为一个时间步长内的恒定值。降雨强度过程的时间步长必须和分析计算采用的时间步长一致。如降雨强度过程的总降雨量不足以填满初期填洼量，程序会自动终止，不会进行下渗计算。
+                    </li>
+                </ul>
+            </div>
+            <p style="font-family: 'Times New Roman',楷体; margin-top: 0px;">
+                <br />
+
+                &#12288&#12288对于需要页面输入的参数，请务必输入数值。否则滨水工无法有效运行。
+            </p>
+            <h3
+                style="font-family: 'Times New Roman',楷体;margin-bottom:0px;font-size:18px;font-weight:bold">
+                4. 结果输出</h3>
+               
+                
+            <p style="font-family: 'Times New Roman',楷体;margin-top: 0px">
+            &#12288&#12288滨水工采用<span
+                        style="font-family: Times New Roman">Python 3.9.0 (van
+                        Rossum</span>等<span
+                        style="font-family: Times New Roman">
+                        2022)</span>开发本计算程序。<br />
+                &#12288&#12288在输出的计算结果图上，为方便与降雨强度比较，<span
+                    style="font-family: Times New Roman"><i>f</i></span>用柱状图表示；即，一个时间步长起点处的<span
+                    style="font-family: Times New Roman"><i>f</i></span>显示在整个步长内。<br />
+                &#12288&#12288地表坑洼的充填速率即单位时间内的填洼量（或消耗的降雨量），按降雨初期相应时段内的降雨强度表示。
+                <br /> &#12288&#12288如果无需生成净雨过程，滨水工仅输出<span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>。如果降雨量不足以蓄满地表的坑洼，没有下渗产生，也不会有净雨产生，此时滨水工仅输出<span
+                    style="font-family: Times New Roman"><i>f<sub>p</sub></i></span>。
+                <br />&#12288&#12288在输出的数值结果中，净雨强度按一个步长内的平均值给出，见公式 <span
+                    style="font-family: Times New Roman">(7)</span>。然而，出于展示目的，对于图<span
+                    style="font-family: Times New Roman">1</span>中的情况<span
+                    style="font-family: Times New Roman">(2)</span>，结果图中按三角形近似绘出净雨强度。
+            </p>
+             
+            <h3
+                style="margin-bottom: 0px;font-family:'Times New Roman',楷体;font-size: 18px;font-weight:bold">
+                参考文献</h3>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Alan A. Smith Inc.
+                    (2004)
+                    <i>MIDUSS
+                        Version 2
+                        Reference Manual</i>
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">Mays, L.W. (2019)
+                    <i>Water
+                        Resources
+                        Engineering, 3rd Edition,</i>
+                    Wiley.
+                </span>
+            </p>
+            <p style="margin-top: 0px;margin-bottom: 15px;line-height: 1.0;">
+                <span style="font-family: Times New Roman">
+                    van Rossum, G., and the Python Development Team (2022)
+                    <i>The
+                        Python Language Reference (Release 3.9.13)</i>, Python
+                    Software Foundation (http://www.python.org)<br />
+                </span>
+            </p>
+        </div>
+    </div>
+    {% endblock %}

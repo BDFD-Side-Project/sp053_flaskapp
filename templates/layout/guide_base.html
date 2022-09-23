@@ -1,0 +1,237 @@
+<!--
+ * @Date         : 2022-08-12 16:17:51
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2022-08-31 11:38:00
+ * @LastEditors  : BDFD
+ * @Description  : 
+ * @FilePath     : \templates\layout\guide_base.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滨水工</title>
+
+    <!-- ITEM ASSETS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/css/normalize.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/css/item.css">
+
+    <!-- DEMO STYLES -->
+    <link
+        href="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/css/css.css"
+        rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/css/styles.css"
+        rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='styles/button.css') }}"
+        rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap @5.1.3 -->
+    <link
+        href="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/SP053Template.css"
+        rel="stylesheet">
+    <script
+        src="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/SP053Template.js"></script>
+</head>
+
+<body>
+    <!-- MONAKA HEADER -->
+    <header class="monaka-header monaka-header-aligned-left" role="banner">
+        <div
+            class="monaka-container monaka-flex monaka-align-middle monaka-align-justify">
+            <!-- MOBILE MENU TOGGLE -->
+            <div class="monaka-menu-toggler monaka-mobile-only">
+                <label for="MONAKA-NAV">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewbox="0 0 24 24">
+                        <path d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z">
+                        </path>
+                        <path fill="none" d="M0 0h24v24H0V0z"></path>
+                    </svg>
+                </label>
+            </div>
+            <!-- MOBILE MENU TOGGLE END -->
+
+            <!-- MOBILE/DESKTOP LOGO -->
+            <!-- <div class="monaka-logo">
+                <h1>
+                    <a href="" title="Knox">
+                        <img src="../static/nav/picture/logo-light.png" alt="Knox Logo Light" class="monaka-logo-light">
+                        <img src="../static/nav/picture/logo-dark.png" alt="Knox Logo Dark" class="monaka-logo-dark">
+                        <span>Knox</span>
+                    </a>
+
+                </h1>
+            </div> -->
+            <!-- MOBILE/DESKTOP LOGO END -->
+
+            <div class="monaka-flex monaka-align-middle lg:monaka-flex-auto">
+                <input type="checkbox" id="MONAKA-NAV"
+                    class="monaka-menu-monitor monaka-hidden">
+                <label for="MONAKA-NAV" class="monaka-menu-overlay"></label>
+
+                <!-- MONAKA MENU -->
+                <nav class="monaka-menu" role="navigation">
+                    <ul class="monaka-menu-title">
+                        <li>
+
+                            <!-- MOBILE MENU TOGGLE -->
+                            <div class="monaka-menu-toggler">
+                                <label for="MONAKA-NAV">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24"
+                                        viewbox="0 0 24 24">
+                                        <path
+                                            d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z">
+                                        </path>
+                                        <path fill="none" d="M0 0h24v24H0V0z">
+                                        </path>
+                                    </svg>
+                                </label>
+                            </div>
+                            <!-- MOBILE MENU TOGGLE END -->
+
+                            <!-- MOBILE LOGO
+                            <div class="monaka-logo">
+                                <h1>
+                                    <a href="" title="Knox">
+                                        <img src="../static/nav/picture/logo-light.png" alt="Knox Logo Light" class="monaka-logo-light">
+                                        <img src="../static/nav/picture/logo-dark.png" alt="Knox Logo Dark" class="monaka-logo-dark">
+                                        <span>Knox</span>
+                                    </a>
+
+                                </h1>
+                            </div> -->
+                            <!-- MOBILE LOGO END -->
+
+                        </li>
+                    </ul>
+                    <ul class="monaka-menu-body">
+                        <li class="monaka-menu-item"><a href="/"
+                                style="font-family:SimHei;font-weight:1000;"><i
+                                    class="fas fa-home"></i>
+                                <span>&#8197&#8197首&#8195页&#8197&#8197</span></a>
+                        </li>
+                        <li class="monaka-menu-item">
+                            <a href="#"
+                                style="font-family:SimHei;font-weight:bold;"><i
+                                    class="fas fa-shipping-fast"></i>
+                                <span>计算模块</span> <span
+                                    class="monaka-menu-arrow"></span></a>
+                            <ul>
+                                <!-- DROPDOWN MENU -->
+                                <li class="monaka-menu-item"><a href="#"
+                                        style="font-family:SimHei;font-weight:bold;"><i
+                                            class="fas fa-fingerprint"></i>
+                                        <span>频率分析</span><span
+                                            class="monaka-menu-arrow"></span></a>
+                                    <ul>
+                                        <li class="monaka-menu-item"><a
+                                                href="/gumbel.html"
+                                                style="font-family:Arial,SimHei;font-weight:bold;"><span>Gumbel分布</span></a>
+                                        </li>
+                                        <li class="monaka-menu-item"><a href="#"
+                                                style="font-family:SimHei;font-weight:bold;"><span>计算单元2</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="monaka-menu-item">
+                                    <a href="#"
+                                        style="font-family:SimHei;font-weight:bold;"><i
+                                            class="fas fa-baby-carriage"></i>
+                                        <span>波浪条件</span> <span
+                                            class="monaka-menu-arrow"></span></a>
+                                    <ul>
+                                        <li class="monaka-menu-item"><a
+                                                href="/wavespectra.html"
+                                                style="font-family:SimHei;font-weight:bold;"><span>经验波浪频率谱</span></a>
+                                        </li>
+                                        <li class="monaka-menu-item"><a href="#"
+                                                style="font-family:SimHei;font-weight:bold;"><span>计算单元2</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="monaka-menu-item"><a href="#"
+                                        style="font-family:SimHei;font-weight:bold;"><i
+                                            class="fas fa-basketball-ball"></i>
+                                        <span>地表水文</span><span
+                                            class="monaka-menu-arrow"></span></a>
+                                    <ul>
+                                        <li class="monaka-menu-item"><a
+                                                href="/greenampt.html"
+                                                style="font-family:Arial,SimHei;font-weight:bold;"><span>Green-Ampt下渗模型</span></a>
+                                        </li>
+                                        <li class="monaka-menu-item"><a href="#"
+                                                style="font-family:SimHei;font-weight:bold;"><span>计算单元2</span></a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="monaka-menu-item monaka-menu-active"><a
+                                href="/guide.html"
+                                style="font-family:SimHei;font-weight:bold;background-color: rgb(235, 235, 237);color: rgb(0, 20, 150);"><i
+                                    class="fas fa-home"></i>
+                                <span>使用说明</span></a></li>
+                        <li class="monaka-menu-item"><a href="/disclaim.html"
+                                style="font-family:SimHei;font-weight:bold;"><i
+                                    class="fas fa-home"></i>
+                                <span>免责声明</span></a></li>
+                    </ul>
+                </nav>
+                <div class="monaka-menu-right-section"
+                    style="margin-top:0px;color:rgb(0, 20, 150)">
+                    <span
+                        style="font-family:SimHei;font-size:17px;"><strong>滨水工程工作室</strong>
+                        <br />
+                        <span style="font-family:Arial;font-size:15px;"><strong>Waterfront
+                                Engineering Studio</strong>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="monaka-header-shadow"></div>
+    </header>
+    <div class="monaka-header-spacer"></div>
+    <!-- MONAKA HEADER END -->
+
+    <!-- DEMO CONTENT -->
+    <main id="content">
+        <div class="demo">
+            {% block content %} {% endblock %}
+        </div>
+    </main>
+
+    <!-- DEMO FOOTER -->
+    {% block counter %} {% endblock %}
+    <div style="border: 0.5px solid #001496"></div>
+    <footer id="footer">
+        <p style="font-size:13px;margin-bottom:10px">©2022 www.waterfrontes.com
+            版权所有。All rights reserved.
+        </p>
+    </footer>
+
+    <!-- ITEM SCRIPTS -->
+    <script
+        src=" https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/js/item.js "></script>
+
+    <!-- DEMO SCRIPTS -->
+    <script
+        src=" https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/js/clipboard.js "></script>
+    <script
+        src=" https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/static/Nav/js/scripts.js "></script>
+
+</body>
+
+</html>

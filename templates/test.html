@@ -1,0 +1,109 @@
+<!--
+ * @Author: BDFD
+ * @Date: 2022-03-06 13:59:39
+ * @LastEditTime: 2022-03-07 11:29:14
+ * @LastEditors: BDFD
+ * @Description: 
+ * @FilePath: \SideProject053_LakeBlue\templates\test.html
+-->
+<html>
+
+<head>
+    <title>Form Validation</title>
+    <script type="text/javascript">
+         < !--
+            // Form validation code will come here.
+         //-->
+    </script>
+</head>
+
+<body>
+    <form action="/cgi-bin/test.cgi" name="myForm" onsubmit="return(validate());">
+        <table cellspacing="2" cellpadding="2" border="1">
+
+            <tr>
+                <td align="right">Number</td>
+                <td><input type="text" name="Number" /></td>
+            </tr>
+
+            <!-- <tr>
+                <td align="right">EMail</td>
+                <td><input type="text" name="EMail" /></td>
+            </tr>
+
+            <tr>
+                <td align="right">Zip Code</td>
+                <td><input type="text" name="Zip" /></td>
+            </tr>
+
+            <tr>
+                <td align="right">Country</td>
+                <td>
+                    <select name="Country">
+                        <option value="-1" selected>[choose yours]</option>
+                        <option value="1">USA</option>
+                        <option value="2">UK</option>
+                        <option value="3">INDIA</option>
+                    </select>
+                </td>
+            </tr> -->
+
+            <tr>
+                <td align="right"></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+
+        </table>
+    </form>
+    <script type="text/javascript">
+            function validate() {
+                var numbers = /^[0-9]+$/;
+                var snumbers = /^(0(\.\d+)?|1(\.0+)?)$/;
+                var z = document.myForm.Number.value
+                if (z == "") {
+                    alert("Number Column Input: Input can't be empty!");
+                    document.myForm.Number.focus();
+                    return false;
+                } else if (!z.match(numbers) && !z.match(snumbers)) {
+                    alert("Number Column Input: Please enter postive number value");
+                    document.myForm.Number.focus();
+                    return false;
+                }
+                else if (!z.match(snumbers)) {
+                    alert("Number Column Input: Please enter number only betwee 0-1");
+                    document.myForm.Number.focus();
+                    return false;
+                }
+                // else if (document.myForm.Name.value > 0 || document.myForm.Name.value < 1) {
+                //     alert("Name Column Input: Please enter number between 0-1");
+                //     document.myForm.Name.focus();
+                //     return false;
+                // }
+                // else if (document.myForm.Name.value > 0 || document.myForm.Name.value < 1) {
+                //     alert("Please enter valid number");
+                //     document.myForm.Name.focus();
+                //     return false;
+                // }
+                if (document.myForm.EMail.value == "") {
+                    alert("Please provide your Email!");
+                    document.myForm.EMail.focus();
+                    return false;
+                }
+                if (document.myForm.Zip.value == "" || isNaN(document.myForm.Zip.value) ||
+                    document.myForm.Zip.value.length != 5) {
+
+                    alert("Please provide a zip in the format #####.");
+                    document.myForm.Zip.focus();
+                    return false;
+                }
+                if (document.myForm.Country.value == "-1") {
+                    alert("Please provide your country!");
+                    return false;
+                }
+                return (true);
+            }
+
+    </script>
+</body>
+
+</html>

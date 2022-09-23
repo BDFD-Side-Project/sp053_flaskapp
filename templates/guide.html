@@ -1,0 +1,60 @@
+<!--
+ * @Date         : 2022-08-07 22:37:49
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2022-08-29 11:57:38
+ * @LastEditors  : BDFD
+ * @Description  : 
+ * @FilePath     : \templates\guide.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+<!-- This is the user nstruction page of waterfrontes.com
+    Created on : Sep 06, 2021
+    Author     : April Zhou -->
+{% extends "./layout/guide_base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <p
+                style="font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
+                &#12288&#12288每一个计算单元均包括一个“计算页面”、一个“技术指南”页面和一个“更新记录”页面。</p>
+            <p
+                style="font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
+                &#12288&#12288“技术指南”涵盖了相关基本原理、计算方法和“计算页面”的操作说明。用户可阅读“技术指南”以获得帮助。
+            </p>
+            <p
+                style="font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
+                &#12288&#12288“计算页面”为核心计算程序的交互界面，包括“参数输入”和“计算结果”两个区域。用户需按照格式要求在“参数输入”区域正确输入参数。在“参数输入”区域的底部设有计算键，点击即可实现计算。计算完成以后，所有计算结果呈列在“计算结果”区域。请务必下拉页面以显示所有结果；在结果的末尾有提示：“结果展示结束”。（不建议同时打开两个或多个带有计算结果的“计算页面”，因为缓存冲突可能会影响各自的结果图片。）
+                位于“参数输入”区域底部的打印键按A4页面对“计算页面”的内容进行了专门的布局设置；建议采用这个打印键进行页面打印。
+            </p>
+            <p
+                style=" font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
+                &#12288&#12288“更新记录”展示核心计算程序及其交互界面和“技术指南”的更新历史。
+            </p>
+            <p
+                style="font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
+                &#12288&#12288计算单元主要开发自相关的基本理论。针对某一项计算内容，当计算公式或者技术参数有若干选项时，滨水工仅从文献中采用典型的选项。除非特别说明，这些计算单元的开发并未基于某特定的规范或技术手册。因此，用户在使用之前应该仔细阅读“技术指南”、充分了解相关计算内容的适用条件，从而合理应用这些计算单元并正确解读计算结果。
+            </p>
+            <p
+                style="font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
+                &#12288&#12288目前滨水工未开发手机版。强烈建议在台式电脑或笔记本电脑上使用本网站。
+            </p>
+            <p
+                style="font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
+                &#12288&#12288如在使用中遇到问题，也可联系滨水工，滨水工会尽力提供帮助。
+            </p>
+        </div>
+        <div class="col-md-4" align="center">
+            <img src="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/guidepage.jpg"
+                alt="">
+            <p align="right"
+                style="font-size:14px;font-family:'Times New Roman',楷体">
+                从重庆鹅岭公园眺望嘉陵江
+            </p>
+        </div>
+    </div>
+</div>
+<p style="margin-top:49px"></p>
+<br />
+{% endblock %}

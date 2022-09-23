@@ -1,0 +1,663 @@
+<!--This is the count model page of waterfrontes.com Created on :
+Oct 09, 2021 Author : April Zhou -->
+<!-- ////////////// end of top banner //////////////// -->
+{% extends "./layout/calculation_base.html" %} {% block content %}
+
+<link rel="stylesheet" href="../static/styles/output.css">
+<link rel="stylesheet" href="../static/styles/gu_output.css">
+<link href="{{ url_for('static',filename='styles/button.css') }}"
+    rel="stylesheet" type="text/css" />
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<div class="thebody" id="div1">
+    <div class="row ">
+        <div class="col-md-6 m-auto">
+            <div class="row">
+                <div class="col">
+                    <h4
+                        style="font-family: 楷体;margin-bottom: 0px;margin-top: 0px;color:blue;line-height:1.45;">
+                        <strong><span
+                                style="font-family: Times New Roman;">Gumbel</span>分布</strong>
+                    </h4>
+                </div>
+                <div class="col" align="right">
+                    <a href="#" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(233, 236, 239);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>计算页面</strong></a>
+                    <a href="/gumbelhelp.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>技术指南</strong></a>
+                    <a href="/gumbelupdate.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>更新记录</strong></a>
+                </div>
+            </div>
+            <div class="card-header" align="right"
+                style="height:24px;padding: 0rem;background-color:rgb(233, 236, 239) ;">
+                <span
+                    style="font-size:12px;font-family:'Times New Roman',楷体;margin-top:0px;margin-bottom:0px;">
+                    当前计算程序版本：202201，最后更新于2022.08
+                </span>
+            </div>
+            <p style="margin-top:15px"></p>
+            <div class="card-header"
+                style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+                <h5 style="font-family: 楷体; margin-bottom: 0px" align="left">
+                    <strong>参数输入</strong>
+                </h5>
+            </div>
+            <form action="#" method="POST" id="gumbelForm" name="gumbelForm"
+                onsubmit="return validateForm()"
+                style="margin-top:0px;font-family:'Times New Roman',楷体;">
+                <div class="input-group">
+                    <span
+                        style="font-family:楷体;font-size:14px;margin-left:6px">项目描述（选填）&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <div>
+                        <input type=" text" class="form-control" name="mingzi"
+                            value="{{mingzi}}"
+                            style="height:25px;width:438px;font-size:14px;margin-left:12px;border-radius:5px;font-family:'Times New Roman',楷体">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span style="margin-left:6px;font-size: 14px;">物理量的名称
+                        <sup>1</sup>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <div style="width:75px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;width:180px;font-size:14px;"
+                            name="pq" value="{{pq}}">
+                    </div>
+                    <!-- <span style="font-family:仿宋;margin-left:6px;font-size:x-small;">&nbsp(选填项：如果不填，默认为'物理量'。)</span> -->
+                </div>
+                <div class="input-group">
+                    <span style="font-size:14px;margin-left:6px">物理量的单位
+                        <sup>2</sup>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <div style="width:75px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;width:180px;font-size:14px;"
+                            name="unitx" value="{{unitx}}">
+                    </div>
+                    <!-- <span style="font-family:仿宋;margin-left:6px;font-size:x-small;">&nbsp(选填项：如果不填，默认为'无单位'。)</span> -->
+                </div>
+                <div class="input-group">
+                    <span style="font-size:14px;margin-left:6px">样本数据的时间间距
+                        <sup>3</sup>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                    <div style="width:75px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;width:180px;font-size:14px;"
+                            name="unitt" value="{{unitt}}">
+                    </div>
+                    <!-- <span style="font-family:仿宋;margin-left:6px;font-size:x-small;">&nbsp(选填项；如果不填，默认为'单位时段'。)</span> -->
+                </div>
+                {% if i1 == 1 %}
+                <input type="hidden" id="i1_temp" name="i1_temp" value="test">
+                <label for="概率空间是否截尾" class="form-label"
+                    style="font-size:14px;margin-left:6px;margin-bottom:0px;">概率分析的类型
+                    <sup>4</sup></label>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div class="form-check form-check-inline"
+                    style="margin-left: 2px;">
+                    <input class="form-check-input" type="radio"
+                        id="inlineRadio1" name="i1" value="1" checked>
+                    <label class="form-check-label" for="inlineRadio1"
+                        style="font-size:14px;">最大值</label>
+                </div>
+                &#8197
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                        id="inlineRadio1" name="i1" value="2">
+                    <label class="form-check-label" for="inlineRadio2"
+                        style="font-size:14px;">最小值</label>
+                </div>
+                {% elif i1 == 2 %}
+                <input type="hidden" id="i1_temp" name="i1_temp" value="test">
+                <label for="概率空间是否截尾" class="form-label"
+                    style="font-size:14px;margin-left:6px;margin-bottom:0px;">概率分析的类型
+                    <sup>4</sup></label>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div class="form-check form-check-inline"
+                    style="margin-left: 2px;">
+                    <input class="form-check-input" type="radio"
+                        id="inlineRadio1" name="i1" value="1">
+                    <label class="form-check-label" for="inlineRadio1"
+                        style="font-size:14px;">最大值</label>
+                </div>
+                &#8197
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                        id="inlineRadio1" name="i1" value="2" checked>
+                    <label class="form-check-label" for="inlineRadio2"
+                        style="font-size:14px;">最小值</label>
+                </div>
+                {% else %}
+                <input type="hidden" id="i1_temp" name="i1_temp" value="test">
+                <label for="概率空间是否截尾" class="form-label"
+                    style="font-size:14px;margin-left:6px;margin-bottom:0px;">概率分析的类型
+                    <sup>4</sup></label>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div class="form-check form-check-inline"
+                    style="margin-left: 2px;">
+                    <input class="form-check-input" type="radio"
+                        id="inlineRadio1" name="i1" value="1">
+                    <label class="form-check-label" for="inlineRadio1"
+                        style="font-size:14px;">最大值</label>
+                </div>
+                &#8197
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                        id="inlineRadio1" name="i1" value="2">
+                    <label class="form-check-label" for="inlineRadio2"
+                        style="font-size:14px;">最小值</label>
+                </div>
+                {% endif %}
+                <br />
+                <input type="hidden" id="i2_temp" name="i2_temp" value="test">
+                <label for="概率空间是否截尾" class="form-label"
+                    style="font-size:13px;font-family:楷体;margin-left:6px;margin-bottom:0px;">采用的样本数据</label>
+                {% if i2 == 1%}
+                <div class="input-group"
+                    style="margin-left:18px;margin-top:0px;margin-bottom:0px;font-family:'Times New Roman',楷体;">
+                    <div class="form-check form-check-inline"
+                        style="margin-left: 2px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i2" value="1" checked>
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:楷体;margin-top:0px;font-size:14px;margin-left:3px">
+                            基本统计特征</label>
+                    </div>
+                    <span class="input-text"
+                        style="font-family:楷体;font-size:14px;margin-left:0px;margin-left:2px">&nbsp&nbsp&nbsp&nbsp均值&nbsp</span>
+                    <div style="width:85px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;font-size:14px;" name="meanx"
+                            value="{{meanx}}">
+                    </div>
+                    <span class="input-text"
+                        style="font-family:楷体;font-size:14px;">&nbsp&nbsp&nbsp&nbsp均方差&nbsp</span>
+                    <div style="width:85px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;font-size:14px;" name="sdx"
+                            value="{{sdx}}">
+                    </div>
+                    <span class="input-text"
+                        style="font-family:'Times New Roman',楷体;font-size:14px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp样本容量
+                        <sup>5</sup>&nbsp&nbsp</span>
+                    <div>
+                        <input type=" text" class="form-control"
+                            style="height:25px;width:68px;font-size:14px;"
+                            name="n" value="{{n}}">
+                    </div>
+                </div>
+                <div class="input-group"
+                    style="margin-left:18px;margin-top:0px;">
+                    <div class="form-check form-check-inline"
+                        style="margin-left: 2px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i2" value="2">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:'Times New Roman',楷体;margin-top:0px;font-size: 14px;">&nbsp样本
+                            <sup>6</sup>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        </label>
+                    </div>
+                    <div style="width:270px">
+                        <textarea class="form-control" rows="3" name="datao"
+                            value="{{test1}}" disabled="disabled"
+                            style="width:440px;font-size:14px;resize:none"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:'Times New Roman',楷体;margin-left:42px;margin-bottom:0px;font-size:14px;">&nbsp经验累积频率<br />&nbsp的估计方法<sup>7</sup></label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class=" form-check form-check-inline"
+                        style="margin-top:0px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault1"
+                            value="1" disabled="disabled">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family: Times New Roman;font-size: 14px;">Weibull</label>
+                    </div>
+                    <div class="form-check form-check-inline"
+                        style="margin-left:7px">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault2"
+                            value="2" disabled="disabled">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: 楷体;font-size: 14px;">中值</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault3"
+                            value="3" disabled="disabled">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: Times New Roman;font-size: 14px;">Gringorten</label>
+                    </div>
+                </div>
+                {% elif i2 == 2%}
+                <div class="input-group"
+                    style="margin-left:18px;margin-top:0px;margin-bottom:0px;font-family:'Times New Roman',楷体;">
+                    <div class="form-check form-check-inline"
+                        style="margin-left: 2px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i2" value="1">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:楷体;margin-top:0px;font-size:14px;margin-left:3px">
+                            基本统计特征</label>
+                    </div>
+                    <span class="input-text"
+                        style="font-family:楷体;font-size:14px;margin-left:0px;margin-left:2px">&nbsp&nbsp&nbsp&nbsp均值&nbsp</span>
+                    <div style="width:85px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;font-size:14px;" name="meanx"
+                            disabled="disabled" value="{{meanx}}">
+                    </div>
+                    <span class="input-text"
+                        style="font-family:楷体;font-size:14px;">&nbsp&nbsp&nbsp&nbsp均方差&nbsp</span>
+                    <div style="width:85px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;font-size:14px;" name="sdx"
+                            disabled="disabled" value="{{sdx}}">
+                    </div>
+                    <span class="input-text"
+                        style="font-family:'Times New Roman',楷体;font-size:14px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp样本容量
+                        <sup>5</sup>&nbsp&nbsp</span>
+                    <div>
+                        <input type=" text" class="form-control"
+                            style="height:25px;width:68px;font-size:14px;"
+                            name="n" disabled="disabled" value="{{n}}">
+                    </div>
+                </div>
+                <div class="input-group"
+                    style="margin-left:18px;margin-top:0px;">
+                    <div class="form-check form-check-inline"
+                        style="margin-left: 2px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i2" value="2" checked>
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:'Times New Roman',楷体;margin-top:0px;font-size: 14px;">&nbsp样本
+                            <sup>6</sup>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        </label>
+                    </div>
+                    <div style="width:270px">
+                        <textarea class="form-control" rows="3" name="datao"
+                            style="width:440px;font-size:14px;resize:none">{{dataolist}}</textarea>
+                    </div>
+                </div>
+                <div>
+                    {% if i3 == 1%}
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:'Times New Roman',楷体;margin-left:42px;margin-bottom:0px;font-size:14px;">&nbsp经验累积频率<br />&nbsp的估计方法<sup>7</sup></label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class=" form-check form-check-inline"
+                        style="margin-top:0px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault1"
+                            value="1" checked>
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family: Times New Roman;font-size: 14px;">Weibull</label>
+                    </div>
+                    <div class="form-check form-check-inline"
+                        style="margin-left:7px">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault2"
+                            value="2">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: 楷体;font-size: 14px;">中值</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault3"
+                            value="3">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: Times New Roman;font-size: 14px;">Gringorten</label>
+                    </div>
+                    {% elif i3 == 2 %}
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:'Times New Roman',楷体;margin-left:42px;margin-bottom:0px;font-size:14px;">&nbsp经验累积频率<br />&nbsp的估计方法<sup>7</sup></label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class=" form-check form-check-inline"
+                        style="margin-top:0px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault1"
+                            value="1">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family: Times New Roman;font-size: 14px;">Weibull</label>
+                    </div>
+                    <div class="form-check form-check-inline"
+                        style="margin-left:7px">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault2"
+                            value="2" checked>
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: 楷体;font-size: 14px;">中值</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault3"
+                            value="3">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: Times New Roman;font-size: 14px;">Gringorten</label>
+                    </div>
+                    {% elif i3 == 3 %}
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:'Times New Roman',楷体;margin-left:42px;margin-bottom:0px;font-size:14px;">&nbsp经验累积频率<br />&nbsp的估计方法<sup>7</sup></label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class=" form-check form-check-inline"
+                        style="margin-top:0px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault1"
+                            value="1">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family: Times New Roman;font-size: 14px;">Weibull</label>
+                    </div>
+                    <div class="form-check form-check-inline"
+                        style="margin-left:7px">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault2"
+                            value="2">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: 楷体;font-size: 14px;">中值</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault3"
+                            value="3" checked>
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: Times New Roman;font-size: 14px;">Gringorten</label>
+                    </div>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div class="input-group"
+                    style="margin-left:18px;margin-top:0px;margin-bottom:0px;font-family:'Times New Roman',楷体;">
+                    <div class="form-check form-check-inline"
+                        style="margin-left: 2px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i2" value="1">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:楷体;margin-top:0px;font-size:14px;margin-left:3px">
+                            基本统计特征</label>
+                    </div>
+                    <span class="input-text"
+                        style="font-family:楷体;font-size:14px;margin-left:0px;margin-left:2px">&nbsp&nbsp&nbsp&nbsp均值&nbsp</span>
+                    <div style="width:85px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;font-size:14px;" name="meanx"
+                            disabled="disabled" value="{{meanx}}">
+                    </div>
+                    <span class="input-text"
+                        style="font-family:楷体;font-size:14px;">&nbsp&nbsp&nbsp&nbsp均方差&nbsp</span>
+                    <div style="width:85px;">
+                        <input type=" text" class="form-control"
+                            style="height:25px;font-size:14px;" name="sdx"
+                            disabled="disabled" value="{{sdx}}">
+                    </div>
+                    <span class="input-text"
+                        style="font-family:'Times New Roman',楷体;font-size:14px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp样本容量
+                        <sup>5</sup>&nbsp&nbsp</span>
+                    <div>
+                        <input type=" text" class="form-control"
+                            style="height:25px;width:68px;font-size:14px;"
+                            name="n" disabled="disabled" value="{{n}}">
+                    </div>
+                </div>
+                <div class="input-group"
+                    style="margin-left:18px;margin-top:0px;">
+                    <div class="form-check form-check-inline"
+                        style="margin-left: 2px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i2" value="2">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family:'Times New Roman',楷体;margin-top:0px;font-size: 14px;">&nbsp样本
+                            <sup>6</sup>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        </label>
+                    </div>
+                    <div style="width:270px">
+                        <textarea class="form-control" rows="3" name="datao"
+                            value="{{test1}}" disabled="disabled"
+                            style="width:440px;font-size:14px;resize:none"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label for="是否需要生成净雨过程?" class="form-label"
+                        style="font-family:'Times New Roman',楷体;margin-left:42px;margin-bottom:0px;font-size:14px;">&nbsp经验累积频率<br />&nbsp的估计方法<sup>7</sup></label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <div class=" form-check form-check-inline"
+                        style="margin-top:0px;">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault1"
+                            value="1" disabled="disabled">
+                        <label class="form-check-label" for="inlineRadio1"
+                            style="font-family: Times New Roman;font-size: 14px;">Weibull</label>
+                    </div>
+                    <div class="form-check form-check-inline"
+                        style="margin-left:7px">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault2"
+                            value="2" disabled="disabled">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: 楷体;font-size: 14px;">中值</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                            id="inlineRadio1" name="i3" id="flexRadioDefault3"
+                            value="3" disabled="disabled">
+                        <label class="form-check-label" for="inlineRadio2"
+                            style="font-family: Times New Roman;font-size: 14px;">Gringorten</label>
+                    </div>
+                </div>
+                {% endif %}
+                <div style="border: 0.5px solid #CCC"></div>
+                <div class="tips" style="margin-top:10px;font-size:12px;">
+                    <p
+                        style="margin-left:10px;font-family: 'Times New Roman',楷体;margin-bottom: 0px;">
+                        注：
+                    </p>
+                    <ol class="list-group list-group-numbered"
+                        style="font-family: 'Times New Roman',楷体;">
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                选填项。如果不填，默认为“物理量”。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                选填项。如果不填，默认为“无单位”。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                选填项。这个时间间距将是回归期的单位。如果不填，默认为“单位时段”。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                二者的具体定义见“技术指南”，其累积分布函数<i>F</i>(<i>x</i>)的表达式如下：
+                                <br />
+                                &#12288&#12288在最大值模式中，
+                                <i>F</i>(<i>x</i>) =
+                                exp{−exp[−(<i>x</i>−<i>α</i>)/<i>𝛽</i>]}
+                                <br />
+                                &#12288&#12288在最小值模式中，
+                                <i>F</i>(<i>x</i>) =
+                                1−exp{−exp[(<i>x</i>−<i>α</i>)/<i>𝛽</i>]}
+                                <br />
+                                其中，
+                                <i>F</i>(<i>x</i>) = <i>P</i>(<i>X</i> ≤
+                                <i>x</i>)，
+                                <i>X</i>为随机变量，<i>x</i>为<i>X</i>的取值，<i>P</i>为概率值，<i>α</i>为位置系数，<i>𝛽</i>为尺度系数。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                样本容量即一个样本的样本值个数，标识为<i>n</i>。这里的样本容量系指提供这些基本统计特征的样本的实际样本值个数，而非一个任意给定的值。如果一个样本的<i>n</i>小于10，这个样本将不适合进行频率分析。
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                一个样本至少要有10个样本值才适合进行频率分析。样本的数据格式为间隔的数值和逗号，由数值起始，并以数值结束。必须输入半角的逗号，不能用全角的逗号。示例：10,
+                                15., 18.3,..., 8.0, 21
+                            </div>
+                        </li>
+                        <li class="d-flex"
+                            style="margin-bottom:0px;margin-top:0px;">
+                            <div style="margin-left:10px">
+                                样本值按下降顺序排序，排序位置为<i>m</i>。最大值排第一位，其<i>m</i>值为1，而其它<i>m</i>值按样本值的下降顺序依次累加递增。Weibull方法:
+                                <i>m</i>/(<i>n</i>+1), 中值方法:
+                                (<i>m</i>−0.3175)/(<i>n</i>+0.365),
+                                Gringorten方法: (<i>m</i>−0.44)/(<i>n</i>+0.12)
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <h5 style="font-family:楷体;margin-top: 15px;margin-bottom:15px"
+                    align="right">
+                    <button type=" submit" name="calculate" value="计 算"
+                        class="btn btn-secondary"
+                        style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:170px;height:28px;padding-top:0px;"><strong>计&nbsp算
+                            (结果见下!)</strong></button>
+                    <a href="/gumbel.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp零</strong></a>
+                    <button type="button"
+                        class="btn btn-secondary button-print-or-save-document"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
+                </h5>
+            </form>
+            <!-- <div class="card" id="p3"> -->
+            <div class="card-header pagebreak"
+                style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+                <h5 style="font-family: 楷体; margin-bottom: 0px;" align="left">
+                    <strong>计算结果</strong>
+                </h5>
+            </div>
+            <!-- <div class="card-header" style="font-family: Times New Roman;font-family: 仿宋;">
+            <h5 style="font-family: 仿宋; margin-bottom: 0px" align="left"><strong>结果输出</strong>
+            </h5>
+          </div> -->
+            <div class="result">
+                <img onerror='this.style.display = "none"'
+                    src="data:image/png;base64, {{ plot_url }}" />
+                <div>
+                    {% if note1 %} {% for n1 in note1 %}
+                    <p>{{n1}}</p>
+                    {% endfor %} {% endif %}
+                </div>
+                <div>
+                    {% if note2 %} {% for n2 in note2 %}
+                    <span>{{n2}}</span><br> {% endfor %} {% endif %}
+                    <br /> {% if note3 %}
+                    <p>{{note3[0]}}</p>
+                    <table border="1" style="border: 1px solid black;">
+                        <tr>
+                            <!-- <th rowspan="2">
+                <br />1) 不同回归期下的取值<br />
+              </th> -->
+                            <!-- <th rowspan="2">{{str1}}<br /></th> -->
+                            <th>
+                            </th>
+                            <th>&nbsp&nbsp{{heading1}}&nbsp&nbsp
+                            </th>
+                            <th>
+                                &nbsp&nbsp{{heading2}}&nbsp&nbsp
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                {{note3[1]}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="text-align: center;">
+                                {{note3[2]}}
+                            </th>
+                            <th colspan="2" style="text-align: center;">
+                                {{note3[3]}}
+                            </th>
+                        </tr>
+                        {% if data3 %} {% for row in data3 %}
+                        <tr>
+                            {% for cell in row %}
+                            <td style="text-align: center;">{{cell}}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %} {% endif %} {% if data4 %}
+                        <tr>
+                            <th colspan="3">
+                                {{note4[0]}}
+                            </th>
+                        </tr>
+                        {% if data4 %} {% for row in data4 %}
+                        <tr>
+                            {% for cell in row %}
+                            <td style="text-align: center;">{{cell}}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %} {% endif %} {% endif %}
+                        {% if note5 %}
+                        <tr>
+                            <th colspan="3">
+                                {{note5[0]}}
+                            </th>
+                        </tr>
+                        {% if data5 %} {% for row in data5 %}
+                        <tr>
+                            {% for cell in row %}
+                            <td style="text-align: center;">{{cell}}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %} {% endif %}
+                        {% if nlen>=nCl2 %}
+                        {% for row in data6 %}
+                        <tr>
+                            {% for cell in row %}
+                            <td style="text-align: center;">{{cell}}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                        {%else %}
+                        <tr>
+                            <td style="text-align: center;">{{data6[0][0]}}</td>
+                            <td colspan="2" style="text-align: center;">
+                                {{data6[0][1]}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endif %}
+                    </table>
+                    {% endif %}
+                    <br /> {% if ending %}
+                    <p>{{ending}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/gumbel/form_validation.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/print.js') }}"></script>
+<script>
+    eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(36) }; if ('0'.replace(0, e) == 0) { while (c--) r[e(c)] = k[c]; k = [function (e) { return r[e] || e }]; e = function () { return '[ijlmo]' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('eval(i(p,a,c,k,e,r){e=i(c){j c.toString(36)};l(\'0\'.m(0,e)==0){o(c--)r[e(c)]=k[c];k=[i(e){j r[e]||e}];e=i(){j\'[3-9a-h]\'};c=1};o(c--)l(k[c])p=p.m(new RegExp(\'\\\\b\'+e(c)+\'\\\\b\',\'g\'),k[c]);j p}(\'console.log("hello world");var 3=document.getElementById("gumbelForm");3.8[0].9("a",b(){c(d.e){3.f.4=5;3.g.4=5;3.n.4=5;3.h.4=6;3.7[0].4=6;3.7[1].4=6;3.7[2].4=6}});3.8[1].9("a",b(){c(d.e){3.h.4=5;3.7[0].4=5;3.7[1].4=5;3.7[2].4=5;3.f.4=6;3.g.4=6;3.n.4=6}});\',[],18,\'|||theform|disabled|false|true|i3|i2|addEventListener|click|i|l|this|checked|meanx|sdx|datao\'.split(\'|\'),0,{}))', [], 25, '||||||||||||||||||function|return||if|replace||while'.split('|'), 0, {}))
+</script>
+{% endblock %}

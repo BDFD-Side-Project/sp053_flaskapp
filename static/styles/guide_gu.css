@@ -1,0 +1,75 @@
+body {
+	background-color: #ffffff;
+	color: #2d2f30;
+	font-size: 100%;
+	margin-bottom: 10em;
+}
+
+h1,
+h2,
+h3,
+h4,
+blockquote,
+p {
+	line-height: 1.75;
+	margin: 0 auto;
+}
+
+/* #testmsg {
+	line-height: 1.75;
+	margin: 0 auto;
+} */
+
+.type1{
+	font-family: 'Times New Roman',楷体;
+	font-size:14px;
+}
+.type2{
+	font-family: 'Times New Roman',楷体;
+	font-style: italic;
+	font-size:14px;
+}
+
+h1 {
+	font-family: 'Times New Roman',楷体;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	color: #db5b33;
+}
+
+h2 {
+	font-family: 'Times New Roman',楷体;
+	font-weight: 300;
+	font-size: 250%;
+	line-height: 1.5;
+	margin-top: 2em;
+	margin-bottom: 1em;
+	color: #4598b5;
+}
+
+h3 {
+	font-family: 'Times New Roman',楷体;
+	font-size: 20px;
+	color: #2d2f30;
+}
+
+p {
+	font-family: 'Times New Roman',楷体;
+	font-weight: 500;
+	font-size:14px;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+ul,
+li{
+	font-size:14px;
+}
+
+blockquote {
+	font-family: 'Times New Roman',楷体;
+	font-weight: 500;
+	font-size:14px;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}

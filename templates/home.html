@@ -1,0 +1,74 @@
+<!--
+ * @Date         : 2022-08-12 16:17:51
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2022-09-07 22:24:28
+ * @LastEditors  : BDFD
+ * @Description  : 
+ * @FilePath     : c:\Users\david\AppData\Local\Temp\scp19179\var\www\flaskapp\templates\home.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+<!-- This is the homepage of waterfrontes.com
+    Created on : Sep 06, 2021
+    Author     : April Zhou -->
+
+{% extends "./layout/home_base.html" %}
+{% block content %}
+<!-- <div style="width: 2px; height: 10px; margin: 0 auto; background-color: black;"></div> -->
+<!-- <h2>
+    滨水工程分析工作室
+    (Waterfront Engineering Analysis Studio)
+</h2> -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-6" align="center"><img
+                src="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/homepage_2.jpg"
+                alt="">
+        </div>
+        <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
+            <p style="font-size:16px;font-family:'Times New Roman',楷体">
+                <span style="color:rgb(0,20,150);font-weight:bold">滨水工程工作室
+                    (Waterfront
+                    Engineering
+                    Studio)</span>，简称<span
+                    style="color:rgb(0,20,150);font-weight:bold">“滨水工”</span>，是一个在线计算平台，主要针对滨水区域基础设施的规划、设计、管理、和评估中常见的一些工程问题。滨水工包括若干计算单元，这些计算单元多适用于水工建筑物（护岸、防波堤、码头）、雨水排水设施等。如果条件适合，某些计算单元也可用于其它领域。
+                <br /><br />
+                滨水工会陆续推出更多的计算单元，敬请期待！
+                <br /><br />
+                欢迎各种反馈，请联系: waterfronts@hotmail.com
+                <br /><br /><br />
+                <span
+                    style="color:rgb(0,20,150);font-weight:bold;font-size:16px;text-decoration:underline;text-decoration-color:rgb(0,20,150);">新
+                    闻</span>
+                <br />
+                2022.09<br />
+                • 三个计算单元上线：Gumbel分布、经验波浪频率谱、Green-Ampt下渗模型<br />
+            </p>
+        </div>
+    </div>
+    <!-- <p style="margin-top:0px"></p> -->
+    <div class="row">
+        <div class="col-sm-6 col-md-5 col-lg-6">
+            <p
+                style="font-size:13px;font-family:'Times New Roman',楷体;border:solid 1px">
+                <span style=" font-weight:bold">版权申明：</span>
+                <br />
+                访问者可将本网站提供的内容或服务用于个人学习或研究，以及其他非商业或非盈利性用途，但应遵守著作权法及其他相关法律的规定，不得侵犯本网站及相关权利人的合法权利。如引用任何“技术指南”内的相关内容，须采用参考文献引用格式进行引用。如转载或使用本网站其它任何内容（如图片、数据、“技术指南”以外的文字等），须注明出处：www.waterfrontes.com
+            </p>
+        </div>
+    </div>
+</div>
+<p style="margin-bottom:5px"></p>
+{% endblock %}
+{% block counter %}
+<div align="center">
+    <span>
+        <!-- <a href='https://sideproject053.herokuapp.com/'><img
+                src='http://www.hit-counts.com/counter.php?t=MTQ2MzA0MQ=='
+                border='0' alt='hit-counts'></a> -->
+        <a href="https://www.hitwebcounter.com" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=8032844&style=0006&nbdigits=5&type=page&initCount=0"
+                title="Free Counter" Alt="web counter" border="0" /></a>
+    </span>
+</div>
+{% endblock %}
