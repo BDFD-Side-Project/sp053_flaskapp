@@ -2,7 +2,7 @@
  * @Date         : 2022-08-07 22:37:49
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-08-29 11:57:38
+ * @LastEditTime : 2022-10-17 11:23:12
  * @LastEditors  : BDFD
  * @Description  : 
  * @FilePath     : \templates\guide.html
@@ -25,7 +25,8 @@
             </p>
             <p
                 style="font-size:16px;font-family:'Times New Roman',楷体;margin-bottom:0px;">
-                &#12288&#12288“计算页面”为核心计算程序的交互界面，包括“参数输入”和“计算结果”两个区域。在“参数输入”区域的底部设有计算键，点击即可实现计算。按目前服务器的性能，每次计算约需数秒时间。计算完成以后，所有计算结果呈列在“计算结果”区域。请务必下拉页面以显示所有结果；在结果的末尾有提示：“结果展示结束”。不建议打开两个或多个 “计算页面”进行计算，因为缓存冲突可能会影响各自的结果图片。当页面有计算结果时，为避免缓存冲突，建议在进行下一次计算之前先清空页面。
+                &#12288&#12288“计算页面”为核心计算程序的交互界面，包括“参数输入”和“计算结果”两个区域。在“参数输入”区域的底部设有计算键，点击即可实现计算。按目前服务器的性能，每次计算约需数秒时间。计算完成以后，所有计算结果呈列在“计算结果”区域。请务必下拉页面以显示所有结果；在结果的末尾有提示：“结果展示结束”。不建议打开两个或多个
+                “计算页面”进行计算，因为缓存冲突可能会影响各自的结果图片。当页面有计算结果时，为避免缓存冲突，建议在进行下一次计算之前先清空页面。
                 位于“参数输入”区域底部的打印键按A4页面对“计算页面”进行了专门的布局设置；建议采用这个打印键进行页面打印。
             </p>
             <p
@@ -46,7 +47,7 @@
             </p>
         </div>
         <div class="col-md-4" align="center">
-            <img src="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/guidepage.jpg"
+            <img src="{{ url_for('static',filename='imgs/guidepage.jpg') }}"
                 alt="">
             <p align="right"
                 style="font-size:14px;font-family:'Times New Roman',楷体">

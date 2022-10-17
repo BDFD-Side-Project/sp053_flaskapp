@@ -2,10 +2,10 @@
  * @Date         : 2022-08-12 16:17:51
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-09-07 22:24:28
+ * @LastEditTime : 2022-10-17 11:22:29
  * @LastEditors  : BDFD
  * @Description  : 
- * @FilePath     : c:\Users\david\AppData\Local\Temp\scp19179\var\www\flaskapp\templates\home.html
+ * @FilePath     : \templates\home.html
  * Copyright (c) 2022 by BDFD, All Rights Reserved. 
 -->
 <!-- This is the homepage of waterfrontes.com
@@ -22,7 +22,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-5 col-lg-6" align="center"><img
-                src="https://cdn.jsdelivr.net/gh/BDFD-Side-Project/Side_Project_Repo/SP053_WES/homepage_2.jpg"
+                src="{{ url_for('static',filename='imgs/homepage.jpg') }}"
                 alt="">
         </div>
         <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
