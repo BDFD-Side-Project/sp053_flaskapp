@@ -1,0 +1,804 @@
+{% extends "./layout/calculation_base.html" %} {% block content %}
+
+<link rel="stylesheet" href="../static/styles/waterfrontes.css">
+<link rel="stylesheet" href="../static/styles/output.css">
+<link rel="stylesheet" href="../static/styles/gu_output.css">
+<link href="{{ url_for('static',filename='styles/button.css') }}"
+    rel="stylesheet" type="text/css" />
+<!--<div class="card">-->
+<div class="row ">
+    <div class="col-md-6 m-auto">
+        <div class="row">
+            <div class="col">
+                <h4
+                    style="font-family: 楷体;margin-bottom: 0px;margin-top: 0px;color:blue;line-height:1.45;">
+                    <strong>经验波浪频率谱</strong>
+                </h4>
+            </div>
+            <div class="col" align="right">
+                <a href="#" class="btn btn-secondary"
+                    style="font-family: 楷体; background-color: rgb(233, 236, 239);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>计算页面</strong></a>
+                <a href="/wavespectrahelp.html" class="btn btn-secondary"
+                    style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>技术指南</strong></a>
+                <a href="/wavespectraupdate.html" class="btn btn-secondary"
+                    style="font-family: 楷体; background-color: rgb(255, 255, 255);color:blue;border: 0px solid rgb(255, 255, 255);box-shadow:0px 0px;border-radius: 0px;"><strong>更新记录</strong></a>
+            </div>
+        </div>
+        <div class="card-header" align="right"
+            style="height:24px;padding: 0rem;background-color:rgb(233, 236, 239) ;">
+            <span
+                style="font-size:12px;font-family:'Times New Roman',楷体;margin-top:0px;margin-bottom:0px;">
+                当前计算程序版本：202202，最后更新于2022.11
+            </span>
+        </div>
+        <p style="margin-top:15px"></p>
+        <div class="card-header"
+            style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+            <h5 style="font-family: 楷体; margin-bottom: 0px" align="left">
+                <strong>参数输入</strong>
+            </h5>
+        </div>
+        <form class="form" method="POST" action="#"
+            onsubmit="return validateForm()" id="waveForm" name="waveForm"
+            style="font-size:14px">
+            <div class="input-group">
+                <span
+                    style="font-family:楷体;font-size:14px;margin-left:6px">项目描述（选填）&nbsp&nbsp</span>
+                <div>
+                    <input type=" text" class="form-control" name="mingzi"
+                        value="{{mingzi}}"
+                        style="height:25px;width:475px;font-size:14px;margin-left:10px;border-radius:5px;font-family:'Times New Roman',楷体;">
+                </div>
+            </div>
+            <table class="table table-striped"
+                style="font-family: 'Times New Roman',楷体; margin-bottom:10px;">
+                {% if c1 == 1 %}
+                <thead>
+                    <tr>
+                        <th
+                            style="padding-bottom: 30px; width: 40%;text-align: center;">
+                        </th>
+                        <!-- <th style=" width: 40%">波浪频谱的类型<br /></th> -->
+                        <th style="width:20%;">风距或水深限制条<br />件下的谱
+                            <sup>1,3</sup><br />
+                            <!-- <input style="margin-left: 50px;" type="radio" name="radio" id="radio1" checked> -->
+                            <input class="form-check-input"
+                                style="margin-left: 50px;" type="radio"
+                                name="radio" id="radio1" value="1" checked>
+                            <!-- <div class="form-check radio" style="margin-top: 0px;margin-bottom: 0px;">
+                                <input class="form-check-input" type="radio" name="radio" id="radio1" checked>
+                            </div> -->
+                        </th>
+                        <th style="width:20%;">风、涌浪混合谱或<br />充分成长的风浪谱
+                            <sup>2,3</sup><br>
+                            <input class=" form-check-input"
+                                style="margin-left: 50px;" type="radio"
+                                name="radio" id="radio2" value="2">
+                            <!-- <div class="form-check radio">
+                                <input class=" form-check-input" type="radio" name="radio" id="radio2">
+                                </label>
+                            </div> -->
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="height:1px">
+                        <td>水深 <i>d</i> (m) </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="d" value="{{d}}" placeholder="8">-->
+                                <input type="text" class="requiredC1" name="d"
+                                    value="{{d_1}}">
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>风矩 <i>X</i> (km) </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="X" value="{{X}}" placeholder="100000 必填" required>-->
+                                <input type="text" class="requiredC1" name="X_1"
+                                    value="{{X_1}}">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="X" value="{{X}}" placeholder="100000" disabled><sup>11</sup>-->
+                                <select class="requiredC2" name="X_2"
+                                    style="height:25px;width:130px;" disabled>
+                                    {% if X_2_Replace %}
+                                    <option value="{{X_2}}" selected hidden>
+                                        {{X_2_Replace}}</option>
+                                    {% else %}
+                                    <option value="{{X_2}}" selected hidden>
+                                        {{X_2}}</option>
+                                    {% endif %}
+                                    <option value="370">370</option>
+                                    <option value="100">100</option>
+                                    <option value="None">不考虑</option>
+                                </select><sup>11</sup>
+                                <!-- <input type="text" class="requiredC2" name="X_2" value="{{X_2}}" disabled
+                                    style="text-align:right;"><sup>11</sup> -->
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>风速 <i>U</i> (m/s) <sup>4</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="U" value="{{U}}" placeholder="30 必填" required>-->
+                                <input type="text" class="requiredC1" name="U_1"
+                                    value="{{U_1}}">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="U" value="{{U}}" disabled required placeholder="30 必填"><sup>12</sup>-->
+                                <input type="text" class="requiredC2" name="U_2"
+                                    value="{{U_2}}" disabled><sup>12</sup>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>风速位置距水面的高度 <i>z</i> (m) <sup>4</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="el" value="{{el}}" placeholder="10 必填" required>-->
+                                <input type="text" class="requiredC1"
+                                    name="el_1" value="{{el_1}}">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="el" value="{{el}}" disabled required placeholder="10 必填"><sup>12</sup>-->
+                                <input type="text" class="requiredC2"
+                                    name="el_2" value="{{el_2}}"
+                                    disabled><sup>12</sup>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>JONSWAP谱中的 <i>γ</i> (峰形系数) <sup>5</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="gamma" value="{{gamma}}" placeholder="3.3">-->
+                                <input type="text" class="requiredC1"
+                                    name="gamma_1" value="{{gamma_1}}">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="gamma" value="{{gamma}}" disabled placeholder="3.3">-->
+                                <input type="text" class="requiredC2"
+                                    name="gamma_2" value="{{gamma_2}}" disabled>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>有效波高 <i>H</i><sub>1/3</sub> (m) <sup>6</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="Hs" value="{{Hs}}" placeholder="5"><sup>10</sup>-->
+                                <input type="text" class="requiredC1"
+                                    name="Hs_1" value="{{Hs_1}}"><sup>10</sup>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Hs" value="{{Hs}}" disabled required placeholder="5 必填"><sup>12</sup>-->
+                                <input type="text" class="requiredC2"
+                                    name="Hs_2" value="{{Hs_2}}"
+                                    disabled><sup>12</sup>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>平均周期 <i>T<sub>z</sub></i> (s) <sup>7</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="Tz" value="{{Tz}}" placeholder="11.1">-->
+                                <input type="text" class="requiredC1"
+                                    name="Tz_1" value="{{Tz_1}}">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Tz" value="{{Tz}}" disabled placeholder="11.1">-->
+                                <input type="text" class="requiredC2"
+                                    name="Tz_2" value="{{Tz_2}}" disabled>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>有效波周期 <i>T</i><sub>1/3</sub> (s) <sup>8</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="Ts" value="{{Ts}}" placeholder="5">-->
+                                <input type="text" class="requiredC1"
+                                    name="Ts_1" value="{{Ts_1}}">
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Ts" value="{{Ts}}" disabled placeholder="5">-->
+                                <input type="text" class="requiredC2"
+                                    name="Ts_2" value="{{Ts_2}}" disabled>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            谱峰周期 <i>T<sub>p</sub></i> (s) <sup>9</sup>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Tp" value="{{Tp}}" disabled placeholder="5">-->
+                                <input type="text" class="requiredC2" name="Tp"
+                                    value="{{Tp_2}}" disabled>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                {% else %}
+                <thead>
+                    <tr>
+                        <th
+                            style="padding-bottom: 30px; width: 40%;text-align: center;">
+                        </th>
+                        <!-- <th style=" width: 40%">波浪频谱的类型<br /></th> -->
+                        <th style="width:20%;">风距或水深限制条<br />件下的谱
+                            <sup>1,3</sup><br />
+                            <!-- <input style="margin-left: 50px;" type="radio" name="radio" id="radio1" checked> -->
+                            <input class="form-check-input"
+                                style="margin-left: 50px;" type="radio"
+                                name="radio" id="radio1" value="1">
+                            <!-- <div class="form-check radio" style="margin-top: 0px;margin-bottom: 0px;">
+                                <input class="form-check-input" type="radio" name="radio" id="radio1" checked>
+                            </div> -->
+                        </th>
+                        <th style="width:20%;">风、涌浪混合谱或<br />充分成长的风浪谱
+                            <sup>2,3</sup><br>
+                            <input class=" form-check-input"
+                                style="margin-left: 50px;" type="radio"
+                                name="radio" id="radio2" value="2" checked>
+                            <!-- <div class="form-check radio">
+                                <input class=" form-check-input" type="radio" name="radio" id="radio2">
+                                </label>
+                            </div> -->
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="height:1px">
+                        <td>水深 <i>d</i> (m) </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="d" value="{{d}}" placeholder="8">-->
+                                <input type="text" class="requiredC1" name="d"
+                                    value="{{d_1}}" disabled>
+                            </div>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>风矩 <i>X</i> (km) </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="X" value="{{X}}" placeholder="100000 必填" required>-->
+                                <input type="text" class="requiredC1" name="X_1"
+                                    value="{{X_1}}" disabled>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="X" value="{{X}}" placeholder="100000" disabled><sup>11</sup>-->
+                                <!-- <input type="text" class="requiredC2" name="X_2" value="{{X_2}}"
+                                    style="text-align:right;"><sup>11</sup> -->
+                                <select class="requiredC2" name="X_2"
+                                    style="height:25px;width:130px;">
+                                    {% if X_2_Replace %}
+                                    <option value="{{X_2}}" selected hidden>
+                                        {{X_2_Replace}}</option>
+                                    {% else %}
+                                    <option value="{{X_2}}" selected hidden>
+                                        {{X_2}}</option>
+                                    {% endif %}
+                                    <option value="370">370</option>
+                                    <option value="100">100</option>
+                                    <option value="None">不考虑</option>
+                                </select><sup>11</sup>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>风速 <i>U</i> (m/s) <sup>4</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="U" value="{{U}}" placeholder="30 必填" required>-->
+                                <input type="text" class="requiredC1" name="U_1"
+                                    value="{{U_1}}" disabled>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="U" value="{{U}}" disabled required placeholder="30 必填"><sup>12</sup>-->
+                                <input type="text" class="requiredC2" name="U_2"
+                                    value="{{U_2}}"><sup>12</sup>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>风速位置距水面的高度 <i>z</i> (m) <sup>4</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="el" value="{{el}}" placeholder="10 必填" required>-->
+                                <input type="text" class="requiredC1"
+                                    name="el_1" value="{{el_1}}" disabled>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="el" value="{{el}}" disabled required placeholder="10 必填"><sup>12</sup>-->
+                                <input type="text" class="requiredC2"
+                                    name="el_2" value="{{el_2}}"><sup>12</sup>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>JONSWAP谱中的 <i>γ</i> (峰形系数) <sup>5</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="gamma" value="{{gamma}}" placeholder="3.3">-->
+                                <input type="text" class="requiredC1"
+                                    name="gamma_1" value="{{gamma_1}}" disabled>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="gamma" value="{{gamma}}" disabled placeholder="3.3">-->
+                                <input type="text" class="requiredC2"
+                                    name="gamma_2" value="{{gamma_2}}">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>有效波高 <i>H</i><sub>1/3</sub> (m) <sup>6</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="Hs" value="{{Hs}}" placeholder="5"><sup>10</sup>-->
+                                <input type="text" class="requiredC1"
+                                    name="Hs_1" value="{{Hs_1}}"
+                                    disabled><sup>10</sup>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Hs" value="{{Hs}}" disabled required placeholder="5 必填"><sup>12</sup>-->
+                                <input type="text" class="requiredC2"
+                                    name="Hs_2" value="{{Hs_2}}"><sup>12</sup>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>平均周期 <i>T<sub>z</sub></i> (s) <sup>7</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="Tz" value="{{Tz}}" placeholder="11.1">-->
+                                <input type="text" class="requiredC1"
+                                    name="Tz_1" value="{{Tz_1}}" disabled>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Tz" value="{{Tz}}" disabled placeholder="11.1">-->
+                                <input type="text" class="requiredC2"
+                                    name="Tz_2" value="{{Tz_2}}">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>有效波周期 <i>T</i><sub>1/3</sub> (s) <sup>8</sup></td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC1" name="Ts" value="{{Ts}}" placeholder="5">-->
+                                <input type="text" class="requiredC1"
+                                    name="Ts_1" value="{{Ts_1}}" disabled>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Ts" value="{{Ts}}" disabled placeholder="5">-->
+                                <input type="text" class="requiredC2"
+                                    name="Ts_2" value="{{Ts_2}}">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            谱峰周期 <i>T<sub>p</sub></i> (s) <sup>9</sup>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <!--                            <input type="text" class="requiredC2" name="Tp" value="{{Tp}}" disabled placeholder="5">-->
+                                <input type="text" class="requiredC2" name="Tp"
+                                    value="{{Tp_2}}">
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endif %}
+            </table>
+            <input type="hidden" name="c1" value={{c1}}>
+            <div class="tips" style="margin-top:0px;font-size:12px">
+                <p
+                    style="margin-left:10px;font-family: 'Times New Roman',楷体;margin-bottom: 0px;">
+                    注：
+                </p>
+                <ol class="list-group list-group-numbered"
+                    style="font-family: 'Times New Roman',楷体;">
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            这一类包括的谱及各自所需要的参数<br>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288 JONSWAP谱: <i>X</i>,
+                                <i>U</i>,
+                                <i>z</i>, <i>γ</i>
+                            </dl>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288
+                                Liu谱和Mitsuyasu谱：<i>X</i>,
+                                <i>U</i>, <i>z</i>
+                            </dl>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288 TMA谱: <i>d</i>,
+                                <i>X</i>,
+                                <i>U</i>, <i>z</i>
+                            </dl>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288 文圣常谱: <i>d</i>,
+                                <i>H</i><sub>1/3</sub>, 及 <i>T<sub>z</sub></i> 或
+                                <i>T</i><sub>1/3</sub>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            这一类包括的谱及各自所需要的参数<br>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288 B-M谱和M B-M谱:
+                                <i>H</i><sub>1/3</sub>, 及 <i>T</i><sub>z</sub> 或
+                                <i>T</i><sub>1/3</sub>
+                            </dl>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288 P-M谱：风要素(<i>U</i> 和
+                                <i>z</i>), 或
+                                <i>H</i><sub>1/3</sub>
+                            </dl>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288
+                                J-G1谱和J-G2谱：<i>γ</i>,
+                                <i>H</i><sub>1/3</sub>, 及
+                                <i>T</i><sub>z</sub> 或 <i>T</i><sub>1/3</sub>
+                            </dl>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288
+                                O-H谱：<i>H</i><sub>1/3</sub>
+                            </dl>
+                            <dl style="margin-bottom:0px">
+                                &#12288&#12288&#12288&#12288 sT谱：<i>X</i>,
+                                <i>H</i><sub>1/3</sub>, <i>T<sub>p</sub></i>, 及
+                                <i>T<sub>z</sub></i> 或
+                                <i>T</i><sub>1/3</sub>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            各谱的详细定义，请查看“技术指南”。对每一类型，可以针对某特定的谱输入需要的参数，也可以尽量多输入已知参数，程序均会自动匹配所提供的数据并生成相关的谱。对于未知或者不需要的参数，请留空。
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">如果需要用到 <i>U</i>，其 <i>z</i>
+                            必须同时输入。
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px"><i>γ</i>
+                            的取值范围：[1,7]，均值：3.3。如果对 <i>γ</i>
+                            的取值没有把握，可选用其均值3.3作为参考。
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            <i>H</i><sub>1/3</sub>：波列中最大的三分之一部分大波的平均波高。
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            <i>T<sub>z</sub></i>：按跨零点法定义的平均周期。
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            <i>T</i><sub>1/3</sub>：波列中最大的三分之一部分大波的平均周期。
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">仅用于sT谱。（其它谱的
+                            <i>T<sub>p</sub></i> 会通过谱计算获得。）
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">仅用于文圣常谱。（其它谱的
+                            <i>H</i><sub>1/3</sub> 会通过谱计算获得。）
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            仅用于sT谱。如要生成sT谱，请输入该谱中的最大风距（只能是100 km 或370 km）。
+                        </div>
+                    </li>
+                    <li class="d-flex"
+                        style="margin-bottom:0px;margin-top:0px;">
+                        <div style="margin-left:10px">
+                            <i>H</i><sub>1/3</sub>和风要素(<i>U</i> 和
+                            <i>z</i>)这两者不能都为空。如果这两者均有输入值，P-M谱的计算仅使用风要素，不会采用<i>H</i><sub>1/3</sub>。
+                        </div>
+                    </li>
+                </ol>
+
+                <!-- 注：<br>
+                1. 这一类包括的谱及各自所需要的参数<br>
+                &#12288&#12288&#12288&#12288 JONSWAP谱: <i>X</i>, <i>U</i>, <i>z</i>, <i>γ</i><br>
+                &#12288&#12288&#12288&#12288 Liu谱和Mitsuyasu谱：<i>X</i>, <i>U</i>, <i>z</i><br>
+                &#12288&#12288&#12288&#12288 TMA谱: <i>d</i>, <i>X</i>, <i>U</i>, <i>z</i><br>
+                &#12288&#12288&#12288&#12288 文圣常谱: <i>d</i>, <i>H</i><sub>1/3</sub>, 及 <i>T<sub>z</sub></i>
+                或 <i>T</i><sub>1/3</sub><br>
+                2. 这一类包括的谱及各自所需要的参数<br>
+                &#12288&#12288&#12288&#12288 B-M谱和M B-M谱: <i>H</i><sub>1/3</sub>, 及 <i>T</i><sub>z</sub> 或
+                <i>T</i><sub>1/3</sub><br>
+                &#12288&#12288&#12288&#12288 P-M谱：风要素(<i>U</i> 和 <i>z</i>), 或 <i>H</i><sub>1/3</sub><br>
+                &#12288&#12288&#12288&#12288 JONSWAP-G1谱和JONSWAP-G2谱：<i>γ</i>, <i>H</i><sub>1/3</sub>, 及
+                <i>T</i><sub>z</sub> 或 <i>T</i><sub>1/3</sub><br>
+                &#12288&#12288&#12288&#12288 O-H谱：<i>H</i><sub>1/3</sub><br>
+                &#12288&#12288&#12288&#12288 Torsethaugen-S谱：<i>X</i>, <i>H</i><sub>1/3</sub>, <i>T<sub>p</sub></i>,
+                及 <i>T<sub>z</sub></i> 或 <i>T</i><sub>1/3</sub><br>
+                3. 各谱的详细定义，请查看“技术指南”。对每一类型，请尽量多输入已知参数，程序会自动匹配提供的数
+                <br />&nbsp&nbsp&nbsp&nbsp据并生成相关的谱。对于未知或者不需要的参数，请留空。<br>
+                4. 如果需要用到 <i>U</i>，其 <i>z</i> 必须同时输入。<br>
+                5. <i>γ</i> 的取值范围：1-7，均值：3.3。如果对 <i>γ</i> 的取值没有把握，可以选用其均值3.3。<br>
+                6. <i>H</i><sub>1/3</sub>：波列中最大的三分之一部分大波的平均波高。<br>
+                7. <i>T<sub>z</sub></i>：按跨零点法定义的平均周期。<br>
+                8. <i>T</i><sub>1/3</sub>：波列中最大的三分之一部分大波的平均周期。<br>
+                9. 仅用于Torsethaugen-S，其它谱的 <i>T<sub>p</sub></i> 会通过谱计算获得。<br>
+                10. 仅用于文圣常谱，其它谱的 <i>H</i><sub>1/3</sub> 会通过谱计算获得。<br>
+                11. 如要生成Torsethaugen-S谱，请输入该谱中的最大风距（只能是100 km 或370 km）。<br>
+                12. <i>H</i><sub>1/3</sub>和风要素(<i>U</i> 和 <i>z</i>)这两者，必填其一，但不能同时填这两者。 -->
+            </div>
+            <div class="wave">
+                <h5 style="font-family:楷体;margin-bottom:15px;margin-top:15px;"
+                    align="right">
+                    <button type=" submit" name="calculate" value="计 算"
+                        class="btn btn-secondary"
+                        style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:250px;height:28px;padding-top:0px;"><strong>计&nbsp算
+                            (约需数秒，结果见下!)</strong>
+                    </button>
+                    <a href="/wavespectra.html" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp空</strong></a>
+                    <button type="button"
+                        class="btn btn-secondary button-print-or-save-document"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
+                </h5>
+            </div>
+        </form>
+        <!--        <div class="card">-->
+        <div class="card-header"
+            style="padding: 0rem;padding-top:0.5rem;padding-bottom:0.5rem;background-color:rgb(233, 236, 239) ;">
+            <h5 style="font-family: 楷体; margin-bottom: 0px" align="left">
+                <strong>计算结果</strong>
+            </h5>
+        </div>
+        <!-- <div class="wave-body" style="font-family: 'Times New Roman',楷体;"> -->
+        <div class="card-body"
+            style="margin-left:10px;font-family: 'Times New Roman',楷体;font-size: 14px;">
+            <img onerror='this.style.display = "none"'
+                src="data:image/png;base64, {{ img_stream }}" />
+            <div>
+                <p>{{heading}}</p>
+            </div>
+
+            {% if data1 %}
+            <table width="599" style="font-size:small">
+                <tr>
+                    <th
+                        style="width:60px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                    </th>
+                    <th
+                        style="width:70px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[0]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[1]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[2]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[3]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[4]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[5]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[6]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data1_heading[7]}}
+                    </th>
+                </tr>
+                {% for row in data1 %}
+                <tr>
+                    {% for cell in row %}
+                    <td
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+            <br /> {% if data2 %}
+            <table width="666" style="font-size:small">
+                <tr>
+                    <th
+                        style="width:60px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                    </th>
+                    <th
+                        style="width:70px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[0]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[1]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[2]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[3]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[4]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[5]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[6]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[7]}}
+                    </th>
+                    <th
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{data2_heading[8]}}
+                    </th>
+                </tr>
+                {% for row in data2 %}
+                <tr>
+                    {% for cell in row %}
+                    <td
+                        style="width:67px;text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                        {{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+            <br />
+            <br />
+            <!-- {% for n in content %}
+            <p style="margin-bottom:0px">
+                {{ n }}
+            </p>
+            {% endfor %} -->
+            <!-- <ol class="list-group list-group-numbered">
+                <li style="list-style: none;">{{n}}</li>
+                <li>A list item</li>
+                <li>A list item</li>
+            </ol> -->
+            {% if content %}
+            <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
+                说明：</p>
+            <ol class="list-group list-group-numbered">
+                {% for n in content %}
+                <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+                    <div style="margin-left:10px">
+                        {{n}}
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+            {% endif %}
+            <br />
+            <div>
+                <p>{{ending}}</p>
+            </div>
+        </div>
+        <!--        </div>-->
+    </div>
+</div>
+<p style="margin-top:75px"></p>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/wavespectra/form_validation.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/pagebreak.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static',filename='javascript/print.js') }}"></script>
+<script>
+    eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(36) }; if ('0'.replace(0, e) == 0) { while (c--) r[e(c)] = k[c]; k = [function (e) { return r[e] || e }]; e = function () { return '[oqs-u]' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('eval(o(p,a,c,k,e,r){e=o(c){q c.toString(36)};s(\'0\'.t(0,e)==0){u(c--)r[e(c)]=k[c];k=[o(e){q r[e]||e}];e=o(){q\'[3-9a-hj-n]\'};c=1};u(c--)s(k[c])p=p.t(new RegExp(\'\\\\b\'+e(c)+\'\\\\b\',\'g\'),k[c]);q p}(\'9 4=a.getElementById("4");9 3=a.b("3");9 5=a.b("5");console.log(4);4.7[0].c("d",e(){f(g.h){4.7.6=1;j(k i=0;i<3.l;i++){3[i].6="";5[i].6="";3[i].8=m;5[i].8=n}}});4.7[1].c("d",e(){f(g.h){4.7.6=2;j(k i=0;i<3.l;i++){3[i].6="";5[i].6="";3[i].8=n;5[i].8=m}}});\',[],24,\'|||requiredC1|waveForm|requiredC2|value|radio|disabled|var|document|getElementsByClassName|addEventListener|click|o|s|this|checked||for|let|length|false|true\'.split(\'|\'),0,{}))', [], 31, '||||||||||||||||||||||||function||return||if|replace|while'.split('|'), 0, {}))
+</script>
+{% endblock %}

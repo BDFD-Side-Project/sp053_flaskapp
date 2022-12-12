@@ -389,6 +389,10 @@ def gumbel():
     else:
         return render_template("gumbel.html")
 
+@app.route("/windspeed.html")
+def windspeed():
+    return render_template ("windspeed.html")
+
 if __name__ == "__main__":
     # from waitress import serve
     # serve(app, host="0.0.0.0", port=5000)
