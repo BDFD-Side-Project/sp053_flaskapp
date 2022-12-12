@@ -55,33 +55,102 @@
                 {% if c1 == 1 %}
                 <thead>
                     <tr>
-                        <th
-                            style="padding-bottom: 30px; width: 40%;text-align: center;">
+                        <th style="width: 20%;text-align: center;">
+                            水域类型
                         </th>
                         <!-- <th style=" width: 40%">波浪频谱的类型<br /></th> -->
-                        <th style="width:20%;">风距或水深限制条<br />件下的谱
-                            <sup>1,3</sup><br />
+                        <th style="width:20%;text-align: center;">外海开发海域<br />
                             <!-- <input style="margin-left: 50px;" type="radio" name="radio" id="radio1" checked> -->
-                            <input class="form-check-input"
-                                style="margin-left: 50px;" type="radio"
-                                name="radio" id="radio1" value="1" checked>
+                            <input class="form-check-input" type="radio"
+                                name="o1" id="o1" value="1" checked>
                             <!-- <div class="form-check radio" style="margin-top: 0px;margin-bottom: 0px;">
                                 <input class="form-check-input" type="radio" name="radio" id="radio1" checked>
                             </div> -->
                         </th>
-                        <th style="width:20%;">风、涌浪混合谱或<br />充分成长的风浪谱
-                            <sup>2,3</sup><br>
-                            <input class=" form-check-input"
-                                style="margin-left: 50px;" type="radio"
-                                name="radio" id="radio2" value="2">
+                        <th style="width:20%;text-align: center;">
+                            沿海、大湖、大型水库<br />
+                            <input class=" form-check-input" type="radio"
+                                name="o1" id="o1" value="2">
                             <!-- <div class="form-check radio">
                                 <input class=" form-check-input" type="radio" name="radio" id="radio2">
                                 </label>
                             </div> -->
                         </th>
+                        <th style="width:20%;text-align: center;">
+                        </th>
+                        <th style="width:20%;text-align: center;">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th style="width: 20%;text-align: center;">
+                            已知风速(U)的类型
+                        </th>
+                        <th style="width:20%;text-align: center;">
+                            水域大气表面层内的风速<sup>1</sup><br />
+                            <input class="form-check-input" type="radio"
+                                name="o2" id="o2" value="1" checked>
+                        </th>
+                        <th style="width:20%;text-align: center;">
+                            地转风速<br />
+                            <input class=" form-check-input" type="radio"
+                                name="o2" id="o2" value="2">
+                        </th>
+                        <th style="width:40%;text-align: center;" colspan="2">
+                            陆域大气表面层内的风速<sup>1</sup><br />
+                            <input class=" form-check-input" type="radio"
+                                name="o2" id="o2" value="2">
+                        </th>
+                        <!-- <th style="width:20%;text-align: center;">
+                        </th> -->
+                    </tr>
+                    <tr>
+                        <th style="width: 20%;text-align: center;">
+                        </th>
+                        <th style="width:20%;text-align: center;">
+                            <br />
+                        </th>
+                        <th style="width:20%;text-align: center;">
+                            <br />
+                        </th>
+                        <th style="width:20%;text-align: center;">接近岸线的向岸风<br />
+                            <input class=" form-check-input" type="radio"
+                                name="o3" id="o3" value="1">
+                        </th>
+                        <th style="width:20%;text-align: center;">
+                            其它情况(离岸风、远离岸线的风)<br />
+                            <input class=" form-check-input" type="radio"
+                                name="o3" id="o3" value="2">
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- <tr style="height:1px">
+                        <td>风矩 <i>X</i> (km) </td>
+                        <td>
+                            <div class="wave">
+                                <input type="text" class="requiredC1" name="U_1"
+                                    value="{{U_1}}">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <input type="text" class="requiredC2" name="U_2"
+                                    value="{{U_2}}" disabled>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <input type="text" class="requiredC1" name="U_1"
+                                    value="{{U_1}}">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wave">
+                                <input type="text" class="requiredC2" name="U_2"
+                                    value="{{U_2}}" disabled>
+                            </div>
+                        </td>
+                    </tr> -->
                     <tr style="height:1px">
                         <td>水深 <i>d</i> (m) </td>
                         <td>
@@ -203,44 +272,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>平均周期 <i>T<sub>z</sub></i> (s) <sup>7</sup></td>
-                        <td>
-                            <div class="wave">
-                                <!--                            <input type="text" class="requiredC1" name="Tz" value="{{Tz}}" placeholder="11.1">-->
-                                <input type="text" class="requiredC1"
-                                    name="Tz_1" value="{{Tz_1}}">
 
-                            </div>
-                        </td>
-                        <td>
-                            <div class="wave">
-                                <!--                            <input type="text" class="requiredC2" name="Tz" value="{{Tz}}" disabled placeholder="11.1">-->
-                                <input type="text" class="requiredC2"
-                                    name="Tz_2" value="{{Tz_2}}" disabled>
-
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>有效波周期 <i>T</i><sub>1/3</sub> (s) <sup>8</sup></td>
-                        <td>
-                            <div class="wave">
-                                <!--                            <input type="text" class="requiredC1" name="Ts" value="{{Ts}}" placeholder="5">-->
-                                <input type="text" class="requiredC1"
-                                    name="Ts_1" value="{{Ts_1}}">
-
-                            </div>
-                        </td>
-                        <td>
-                            <div class="wave">
-                                <!--                            <input type="text" class="requiredC2" name="Ts" value="{{Ts}}" disabled placeholder="5">-->
-                                <input type="text" class="requiredC2"
-                                    name="Ts_2" value="{{Ts_2}}" disabled>
-
-                            </div>
-                        </td>
-                    </tr>
                     <tr>
                         <td>
                             谱峰周期 <i>T<sub>p</sub></i> (s) <sup>9</sup>
@@ -289,7 +321,7 @@
                 </thead>
                 <tbody>
                     <tr style="height:1px">
-                        <td>水深 <i>d</i> (m) </td>
+                        <td>U (m/s)</td>
                         <td>
                             <div class="wave">
                                 <!--                            <input type="text" class="requiredC1" name="d" value="{{d}}" placeholder="8">-->
@@ -298,7 +330,6 @@
                             </div>
                         </td>
                         <td>
-
                         </td>
                     </tr>
                     <tr>
