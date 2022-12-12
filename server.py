@@ -394,7 +394,7 @@ def windspeed():
     if request.method == "POST":
         return render_template ("windspeed.html")
     else:
-        return render_template ("windspeed.html")
+        return render_template ("windspeed.html",c1=1)
 if __name__ == "__main__":
     # from waitress import serve
     # serve(app, host="0.0.0.0", port=5000)
