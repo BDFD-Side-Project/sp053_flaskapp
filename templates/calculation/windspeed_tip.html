@@ -1,0 +1,74 @@
+<!--
+ * @Date         : 2022-12-12 16:52:33
+ * @Author       : BDFD,bdfd2005@gmail.com
+ * @Github       : https://github.com/bdfd
+ * @LastEditTime : 2022-12-12 16:53:01
+ * @LastEditors  : BDFD
+ * @Description  : 
+ * @FilePath     : \templates\calculation\windspeed_tip.html
+ * Copyright (c) 2022 by BDFD, All Rights Reserved. 
+-->
+<div class="tips" style="margin-top:0px;font-size:12px">
+    <p
+        style="margin-left:10px;font-family: 'Times New Roman',楷体;margin-bottom: 0px;">
+        注：
+    </p>
+    <ol class="list-group list-group-numbered"
+        style="font-family: 'Times New Roman',楷体;">
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                本计算程序假设大气表面层为距离水面或地面120 m高度范围内的大气边界层。<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                对于水域风速，这一zm指水面以上的高度。对于陆域风速，这一zm指地面以上的高度。在分析陆域风到水域的转换时，因为陆域风会随地形运动，本计算程序假设陆域风速的zm等同于指水面以上的高度。
+                风速廓线和气温廓线需联合求解，故要求同一高度的已知气温和已知风速。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                风速廓线和气温廓线需联合求解，故要求同一高度的已知气温和已知风速。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                原则上不要求同一高度的已知气温和已知风速。
+                但为便于比较相同高度处的水、陆域风速，本计算程序要求同一高度的已知气温和已知风速。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                取值范围：(0.3, 1.0)。在地转风速为20 m/s、气水温差为零时，其值为0.65，以作参考。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                风速时距为获取风速平均值的时间间隔。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                根据需要选择，不要超过本计算程序所假设的大气表面层厚度 (120 m) 。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                用来近似代表贴近水面的气温。
+                <br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                如果没有可靠数据，建议近似取值：如zm较高，取水表面温度和zm处已知气温的均值；否则，取zm处的已知气温。
+                <br>
+            </div>
+        </li>
+    </ol>
+</div>
