@@ -212,21 +212,101 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">U
+                    (m/s)</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div>
+                    <input type=" text" class="form-control" name="thetai"
+                        value="{{test2}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">U的时距
+                    (min)<sup>11</sup></span>
+                <div style="margin-left:80px">
+                    <input type=" text" class="form-control" name="thetas"
+                        value="{{test3}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">现场水域已知气温
+                    (°C)</span>
+                <div style="margin-left:1px">
+                    <input type=" text" class="form-control" name="thetai"
+                        value="{{test2}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">该已知气温距水面的高度
+                    (m)
+                </span>
+                <div><input type=" text" class="form-control" name="thetas"
+                        value="{{test3}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">表面水温
+                    (°C)<sup>12</sup></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <div style="margin-left:4px">
+                    <input type=" text" class="form-control" name="thetai"
+                        value="{{test2}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">大气表面层的平均气温
+                    (°C)<sup>13</sup></span>
+                <div><input type=" text" class="form-control" name="thetas"
+                        value="{{test3}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+            </div>
+            <div class="input-group">
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">所求风速的时距
+                    (min)</span>&nbsp
+                <div style="margin-left:1px">
+                    <input type=" text" class="form-control" name="thetai"
+                        value="{{test2}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span
+                    style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">风速查看的高度范围
+                    (m)<sup>14</sup></span>
+                <div style="margin-left:16px"><input type=" text"
+                        class="form-control" name="thetas" value="{{test3}}"
+                        style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
+                </div>
+            </div>
             <input type="hidden" name="c1" value={{c1}}>
             {% include "calculation/windspeed_tip.html" %}
             <div class="wave">
                 <h5 style="font-family:楷体;margin-bottom:15px;margin-top:15px;"
                     align="right">
-                    <button type=" submit" name="calculate" value="计 算"
+                    <!-- <button type="none" name="calculate" value="计 算"
                         class="btn btn-secondary"
                         style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:250px;height:28px;padding-top:0px;"><strong>计&nbsp算
                             (约需数秒，结果见下!)</strong>
-                    </button>
-                    <a href="/windspeed.html" class="btn btn-secondary"
+                    </button> -->
+                    <a href="#" name="calculate" value="计 算"
+                        class="btn btn-secondary"
+                        style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:250px;height:28px;padding-top:0px;"><strong>计&nbsp算
+                            (约需数秒，结果见下!)</strong>
+                    </a>
+                    <a href="#" class="btn btn-secondary"
                         style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp空</strong></a>
-                    <button type="button"
-                        class="btn btn-secondary button-print-or-save-document"
-                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button>
+                    <a href="#" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></a>
+                    <!-- <button type="button" class="btn btn-secondary"
+                        style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>打&nbsp印</strong></button> -->
                 </h5>
             </div>
         </form>
