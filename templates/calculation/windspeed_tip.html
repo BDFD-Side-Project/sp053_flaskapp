@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 16:52:33
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-12 16:53:01
+ * @LastEditTime : 2022-12-16 12:04:45
  * @LastEditors  : BDFD
  * @Description  : 
  * @FilePath     : \templates\calculation\windspeed_tip.html
@@ -22,21 +22,44 @@
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                对于水域风速，这一zm指水面以上的高度。对于陆域风速，这一zm指地面以上的高度。在分析陆域风到水域的转换时，因为陆域风会随地形运动，本计算程序假设陆域风速的zm等同于指水面以上的高度。
-                风速廓线和气温廓线需联合求解，故要求同一高度的已知气温和已知风速。
+                2<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                3<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                4<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                5<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                6<br>
+            </div>
+        </li>
+        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+            <div style="margin-left:10px">
+                对于水域风速，z<sub>w</sub>指水面以上的高度。对于陆域风速，z<sub>m</sub>指地面以上的高度。
                 <br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                风速廓线和气温廓线需联合求解，故要求同一高度的已知气温和已知风速。
+                陆域风会随地形运动。因此，在分析陆域风到水域的转换时，本计算程序假设高度为zw的陆域风吹至水域以后距水面的高度也为zw，但风速可能会不同。
                 <br>
             </div>
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                原则上不要求同一高度的已知气温和已知风速。
-                但为便于比较相同高度处的水、陆域风速，本计算程序要求同一高度的已知气温和已知风速。
+                北半球为正值，南半球为负值。
                 <br>
             </div>
         </li>
@@ -66,7 +89,7 @@
         </li>
         <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
             <div style="margin-left:10px">
-                如果没有可靠数据，建议近似取值：如zm较高，取水表面温度和zm处已知气温的均值；否则，取zm处的已知气温。
+                如果没有可靠数据，建议近似取值：如已知气温的位置较高，取表面温度和已知气温的均值；否则，取已知气温。
                 <br>
             </div>
         </li>
