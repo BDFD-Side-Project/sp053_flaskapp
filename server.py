@@ -392,7 +392,31 @@ def gumbel():
 @app.route("/windspeed.html", methods=["POST", "GET"])
 def windspeed():
     if request.method == "POST":
-        return render_template ("windspeed.html")
+        result = {
+        "U_1": 1,
+        "U_2": 2,
+        "U_3": 3
+        }
+        mingzi = request.form["mingzi"]
+        beta = request.form["beta"]
+        atm = request.form["atm"]
+        Ta = request.form["Ta"]
+        zt = request.form["zt"]
+        Tw = request.form["Tw"]
+        Taa = request.form["Taa"]
+        wdu = request.form["wdu"]
+        zu = request.form["zu"]
+        o2 = int(request.form["o2"])
+        if o2 == 1:
+            U = request.form["U_1"]
+        if o2 == 2:
+            U = request.form["U_2"]
+        if o2 == 3:    
+            U = request.form["U_3"]
+        if o2 == 4:    
+            U = request.form["U_4"]
+        print(result["U_1"],result["U_2"],result["U_3"],o2)
+        return render_template ("windspeed.html", mingzi=mingzi)
     else:
         return render_template ("windspeed.html",c1=1)
 if __name__ == "__main__":

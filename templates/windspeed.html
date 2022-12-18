@@ -53,25 +53,6 @@
             <table class="table table-striped"
                 style="font-family: 'Times New Roman',楷体; margin-bottom:10px;--bs-table-striped-bg:white;">
                 <thead>
-                    <!-- <tr>
-                        <th style="width: 20%;text-align: center;">
-                            水域类型
-                        </th>
-                        <th style="width:20%;text-align: center;">
-                            外海开发海域<br />
-                            <input class="form-check-input" type="radio"
-                                name="o1" id="o1" value="1">
-                        </th>
-                        <th style="width:20%;text-align: center;">
-                            沿海、大湖、大型水库<br />
-                            <input class=" form-check-input" type="radio"
-                                name="o1" id="o1" value="2">
-                        </th>
-                        <th style="width:20%;text-align: center;">
-                        </th>
-                        <th style="width:20%;text-align: center;">
-                        </th>
-                    </tr> -->
                     <tr>
                         <th style="text-align: center;" align="center">
                             已知风速(<i>U</i>)的类型<sup>2</sup>
@@ -81,24 +62,24 @@
                             水域大气表面层内的风速<sup>3</sup><br />
                             <input style="margin-top:28px;"
                                 class="form-check-input" type="radio" name="o2"
-                                id="o2" value="1">
+                                id="o2_1" value="1">
                         </th>
                         <th style="text-align: center;">
                             岸域大气表面层内的风速（岸线附近的向岸风）<sup>4</sup>
                             <br />
                             <input class=" form-check-input" type="radio"
-                                name="o2" id="o2" value="2">
+                                name="o2" id="o2_2" value="2">
                         </th>
                         <th style="text-align: center;">
                             岸域大气表面层内的风速（离岸风、远离岸线的风）<sup>5</sup><br />
                             <input class=" form-check-input" type="radio"
-                                name="o2" id="o2" value="3">
+                                name="o2" id="o2_3" value="3">
                         </th>
                         <th style="text-align: center;">
                             地转风速<sup>6</sup><br />
                             <input style="margin-top:48px"
                                 class=" form-check-input" type="radio" name="o2"
-                                id="o2" value="4">
+                                id="o2_4" value="4">
                         </th>
                     </tr>
                 </thead>
@@ -224,8 +205,8 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px"><i>U</i>
                     (m/s)</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <div>
-                    <input type=" text" class="form-control" name="thetai"
-                        value="{{test2}}"
+                    <input type=" text" class="form-control" name="beta"
+                        value="{{beta}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -233,8 +214,8 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px"><i>U</i>的时距
                     (min)<sup>11</sup></span>
                 <div style="margin-left:80px">
-                    <input type=" text" class="form-control" name="thetas"
-                        value="{{test3}}"
+                    <input type=" text" class="form-control" name="atm"
+                        value="{{atm}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
             </div>
@@ -243,8 +224,8 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">现场水域已知气温
                     (°C)</span>
                 <div style="margin-left:1px">
-                    <input type=" text" class="form-control" name="thetai"
-                        value="{{test2}}"
+                    <input type=" text" class="form-control" name="Ta"
+                        value="{{Ta}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -252,8 +233,8 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">该已知气温距水面的高度
                     (m)
                 </span>
-                <div><input type=" text" class="form-control" name="thetas"
-                        value="{{test3}}"
+                <div><input type=" text" class="form-control" name="zt"
+                        value="{{zt}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
             </div>
@@ -262,16 +243,16 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">表面水温
                     (°C)<sup>12</sup></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <div style="margin-left:4px">
-                    <input type=" text" class="form-control" name="thetai"
-                        value="{{test2}}"
+                    <input type=" text" class="form-control" name="Tw"
+                        value="{{Tw}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 <span
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">大气表面层的平均气温
                     (°C)<sup>13</sup></span>
-                <div><input type=" text" class="form-control" name="thetas"
-                        value="{{test3}}"
+                <div><input type=" text" class="form-control" name="Taa"
+                        value="{{Taa}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
             </div>
@@ -280,8 +261,8 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:6px">所求风速的时距
                     (min)</span>&nbsp
                 <div style="margin-left:1px">
-                    <input type=" text" class="form-control" name="thetai"
-                        value="{{test2}}"
+                    <input type=" text" class="form-control" name="wdu"
+                        value="{{wdu}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -289,7 +270,7 @@
                     style="font-family:'Times New Roman',楷体;font-size:14px;margin-left:10px">风速查看的高度范围
                     (m)<sup>14</sup></span>
                 <div style="margin-left:16px"><input type=" text"
-                        class="form-control" name="thetas" value="{{test3}}"
+                        class="form-control" name="zu" value="{{zu}}"
                         style="height:25px;width:115px;font-size:14px;margin-left:3px;border-radius:5px">
                 </div>
             </div>
@@ -300,16 +281,11 @@
             <div class="wave">
                 <h5 style="font-family:楷体;margin-bottom:15px;margin-top:15px;"
                     align="right">
-                    <!-- <button type="none" name="calculate" value="计 算"
+                    <button type="submit" name="calculate" value="计 算"
                         class="btn btn-secondary"
                         style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:250px;height:28px;padding-top:0px;"><strong>计&nbsp算
                             (约需数秒，结果见下!)</strong>
-                    </button> -->
-                    <a href="#" name="calculate" value="计 算"
-                        class="btn btn-secondary"
-                        style="font-family: 楷体;background-color: rgb(230, 230, 230);color:red;width:250px;height:28px;padding-top:0px;"><strong>计&nbsp算
-                            (约需数秒，结果见下!)</strong>
-                    </a>
+                    </button>
                     <a href="#" class="btn btn-secondary"
                         style="font-family: 楷体; background-color: rgb(230, 230, 230);color:blue;height:28px;padding-top:0px;"><strong>清&nbsp空</strong></a>
                     <a href="#" class="btn btn-secondary"
