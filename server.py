@@ -401,30 +401,41 @@ def windspeed():
         Taa = request.form["Taa"]
         wdu = request.form["wdu"]
         zu = request.form["zu"]
+        zw_1, zw_2, zw_3 = " "," "," "
+        Xlat_3, Xlat_4 = " "," "
+        X_3 = " "
+        Rg_4 = " "
         o2 = int(request.form["o2"])
         if o2 == 1:
             zw = request.form["zw_1"]
+            zw_1 = request.form["zw_1"]
             Xlat = " "
             X = " "
             Rg = " "
         if o2 == 2:
             zw = request.form["zw_2"]
+            zw_2 = request.form["zw_2"]
             Xlat = " "
             X=" "
             Rg = " "
         if o2 == 3:    
             zw = request.form["zw_3"]
+            zw_3 = request.form["zw_3"]
             Xlat = request.form["Xlat_3"]
+            Xlat_3 = request.form["Xlat_3"]
             X= request.form["X_3"]
+            X_3= request.form["X_3"]
             Rg = " "
         if o2 == 4:    
             zw = " "
             Xlat = request.form["Xlat_4"]
+            Xlat_4 = request.form["Xlat_4"]
             X=" "
             Rg = request.form["Rg_4"]
-        print("o2 is ",o2,"zw is ",zw,"Xlat is ",Xlat,"X is ",X,"Rg is ",Rg)
-        print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
-        return render_template ("windspeed.html",o2=o2,zw=zw,Xlat=Xlat)
+            Rg_4 = request.form["Rg_4"]
+        # print("o2 is ",o2,"zw is ",zw,"Xlat is ",Xlat,"X is ",X,"Rg is ",Rg)
+        # print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
+        return render_template ("windspeed.html",o2=o2,zw_1=zw_1, zw_2=zw_2, zw_3=zw_3, Xlat_3=Xlat_3, Xlat_4=Xlat_4, X_3=X_3, Rg_4=Rg_4, beta=beta ,atm=atm ,Ta=Ta ,zt=zt ,Tw=Tw, Taa=Taa , wdu=wdu ,zu=zu)
     else:
         return render_template ("windspeed.html",c1=1)
 if __name__ == "__main__":
