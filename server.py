@@ -392,12 +392,7 @@ def gumbel():
 @app.route("/windspeed.html", methods=["POST", "GET"])
 def windspeed():
     if request.method == "POST":
-        result = {
-        "U_1": 1,
-        "U_2": 2,
-        "U_3": 3
-        }
-        mingzi = request.form["mingzi"]
+        # mingzi = request.form["mingzi"]
         beta = request.form["beta"]
         atm = request.form["atm"]
         Ta = request.form["Ta"]
@@ -408,15 +403,28 @@ def windspeed():
         zu = request.form["zu"]
         o2 = int(request.form["o2"])
         if o2 == 1:
-            U = request.form["U_1"]
+            zw = request.form["zw_1"]
+            Xlat = " "
+            X = " "
+            Rg = " "
         if o2 == 2:
-            U = request.form["U_2"]
+            zw = request.form["zw_2"]
+            Xlat = " "
+            X=" "
+            Rg = " "
         if o2 == 3:    
-            U = request.form["U_3"]
+            zw = request.form["zw_3"]
+            Xlat = request.form["Xlat_3"]
+            X= request.form["X_3"]
+            Rg = " "
         if o2 == 4:    
-            U = request.form["U_4"]
-        print(result["U_1"],result["U_2"],result["U_3"],o2)
-        return render_template ("windspeed.html", mingzi=mingzi)
+            zw = " "
+            Xlat = request.form["Xlat_4"]
+            X=" "
+            Rg = request.form["Rg_4"]
+        print("o2 is ",o2,"zw is ",zw,"Xlat is ",Xlat,"X is ",X,"Rg is ",Rg)
+        print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
+        return render_template ("windspeed.html",o2=o2,zw=zw,Xlat=Xlat)
     else:
         return render_template ("windspeed.html",c1=1)
 if __name__ == "__main__":
