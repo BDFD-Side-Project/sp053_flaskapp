@@ -394,49 +394,57 @@ def gumbel():
 def windspeed():
     if request.method == "POST":
         # mingzi = request.form["mingzi"]
-        beta = float(request.form["beta"])
-        atm = float(request.form["atm"])
-        Ta = float(request.form["Ta"])
-        zt = float(request.form["zt"])
-        Tw = float(request.form["Tw"])
-        Taa = float(request.form["Taa"])
-        wdu = float(request.form["wdu"])
-        zu = int(request.form["zu"])
+        beta = request.form["beta"]
+        input_beta = float(request.form["beta"])
+        atm = request.form["atm"]
+        input_atm = float(request.form["atm"])
+        Ta = request.form["Ta"]
+        input_Ta = float(request.form["Ta"])
+        zt = request.form["zt"]
+        input_zt = float(request.form["zt"])
+        Tw = request.form["Tw"]
+        input_Tw = float(request.form["Tw"])
+        Taa = request.form["Taa"]
+        input_Taa = float(request.form["Taa"])
+        wdu = request.form["wdu"]
+        input_wdu = float(request.form["wdu"])
+        zu = request.form["zu"]
+        input_zu = int(request.form["zu"])
         zw_1, zw_2, zw_3 = " "," "," "
         Xlat_3, Xlat_4 = " "," "
         X_3 = " "
         Rg_4 = " "
         o2 = float(request.form["o2"])
         if o2 == 1:
-            zw = float(request.form["zw_1"])
-            zw_1 = float(request.form["zw_1"])
-            Xlat = " "
-            X = " "
-            Rg = " "
+            zw_1 = request.form["zw_1"]
+            input_zw = float(request.form["zw_1"])
+            input_Xlat = None
+            input_X = None
+            input_Rg = None
         if o2 == 2:
-            zw = float(request.form["zw_2"])
-            zw_2 = float(request.form["zw_2"])
-            Xlat = " "
-            X=" "
-            Rg = " "
+            zw_2 = request.form["zw_2"]
+            input_zw = float(request.form["zw_2"])
+            input_Xlat = None
+            input_X= None
+            input_Rg = None
         if o2 == 3:    
-            zw = float(request.form["zw_3"])
-            zw_3 = float(request.form["zw_3"])
-            Xlat = float(request.form["Xlat_3"])
-            Xlat_3 = float(request.form["Xlat_3"])
-            X= float(request.form["X_3"])
-            X_3= float(request.form["X_3"])
-            Rg = " "
+            zw_3 = request.form["zw_3"]
+            input_zw = float(request.form["zw_3"])
+            Xlat_3 = request.form["Xlat_3"]
+            input_Xlat = float(request.form["Xlat_3"])
+            X_3= request.form["X_3"]
+            input_X= float(request.form["X_3"])
+            input_Rg = None
         if o2 == 4:    
-            zw = " "
-            Xlat = float(request.form["Xlat_4"])
-            Xlat_4 = float(request.form["Xlat_4"])
-            X=" "
-            Rg = float(request.form["Rg_4"])
-            Rg_4 = float(request.form["Rg_4"])
-        # print(o2,zw_3,Xlat_3,X_3)
+            input_zw = None
+            Xlat_4 = request.form["Xlat_4"]
+            input_Xlat = float(request.form["Xlat_4"])
+            input_X= None
+            Rg_4 = request.form["Rg_4"]
+            input_Rg = float(request.form["Rg_4"])
+        print(o2)
         # print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
-        img_stream, heading, section1, section2, section3, section4, section5, section6, section7, ending = wes.windspeed(o2, zw, Xlat, X, Rg, beta, atm, Ta, zt, Tw, Taa, wdu, zu)
+        img_stream, heading, section1, section2, section3, section4, section5, section6, section7, ending = wes.windspeed(o2, input_zw, input_Xlat, input_X, input_Rg, input_beta, input_atm, input_Ta, input_zt, input_Tw, input_Taa, input_wdu, input_zu)
         print(section7)
         return render_template ("windspeed.html",o2=o2,zw_1=zw_1, zw_2=zw_2, zw_3=zw_3, Xlat_3=Xlat_3, Xlat_4=Xlat_4, X_3=X_3, Rg_4=Rg_4, beta=beta ,atm=atm ,Ta=Ta ,zt=zt ,Tw=Tw, Taa=Taa , wdu=wdu ,zu=zu, img_stream=img_stream, heading=heading, section1=section1, section2=section2, section3=section3, section4=section4, section5=section5, section6=section6, section7=section7, ending=ending)
     else:
