@@ -393,49 +393,50 @@ def gumbel():
 def windspeed():
     if request.method == "POST":
         # mingzi = request.form["mingzi"]
-        beta = request.form["beta"]
-        atm = request.form["atm"]
-        Ta = request.form["Ta"]
-        zt = request.form["zt"]
-        Tw = request.form["Tw"]
-        Taa = request.form["Taa"]
-        wdu = request.form["wdu"]
-        zu = request.form["zu"]
+        beta = float(request.form["beta"])
+        atm = float(request.form["atm"])
+        Ta = float(request.form["Ta"])
+        zt = float(request.form["zt"])
+        Tw = float(request.form["Tw"])
+        Taa = float(request.form["Taa"])
+        wdu = float(request.form["wdu"])
+        zu = int(request.form["zu"])
         zw_1, zw_2, zw_3 = " "," "," "
         Xlat_3, Xlat_4 = " "," "
         X_3 = " "
         Rg_4 = " "
-        o2 = int(request.form["o2"])
+        o2 = float(request.form["o2"])
         if o2 == 1:
-            zw = request.form["zw_1"]
-            zw_1 = request.form["zw_1"]
+            zw = float(request.form["zw_1"])
+            zw_1 = float(request.form["zw_1"])
             Xlat = " "
             X = " "
             Rg = " "
         if o2 == 2:
-            zw = request.form["zw_2"]
-            zw_2 = request.form["zw_2"]
+            zw = float(request.form["zw_2"])
+            zw_2 = float(request.form["zw_2"])
             Xlat = " "
             X=" "
             Rg = " "
         if o2 == 3:    
-            zw = request.form["zw_3"]
-            zw_3 = request.form["zw_3"]
-            Xlat = request.form["Xlat_3"]
-            Xlat_3 = request.form["Xlat_3"]
-            X= request.form["X_3"]
-            X_3= request.form["X_3"]
+            zw = float(request.form["zw_3"])
+            zw_3 = float(request.form["zw_3"])
+            Xlat = float(request.form["Xlat_3"])
+            Xlat_3 = float(request.form["Xlat_3"])
+            X= float(request.form["X_3"])
+            X_3= float(request.form["X_3"])
             Rg = " "
         if o2 == 4:    
             zw = " "
-            Xlat = request.form["Xlat_4"]
-            Xlat_4 = request.form["Xlat_4"]
+            Xlat = float(request.form["Xlat_4"])
+            Xlat_4 = float(request.form["Xlat_4"])
             X=" "
-            Rg = request.form["Rg_4"]
-            Rg_4 = request.form["Rg_4"]
-        print(o2,zw,Xlat,X,Rg)
+            Rg = float(request.form["Rg_4"])
+            Rg_4 = float(request.form["Rg_4"])
+        print(o2,zw_3,Xlat_3,X_3)
         print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
-        return render_template ("windspeed.html",o2=o2,zw_1=zw_1, zw_2=zw_2, zw_3=zw_3, Xlat_3=Xlat_3, Xlat_4=Xlat_4, X_3=X_3, Rg_4=Rg_4, beta=beta ,atm=atm ,Ta=Ta ,zt=zt ,Tw=Tw, Taa=Taa , wdu=wdu ,zu=zu)
+        img_stream, heading, section1, section2, section3, section4, section5, section6, section7, ending = wes.windspeed(o2, zw, Xlat, X, Rg, beta, atm, Ta, zt, Tw, Taa, wdu, zu)
+        return render_template ("windspeed.html",o2=o2,zw_1=zw_1, zw_2=zw_2, zw_3=zw_3, Xlat_3=Xlat_3, Xlat_4=Xlat_4, X_3=X_3, Rg_4=Rg_4, beta=beta ,atm=atm ,Ta=Ta ,zt=zt ,Tw=Tw, Taa=Taa , wdu=wdu ,zu=zu, img_stream=img_stream, heading=heading, section1=section1, section2=section2, section3=section3, section4=section4, section5=section5, section6=section6, section7=section7, ending=ending)
     else:
         return render_template ("windspeed.html",c1=1)
 if __name__ == "__main__":
