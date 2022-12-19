@@ -217,6 +217,7 @@ def wavespectra():
         # return render_template("wave.html", img_stream=img_stream, heading=heading, data1=data1, data1_heading1=data1_heading1, data1_heading2=data1_heading2, data2=data2, data2_heading1=data2_heading1, data2_heading2=data2_heading2, content=content, ending=ending )
         # print(c1,X_2,U_2,el_2,gamma_2,Hs_2,Tz_2,Ts_2,Tp_2)
         # print(d,X,U,el,gamma,Hs,Tz,Ts)
+        print(data1)
         return render_template("wavespectra.html",mingzi=mingzi,d_1=d_1,X_1=X_1,U_1=U_1,el_1=el_1,gamma_1=gamma_1,Hs_1=Hs_1,Tz_1=Tz_1,Ts_1=Ts_1,c1=c1,X_2=X_2,X_2_Replace=X_2_Replace,U_2=U_2,el_2=el_2,gamma_2=gamma_2,Hs_2=Hs_2,Tz_2=Tz_2,Ts_2=Ts_2,Tp_2=Tp_2,img_stream=img_stream, heading=heading, data1=data1, data1_heading=data1_heading, data2=data2, data2_heading=data2_heading, content=content, ending=ending )
         # return render_template("wavetest.html", d_1=d_1,X_1=X_1,U_1=U_1,el_1=el_1,gamma_1=gamma_1,Hs_1=Hs_1,Tz_1=Tz_1,Ts_1=Ts_1,c1=c1,X_2=X_2,U_2=U_2,el_2=el_2,gamma_2=gamma_2,Hs_2=Hs_2,Tz_2=Tz_2,Ts_2=Ts_2,Tp_2=Tp_2)
     else:
@@ -433,9 +434,10 @@ def windspeed():
             X=" "
             Rg = float(request.form["Rg_4"])
             Rg_4 = float(request.form["Rg_4"])
-        print(o2,zw_3,Xlat_3,X_3)
-        print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
+        # print(o2,zw_3,Xlat_3,X_3)
+        # print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
         img_stream, heading, section1, section2, section3, section4, section5, section6, section7, ending = wes.windspeed(o2, zw, Xlat, X, Rg, beta, atm, Ta, zt, Tw, Taa, wdu, zu)
+        print(section7)
         return render_template ("windspeed.html",o2=o2,zw_1=zw_1, zw_2=zw_2, zw_3=zw_3, Xlat_3=Xlat_3, Xlat_4=Xlat_4, X_3=X_3, Rg_4=Rg_4, beta=beta ,atm=atm ,Ta=Ta ,zt=zt ,Tw=Tw, Taa=Taa , wdu=wdu ,zu=zu, img_stream=img_stream, heading=heading, section1=section1, section2=section2, section3=section3, section4=section4, section5=section5, section6=section6, section7=section7, ending=ending)
     else:
         return render_template ("windspeed.html",c1=1)

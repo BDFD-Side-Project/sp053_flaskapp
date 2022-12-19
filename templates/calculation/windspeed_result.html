@@ -2,7 +2,7 @@
  * @Date         : 2022-12-17 21:58:19
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-19 00:30:22
+ * @LastEditTime : 2022-12-19 11:31:30
  * @LastEditors  : BDFD
  * @Description  : 
  * @FilePath     : \templates\calculation\windspeed_result.html
@@ -110,15 +110,18 @@
     {% if section7 %}
     <p class="pagebreak" style="margin-bottom: 0px;margin-left: 10px;">
         ---结果汇总：{{ wdu }}-min时距U₁₀(m/s)---</p>
-    <ol class="list-group list-group-numbered">
-        {% for section in section7 %}
-        <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
-            <div style="margin-left:10px">
-                {{section}}
-            </div>
-        </li>
+    <table>
+        {% for row in section7 %}
+        <tr>
+            <td
+                style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[0]}}</td>
+            <td
+                style="width: 200px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[1]}}</td>
+        </tr>
         {% endfor %}
-    </ol>
+    </table>
     {% endif %}
     <br />
     <div>
