@@ -1,4 +1,4 @@
-<!-- {% if c1==1 %} -->
+{% if c1 == 1 %}
 <table class="table table-striped"
     style="font-family: 'Times New Roman',楷体; margin-bottom:10px;--bs-table-striped-bg:white;">
     <thead>
@@ -189,42 +189,75 @@
         </tr>
     </tbody>
 </table>
-<!-- {% elif o2==1 %}
+{% elif o2 == 1 %}
 <table class="table table-striped"
     style="font-family: 'Times New Roman',楷体; margin-bottom:10px;--bs-table-striped-bg:white;">
     <thead>
         <tr>
-            <th style="text-align: center;" align="center">
+            <th align="center" rowspan="2">
                 已知风速(<i>U</i>)的类型<sup>2</sup>
-                <p style="margin-top:22px"></p>
+                <p style="margin-top:41px"></p>
             </th>
-            <th style="text-align: center;">
+            <!-- <th style="text-align:center;">
+                1
+            </th> -->
+            <th style="text-align:center;" rowspan="2">
                 水域大气表面层内的风速<sup>3</sup><br />
                 <input style="margin-top:28px;" class="form-check-input"
                     type="radio" name="o2" id="o2_1" value="1" checked>
             </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（岸线附近的向岸风）<sup>4</sup>
-                <br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_2" value="2">
+            <th style="text-align: center;" colspan="2">
+                岸域大气表面层内的风速
             </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（离岸风、远离岸线的风）<sup>5</sup><br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_3" value="3">
-            </th>
-            <th style="text-align: center;">
+            <!-- <th style="text-align: center;">
+                岸域大气表面层内的风速
+            </th> -->
+            <!-- <th style="text-align: center;">
+                2
+            </th> -->
+            <th style="text-align: center;" rowspan="2">
                 地转风速<sup>6</sup><br />
                 <input style="margin-top:48px" class=" form-check-input"
                     type="radio" name="o2" id="o2_4" value="4">
             </th>
         </tr>
+        <tr>
+            <!-- <th align="center">
+                已知风速(<i>U</i>)的类型<sup>2</sup>
+                <p style="margin-top:22px"></p>
+            </th> -->
+            <!-- <th style="text-align: center;">
+                水域大气表面层内的风速<sup>3</sup><br />
+                <input style="margin-top:28px;" class="form-check-input"
+                    type="radio" name="o2" id="o2_1" value="1">
+            </th> -->
+            <th style="text-align: center;">
+                <!-- 岸域大气表面层内的风速<br /> -->
+                岸线附近的向岸风<sup>4</sup>
+                <br />
+                <input class=" form-check-input" type="radio" name="o2"
+                    id="o2_2" value="2">
+            </th>
+            <th style="text-align: center;">
+                <!-- 岸域大气表面层内的风速<br /> -->
+                离岸风、远离岸线的风<sup>5</sup><br />
+                <input class=" form-check-input" type="radio" name="o2"
+                    id="o2_3" value="3">
+            </th>
+            <!-- <th style="text-align: center;">
+                地转风速<sup>6</sup><br />
+                <input style="margin-top:48px" class=" form-check-input"
+                    type="radio" name="o2" id="o2_4" value="4">
+            </th> -->
+        </tr>
     </thead>
     <tbody>
         <tr style="height:1px;">
-            <td><i>U</i>距地面或水面<br>的高度<i>z<sub>w</sub></i> (m)
-                <sup>5</sup>
+            <td>
+                <div style="margin-left:5px;">
+                    <i>U</i>的高度位置<br />z<sub>w</sub></i> (m)
+                    <sup>7</sup>
+                </div>
             </td>
             <td>
                 <div class="wave" align="center">
@@ -252,7 +285,11 @@
             </td>
         </tr>
         <tr style="height:1px;background-color:rgba(242,242,242,255);">
-            <td>现场水域的地理纬度 (°) <sup>9</sup></td>
+            <td>
+                <div style="margin-left:5px;">
+                    现场水域的地理纬度 (°) <sup>8</sup>
+                </div>
+            </td>
             <td>
                 <div class="wave">
                     <input type="hidden" class="requiredC1" name="Xlat_1"
@@ -279,7 +316,11 @@
             </td>
         </tr>
         <tr style="height:1px">
-            <td>场地离岸的距离 (km) </td>
+            <td>
+                <div style="margin-left:5px;">
+                    场地离岸的距离 (km) <sup>9</sup>
+                </div>
+            </td>
             <td>
                 <div class="wave">
                     <input type="hidden" class="requiredC1" name="X_1"
@@ -306,8 +347,11 @@
             </td>
         </tr>
         <tr style="height:1px;background-color:rgba(242,242,242,255)">
-            <td>CEM (2015)
-                <br />图II-2-13中<i>R<sub>g</sub></i>
+            <td>
+                <div style="margin-left: 5px;">CEM (2015)
+                    <br />图II-2-13中<i>R<sub>g</sub><sup>10</sup></i>
+                </div>
+
             </td>
             <td>
                 <div class="wave">
@@ -336,42 +380,75 @@
         </tr>
     </tbody>
 </table>
-{% elif o2==2 %}
+{% elif o2 == 2 %}
 <table class="table table-striped"
     style="font-family: 'Times New Roman',楷体; margin-bottom:10px;--bs-table-striped-bg:white;">
     <thead>
         <tr>
-            <th style="text-align: center;" align="center">
+            <th align="center" rowspan="2">
                 已知风速(<i>U</i>)的类型<sup>2</sup>
-                <p style="margin-top:22px"></p>
+                <p style="margin-top:41px"></p>
             </th>
-            <th style="text-align: center;">
+            <!-- <th style="text-align:center;">
+                1
+            </th> -->
+            <th style="text-align:center;" rowspan="2">
                 水域大气表面层内的风速<sup>3</sup><br />
                 <input style="margin-top:28px;" class="form-check-input"
                     type="radio" name="o2" id="o2_1" value="1">
             </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（岸线附近的向岸风）<sup>4</sup>
-                <br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_2" value="2" checked>
+            <th style="text-align: center;" colspan="2">
+                岸域大气表面层内的风速
             </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（离岸风、远离岸线的风）<sup>5</sup><br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_3" value="3">
-            </th>
-            <th style="text-align: center;">
+            <!-- <th style="text-align: center;">
+                岸域大气表面层内的风速
+            </th> -->
+            <!-- <th style="text-align: center;">
+                2
+            </th> -->
+            <th style="text-align: center;" rowspan="2">
                 地转风速<sup>6</sup><br />
                 <input style="margin-top:48px" class=" form-check-input"
                     type="radio" name="o2" id="o2_4" value="4">
             </th>
         </tr>
+        <tr>
+            <!-- <th align="center">
+                已知风速(<i>U</i>)的类型<sup>2</sup>
+                <p style="margin-top:22px"></p>
+            </th> -->
+            <!-- <th style="text-align: center;">
+                水域大气表面层内的风速<sup>3</sup><br />
+                <input style="margin-top:28px;" class="form-check-input"
+                    type="radio" name="o2" id="o2_1" value="1">
+            </th> -->
+            <th style="text-align: center;">
+                <!-- 岸域大气表面层内的风速<br /> -->
+                岸线附近的向岸风<sup>4</sup>
+                <br />
+                <input class=" form-check-input" type="radio" name="o2"
+                    id="o2_2" value="2" checked>
+            </th>
+            <th style="text-align: center;">
+                <!-- 岸域大气表面层内的风速<br /> -->
+                离岸风、远离岸线的风<sup>5</sup><br />
+                <input class=" form-check-input" type="radio" name="o2"
+                    id="o2_3" value="3">
+            </th>
+            <!-- <th style="text-align: center;">
+                地转风速<sup>6</sup><br />
+                <input style="margin-top:48px" class=" form-check-input"
+                    type="radio" name="o2" id="o2_4" value="4">
+            </th> -->
+        </tr>
     </thead>
     <tbody>
         <tr style="height:1px;">
-            <td><i>U</i>距地面或水面<br>的高度<i>z<sub>w</sub></i> (m)
-                <sup>5</sup>
+            <td>
+                <div style="margin-left:5px;">
+                    <i>U</i>的高度位置<br />z<sub>w</sub></i> (m)
+                    <sup>7</sup>
+                </div>
             </td>
             <td>
                 <div class="wave" align="center">
@@ -399,7 +476,11 @@
             </td>
         </tr>
         <tr style="height:1px;background-color:rgba(242,242,242,255);">
-            <td>现场水域的地理纬度 (°) <sup>9</sup></td>
+            <td>
+                <div style="margin-left:5px;">
+                    现场水域的地理纬度 (°) <sup>8</sup>
+                </div>
+            </td>
             <td>
                 <div class="wave">
                     <input type="hidden" class="requiredC1" name="Xlat_1"
@@ -426,7 +507,11 @@
             </td>
         </tr>
         <tr style="height:1px">
-            <td>场地离岸的距离 (km) </td>
+            <td>
+                <div style="margin-left:5px;">
+                    场地离岸的距离 (km) <sup>9</sup>
+                </div>
+            </td>
             <td>
                 <div class="wave">
                     <input type="hidden" class="requiredC1" name="X_1"
@@ -453,8 +538,11 @@
             </td>
         </tr>
         <tr style="height:1px;background-color:rgba(242,242,242,255)">
-            <td>CEM (2015)
-                <br />图II-2-13中<i>R<sub>g</sub></i>
+            <td>
+                <div style="margin-left: 5px;">CEM (2015)
+                    <br />图II-2-13中<i>R<sub>g</sub><sup>10</sup></i>
+                </div>
+
             </td>
             <td>
                 <div class="wave">
@@ -483,42 +571,75 @@
         </tr>
     </tbody>
 </table>
-{% elif o2==3 %}
+{% elif o2 == 3 %}
 <table class="table table-striped"
     style="font-family: 'Times New Roman',楷体; margin-bottom:10px;--bs-table-striped-bg:white;">
     <thead>
         <tr>
-            <th style="text-align: center;" align="center">
+            <th align="center" rowspan="2">
                 已知风速(<i>U</i>)的类型<sup>2</sup>
-                <p style="margin-top:22px"></p>
+                <p style="margin-top:41px"></p>
             </th>
-            <th style="text-align: center;">
+            <!-- <th style="text-align:center;">
+                1
+            </th> -->
+            <th style="text-align:center;" rowspan="2">
                 水域大气表面层内的风速<sup>3</sup><br />
                 <input style="margin-top:28px;" class="form-check-input"
                     type="radio" name="o2" id="o2_1" value="1">
             </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（岸线附近的向岸风）<sup>4</sup>
-                <br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_2" value="2">
+            <th style="text-align: center;" colspan="2">
+                岸域大气表面层内的风速
             </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（离岸风、远离岸线的风）<sup>5</sup><br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_3" value="3" checked>
-            </th>
-            <th style="text-align: center;">
+            <!-- <th style="text-align: center;">
+                岸域大气表面层内的风速
+            </th> -->
+            <!-- <th style="text-align: center;">
+                2
+            </th> -->
+            <th style="text-align: center;" rowspan="2">
                 地转风速<sup>6</sup><br />
                 <input style="margin-top:48px" class=" form-check-input"
                     type="radio" name="o2" id="o2_4" value="4">
             </th>
         </tr>
+        <tr>
+            <!-- <th align="center">
+                已知风速(<i>U</i>)的类型<sup>2</sup>
+                <p style="margin-top:22px"></p>
+            </th> -->
+            <!-- <th style="text-align: center;">
+                水域大气表面层内的风速<sup>3</sup><br />
+                <input style="margin-top:28px;" class="form-check-input"
+                    type="radio" name="o2" id="o2_1" value="1">
+            </th> -->
+            <th style="text-align: center;">
+                <!-- 岸域大气表面层内的风速<br /> -->
+                岸线附近的向岸风<sup>4</sup>
+                <br />
+                <input class=" form-check-input" type="radio" name="o2"
+                    id="o2_2" value="2">
+            </th>
+            <th style="text-align: center;">
+                <!-- 岸域大气表面层内的风速<br /> -->
+                离岸风、远离岸线的风<sup>5</sup><br />
+                <input class=" form-check-input" type="radio" name="o2"
+                    id="o2_3" value="3" checked>
+            </th>
+            <!-- <th style="text-align: center;">
+                地转风速<sup>6</sup><br />
+                <input style="margin-top:48px" class=" form-check-input"
+                    type="radio" name="o2" id="o2_4" value="4">
+            </th> -->
+        </tr>
     </thead>
     <tbody>
         <tr style="height:1px;">
-            <td><i>U</i>距地面或水面<br>的高度<i>z<sub>w</sub></i> (m)
-                <sup>5</sup>
+            <td>
+                <div style="margin-left:5px;">
+                    <i>U</i>的高度位置<br />z<sub>w</sub></i> (m)
+                    <sup>7</sup>
+                </div>
             </td>
             <td>
                 <div class="wave" align="center">
@@ -546,7 +667,11 @@
             </td>
         </tr>
         <tr style="height:1px;background-color:rgba(242,242,242,255);">
-            <td>现场水域的地理纬度 (°) <sup>9</sup></td>
+            <td>
+                <div style="margin-left:5px;">
+                    现场水域的地理纬度 (°) <sup>8</sup>
+                </div>
+            </td>
             <td>
                 <div class="wave">
                     <input type="hidden" class="requiredC1" name="Xlat_1"
@@ -573,7 +698,11 @@
             </td>
         </tr>
         <tr style="height:1px">
-            <td>场地离岸的距离 (km) </td>
+            <td>
+                <div style="margin-left:5px;">
+                    场地离岸的距离 (km) <sup>9</sup>
+                </div>
+            </td>
             <td>
                 <div class="wave">
                     <input type="hidden" class="requiredC1" name="X_1"
@@ -593,15 +722,18 @@
                 </div>
             </td>
             <td>
-                <div class="wave">
+                <div class=" wave">
                     <input type="hidden" class="requiredC4" name="X_4"
                         value="{{X_4}}" disabled>
                 </div>
             </td>
         </tr>
         <tr style="height:1px;background-color:rgba(242,242,242,255)">
-            <td>CEM (2015)
-                <br />图II-2-13中<i>R<sub>g</sub></i>
+            <td>
+                <div style="margin-left: 5px;">CEM (2015)
+                    <br />图II-2-13中<i>R<sub>g</sub><sup>10</sup></i>
+                </div>
+
             </td>
             <td>
                 <div class="wave">
@@ -630,151 +762,5 @@
         </tr>
     </tbody>
 </table>
-{% elif o2==4 %}
-<table class="table table-striped"
-    style="font-family: 'Times New Roman',楷体; margin-bottom:10px;--bs-table-striped-bg:white;">
-    <thead>
-        <tr>
-            <th style="text-align: center;" align="center">
-                已知风速(<i>U</i>)的类型<sup>2</sup>
-                <p style="margin-top:22px"></p>
-            </th>
-            <th style="text-align: center;">
-                水域大气表面层内的风速<sup>3</sup><br />
-                <input style="margin-top:28px;" class="form-check-input"
-                    type="radio" name="o2" id="o2_1" value="1">
-            </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（岸线附近的向岸风）<sup>4</sup>
-                <br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_2" value="2">
-            </th>
-            <th style="text-align: center;">
-                岸域大气表面层内的风速（离岸风、远离岸线的风）<sup>5</sup><br />
-                <input class=" form-check-input" type="radio" name="o2"
-                    id="o2_3" value="3">
-            </th>
-            <th style="text-align: center;">
-                地转风速<sup>6</sup><br />
-                <input style="margin-top:48px" class=" form-check-input"
-                    type="radio" name="o2" id="o2_4" value="4" checked>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr style="height:1px;">
-            <td><i>U</i>距地面或水面<br>的高度<i>z<sub>w</sub></i> (m)
-                <sup>5</sup>
-            </td>
-            <td>
-                <div class="wave" align="center">
-                    <input type="text" class="requiredC1" name="zw_1"
-                        value="{{zw_1}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave" align="center">
-                    <input type="text" class="requiredC2" name="zw_2"
-                        value="{{zw_2}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave" align="center">
-                    <input type="text" class="requiredC3" name="zw_3"
-                        value="{{zw_3}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC4" name="zw_4"
-                        value="{{zw_4}}" disabled>
-                </div>
-            </td>
-        </tr>
-        <tr style="height:1px;background-color:rgba(242,242,242,255);">
-            <td>现场水域的地理纬度 (°) <sup>9</sup></td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC1" name="Xlat_1"
-                        value="{{Xlat_1}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC2" name="Xlat_2"
-                        value="{{Xlat_2}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave" align="center">
-                    <input type="text" class="requiredC3" name="Xlat_3"
-                        value="{{Xlat_3}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave" align="center">
-                    <input type="text" class="requiredC4" name="Xlat_4"
-                        value="{{Xlat_4}}">
-                </div>
-            </td>
-        </tr>
-        <tr style="height:1px">
-            <td>场地离岸的距离 (km) </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC1" name="X_1"
-                        value="{{X_1}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC2" name="X_2"
-                        value="{{X_2}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave" align="center">
-                    <input type="text" class="requiredC3" name="X_3"
-                        value="{{X_3}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC4" name="X_4"
-                        value="{{X_4}}" disabled>
-                </div>
-            </td>
-        </tr>
-        <tr style="height:1px;background-color:rgba(242,242,242,255)">
-            <td>CEM (2015)
-                <br />图II-2-13中<i>R<sub>g</sub></i>
-            </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC1" name="Rg_1"
-                        value="{{Rg_1}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC2" name="Rg_2"
-                        value="{{Rg_2}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave">
-                    <input type="hidden" class="requiredC3" name="Rg_3"
-                        value="{{Rg_3}}" disabled>
-                </div>
-            </td>
-            <td>
-                <div class="wave" align="center">
-                    <input type="text" class="requiredC4" name="Rg_4"
-                        value="{{Rg_4}}">
-                </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
-{% endif %} -->
+
+{% endif %}
