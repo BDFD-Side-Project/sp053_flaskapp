@@ -2,7 +2,7 @@
  * @Date         : 2022-12-17 21:58:19
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-19 11:31:30
+ * @LastEditTime : 2022-12-20 17:42:55
  * @LastEditors  : BDFD
  * @Description  : 
  * @FilePath     : \templates\calculation\windspeed_result.html
@@ -113,12 +113,24 @@
     <table>
         {% for row in section7 %}
         <tr>
+            {% if row[2] %}
             <td
                 style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
                 {{row[0]}}</td>
             <td
-                style="width: 200px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                style="width: 110px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
                 {{row[1]}}</td>
+            <td
+                style="width: 100px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[2]}}</td>
+            {% else %}
+            <td
+                style="width: 120px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;">
+                {{row[0]}}</td>
+            <td style="width: 210px; text-align: center;padding: 2px;border: 1px solid black;border-collapse: collapse;"
+                colspan="2">
+                {{row[1]}}</td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>
