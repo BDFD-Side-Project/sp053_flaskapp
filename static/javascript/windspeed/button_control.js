@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:48:56
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-13 17:53:00
+ * @LastEditTime : 2022-12-20 16:43:18
  * @LastEditors  : BDFD
  * @Description  :
  * @FilePath     : \static\javascript\windspeed\button_control.js
@@ -32,7 +32,7 @@ waveForm.o2[0].addEventListener("click", function () {
 	}
 });
 
-waveForm.o2[1].addEventListener("click", function () {
+waveForm.o2[2].addEventListener("click", function () {
 	if (this.checked) {
 		waveForm.o2.value = 2;
 		for (let i = 0; i < requiredC1.length; i++) {
@@ -48,7 +48,7 @@ waveForm.o2[1].addEventListener("click", function () {
 	}
 });
 
-waveForm.o2[2].addEventListener("click", function () {
+waveForm.o2[3].addEventListener("click", function () {
 	if (this.checked) {
 		waveForm.o2.value = 3;
 		for (let i = 0; i < requiredC1.length; i++) {
@@ -64,7 +64,7 @@ waveForm.o2[2].addEventListener("click", function () {
 	}
 });
 
-waveForm.o2[3].addEventListener("click", function () {
+waveForm.o2[1].addEventListener("click", function () {
 	if (this.checked) {
 		waveForm.o2.value = 4;
 		for (let i = 0; i < requiredC1.length; i++) {

@@ -1,0 +1,185 @@
+/*
+This is the CSS file of waterfrontes.com
+    Created on : Sep 01, 2021
+    Author     : April Zhou
+*/
+
+/* body {
+    font-family: '微软雅黑';
+    font-size: 14px
+} */
+
+ul {
+    list-style: none
+}
+
+.wrapper {
+    margin: 0 auto 0 auto;
+    padding: 0;
+    display: inline-block;
+    width: 98%
+}
+
+.topbanner {
+    width: 100%;
+    padding: 2vh 1vw 2vh 1vw;
+    border-bottom: solid 1px #000;
+    display: inline-block
+}
+
+.topmenu {
+    border-left: solid 1px #000;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    float: left
+}
+
+.topmenu li {
+    float: left;
+    background: #ffffaa;
+    padding: 4px 12px 4px 12px;
+    border: solid 1px #000;
+    border-left: none
+}
+
+.topmenu li.current-li {
+    background: #aaffff
+}
+
+.topmenu a:link {
+    text-decoration: none;
+    color: #000
+}
+
+.topmenu a:visited {
+    text-decoration: none;
+    color: #000
+}
+
+.topmenu a:hover {
+    text-decoration: none;
+    color: #ff0000
+}
+
+.studio-name {
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+    margin: 0;
+    rihgt: 10vw
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    border-left: solid 1px #000;
+    margin: 0;
+    padding: 0
+}
+
+.submenu li {
+    float: none
+}
+
+.submenu li:hover {
+    background: #aaffff
+}
+
+.subsubmenu {
+    width: 172px
+}
+
+.thebody {
+    padding: 5vh 6vw 5vh 2vw
+}
+
+.footer {
+    font-size: 13px;
+    color: #999;
+    text-align: center;
+    position: fixed;
+    bottom: 2vh;
+    width: 100%
+}
+
+.imgs li {
+    float: left
+}
+
+
+form div{
+    margin: 0px 0;
+}
+
+.wave label{
+    font-family: 楷体;
+    margin-left:6px;
+    width: 100px;
+    float: left;
+    text-align: right;
+}
+
+.wave input{
+    margin-top:0px;
+    padding: 10px 0px;
+    height: 22px;
+    width: 100px;
+}
+
+.form-check{
+    position: relative;
+}
+
+table{
+     border:solid 1px #cccccc;
+     border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.radio{
+    margin-left:50px;
+}
+
+tbody td {
+    padding: 2px !important;
+    width: 130px;
+    vertical-align: middle !important;
+}
+
+.wave input{
+    width: 100px;
+}
+
+
+.wave .instruction {
+    font-family: kaiti;
+    font-size:15pt;
+}
+
+.wave h1{
+    font-family: kaiti;
+    font-size: 30pt;
+}
+
+.wave h2{
+    font-family: kaiti;
+    font-size: 20pt;
+}
+
+.form {
+    font-family: kaiti;
+
+}
+
+.form .tips {
+    font-family: kaiti;
+    font-size: 10pt;
+}
+
+.wave-body p {
+    font-family: kaiti;
+    margin: -20px auto;
+}
+
