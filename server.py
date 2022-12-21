@@ -444,9 +444,9 @@ def windspeed():
             input_Rg = float(request.form["Rg_4"])
         print(o2)
         # print(beta,atm,Ta,zt,Tw,Taa,wdu,zu)
-        img_stream, heading, section1, section2, section3, section4, section5, section6, section7, ending = wes.windspeed(o2, input_zw, input_Xlat, input_X, input_Rg, input_beta, input_atm, input_Ta, input_zt, input_Tw, input_Taa, input_wdu, input_zu)
+        img_stream, heading, section1, section2, section2_note, section3, section4, section5, section6, section7, ending = wes.windspeed(o2, input_zw, input_Xlat, input_X, input_Rg, input_beta, input_atm, input_Ta, input_zt, input_Tw, input_Taa, input_wdu, input_zu)
         print(section7)
-        return render_template ("windspeed.html",o2=o2,zw_1=zw_1, zw_2=zw_2, zw_3=zw_3, Xlat_3=Xlat_3, Xlat_4=Xlat_4, X_3=X_3, Rg_4=Rg_4, beta=beta ,atm=atm ,Ta=Ta ,zt=zt ,Tw=Tw, Taa=Taa , wdu=wdu ,zu=zu, img_stream=img_stream, heading=heading, section1=section1, section2=section2, section3=section3, section4=section4, section5=section5, section6=section6, section7=section7, ending=ending)
+        return render_template ("windspeed.html",o2=o2,zw_1=zw_1, zw_2=zw_2, zw_3=zw_3, Xlat_3=Xlat_3, Xlat_4=Xlat_4, X_3=X_3, Rg_4=Rg_4, beta=beta ,atm=atm ,Ta=Ta ,zt=zt ,Tw=Tw, Taa=Taa , wdu=wdu ,zu=zu, img_stream=img_stream, heading=heading, section1=section1, section2=section2, section2_note=section2_note, section3=section3, section4=section4, section5=section5, section6=section6, section7=section7, ending=ending)
     else:
         return render_template ("windspeed.html",c1=1)
 if __name__ == "__main__":

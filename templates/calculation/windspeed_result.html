@@ -2,7 +2,7 @@
  * @Date         : 2022-12-17 21:58:19
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-20 17:42:55
+ * @LastEditTime : 2022-12-20 20:07:50
  * @LastEditors  : BDFD
  * @Description  : 
  * @FilePath     : \templates\calculation\windspeed_result.html
@@ -49,6 +49,15 @@
         </li>
         {% endfor %}
     </ol>
+    {% endif %}
+    {% if section2_note %}
+    {% for section in section2_note %}
+    <li class="d-flex" style="margin-bottom:0px;margin-top:0px;">
+        <div style="margin-left:30px">
+            {{section}}
+        </div>
+    </li>
+    {% endfor %}
     {% endif %}
     <br />
     {% if section3 %}
