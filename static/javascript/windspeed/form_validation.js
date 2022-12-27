@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-27 11:37:03
+ * @LastEditTime : 2022-12-27 12:08:03
  * @LastEditors  : BDFD
  * @Description  :
  * @FilePath     : \static\javascript\windspeed\form_validation.js
@@ -12,13 +12,20 @@ console.log("Test for Windspeed Validation Form");
 function validateForm() {
 	let pos_real_number =
 		/([0-9]+\.?|^([0-9]*[.][0-9]*[1-9]+[0-9]*)$)|(^([0-9]*[1-9]+[0-9]*[.][0-9]+)$)|(^([1-9]+[0-9]*)$)/;
-	// let pos_int_number = /^[1-9]+[0-9]*$/;
 
-	let o2 = document.waveForm.o2.value;
+	var _0xc9dd = [
+		"\x76\x61\x6C\x75\x65",
+		"\x6F\x32",
+		"\x77\x61\x76\x65\x46\x6F\x72\x6D",
+		"\u8BF7\u9009\u62E9\u98CE\u901F\x28\x55\x29\u7684\u7C7B\u578B\u7684\u6570\u636E\u7C7B\u578B",
+		"\x66\x6F\x63\x75\x73",
+		"\x63\x31",
+	];
+	let o2 = document[_0xc9dd[2]][_0xc9dd[1]][_0xc9dd[0]];
 	switch (true) {
 		case o2 != 1 && o2 != 2 && o2 != 3 && o2 != 4:
-			alert("请选择风速(U)的类型的数据类型");
-			document.waveForm.c1.focus();
+			alert(_0xc9dd[3]);
+			document[_0xc9dd[2]][_0xc9dd[5]][_0xc9dd[4]]();
 			return false;
 	}
 
