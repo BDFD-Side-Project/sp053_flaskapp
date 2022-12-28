@@ -425,7 +425,8 @@ def windspeed():
             zw_2 = request.form["zw_2"]
             input_zw = float(request.form["zw_2"])
             input_Xlat = None
-            input_X= None
+            X_2= request.form["X_2"]
+            input_X= float(request.form["X_2"])
             input_Rg = None
         if o2 == 3:    
             zw_3 = request.form["zw_3"]
