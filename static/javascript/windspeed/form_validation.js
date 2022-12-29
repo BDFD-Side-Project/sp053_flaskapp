@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-28 11:47:31
+ * @LastEditTime : 2022-12-29 13:33:40
  * @LastEditors  : BDFD
  * @Description  :
  * @FilePath     : \static\javascript\windspeed\form_validation.js
@@ -43,7 +43,7 @@ function validateForm() {
 			case !zw_1.match(pos_real_number) ||
 				parseFloat(zw_1) < 0.5 ||
 				parseFloat(zw_1) > 100:
-				alert("该参数的合理取值范围：[0.5,100]");
+				alert("该参数的取值范围：[0.5,100]");
 				document.waveForm.zw_1.focus();
 				return false;
 		}
@@ -55,7 +55,7 @@ function validateForm() {
 			case !zw_2.match(pos_real_number) ||
 				parseFloat(zw_2) < 0.5 ||
 				parseFloat(zw_2) > 100:
-				alert("该参数的合理取值范围：[0.5,100]");
+				alert("该参数的取值范围：[0.5,100]");
 				document.waveForm.zw_2.focus();
 				return false;
 		}
@@ -65,7 +65,7 @@ function validateForm() {
 			case !X_2.match(pos_real_number) ||
 				parseFloat(X_2) < 0.05 ||
 				parseFloat(X_2) > 100:
-				alert("该参数的合理取值范围：[0.05,100]");
+				alert("该参数的取值范围：[0.05,100]");
 				document.waveForm.X_2.focus();
 				return false;
 		}
@@ -77,7 +77,7 @@ function validateForm() {
 			case !zw_3.match(pos_real_number) ||
 				parseFloat(zw_3) < 0.5 ||
 				parseFloat(zw_3) > 100:
-				alert("该参数的合理取值范围：[0.5,100]");
+				alert("该参数的取值范围：[0.5,100]");
 				document.waveForm.zw_3.focus();
 				return false;
 		}
@@ -87,7 +87,7 @@ function validateForm() {
 			case !Xlat_3.match(pos_real_number) ||
 				parseFloat(Xlat_3) <= -89 ||
 				parseFloat(Xlat_3) >= 89:
-				alert("该参数的合理取值范围：(-89,89)");
+				alert("该参数的取值范围：(-89,89)");
 				document.waveForm.Xlat_3.focus();
 				return false;
 		}
@@ -97,7 +97,7 @@ function validateForm() {
 			case !X_3.match(pos_real_number) ||
 				parseFloat(X_3) < 0.05 ||
 				parseFloat(X_3) > 100:
-				alert("该参数的合理取值范围：[0.05,100]");
+				alert("该参数的取值范围：[0.05,100]");
 				document.waveForm.X_3.focus();
 				return false;
 		}
@@ -109,7 +109,7 @@ function validateForm() {
 			case !Xlat_4.match(pos_real_number) ||
 				parseFloat(Xlat_4) <= -89 ||
 				parseFloat(Xlat_4) >= 89:
-				alert("该参数的合理取值范围：(-89,89)");
+				alert("该参数的取值范围：(-89,89)");
 				document.waveForm.Xlat_4.focus();
 				return false;
 		}
@@ -153,7 +153,7 @@ function validateForm() {
 		case !Ta.match(pos_real_number) ||
 			parseFloat(Ta) < -95 ||
 			parseFloat(Ta) > 60:
-			alert("该参数的合理取值范围：[-95,60]");
+			alert("该参数的取值范围：[-95,60]");
 			document.waveForm.Ta.focus();
 			return false;
 	}
@@ -163,7 +163,7 @@ function validateForm() {
 		case !zt.match(pos_real_number) ||
 			parseFloat(zt) < 0.5 ||
 			parseFloat(zt) > 100:
-			alert("该参数的合理取值范围：[0.5,100]");
+			alert("该参数的取值范围：[0.5,100]");
 			document.waveForm.zt.focus();
 			return false;
 	}
@@ -171,7 +171,7 @@ function validateForm() {
 	let Tw = document.waveForm.Tw.value;
 	switch (true) {
 		case !Tw.match(pos_real_number) || parseFloat(Tw) < -2 || parseFloat(Tw) > 45:
-			alert("该参数的合理取值范围：[-2,45]");
+			alert("该参数的取值范围：[-2,45]");
 			document.waveForm.Tw.focus();
 			return false;
 	}
@@ -181,7 +181,7 @@ function validateForm() {
 		case !Taa.match(pos_real_number) ||
 			parseFloat(Taa) < -95 ||
 			parseFloat(Taa) > 60:
-			alert("该参数的合理取值范围：[-95,60]");
+			alert("该参数的取值范围：[-95,60]");
 			document.waveForm.Taa.focus();
 			return false;
 	}
@@ -199,7 +199,7 @@ function validateForm() {
 		case !zu.match(pos_real_number) ||
 			parseFloat(zu) < 20 ||
 			parseFloat(zu) > 100:
-			alert("该参数的合理取值范围：[20,100]");
+			alert("该参数的取值范围：[20,100]");
 			document.waveForm.zu.focus();
 			return false;
 	}
