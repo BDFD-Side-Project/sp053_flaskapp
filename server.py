@@ -412,7 +412,7 @@ def windspeed():
         input_zu = int(request.form["zu"])
         zw_1, zw_2, zw_3 = " "," "," "
         Xlat_3, Xlat_4 = " "," "
-        X_3 = " "
+        X_2, X_3 = " "," "
         Rg_4 = " "
         o2 = float(request.form["o2"])
         if o2 == 1:
