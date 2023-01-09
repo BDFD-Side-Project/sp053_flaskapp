@@ -2,7 +2,7 @@
  * @Date         : 2022-12-12 12:31:04
  * @Author       : BDFD,bdfd2005@gmail.com
  * @Github       : https://github.com/bdfd
- * @LastEditTime : 2022-12-29 13:42:37
+ * @LastEditTime : 2023-01-09 18:07:56
  * @LastEditors  : BDFD
  * @Description  :
  * @FilePath     : \static\javascript\windspeed\form_validation.js
@@ -178,6 +178,12 @@ function validateForm() {
 
 	let Taa = document.waveForm.Taa.value;
 	switch (true) {
+		case Taa == "":
+			// alert("Rg 无任何输入,作为None输出");
+			break;
+		case Taa.trim() == "":
+			// alert("Rg 输入为空格,作为None输出");
+			break;
 		case !Taa.match(pos_real_number) ||
 			parseFloat(Taa) < -95 ||
 			parseFloat(Taa) > 60:
